@@ -1,0 +1,95 @@
+{
+  "updated": "2026-10-13",
+  "name": "Oskar Pajka",
+  "role": "Motion designer and developer",
+  "location": "Kielce, Poland (CET), works remotely",
+  "email": "oskar@oskarpajka.com",
+  "website": "oskarpajka.com",
+  "linkedin": "linkedin.com/in/oskarpajka",
+  "github": "github.com/oskarpajka",
+  "profile": "I make independent concept launch films for software products in After Effects, rebuilding each interface and animating every shot, sound included. I also build software in TypeScript and React, currently framecatch, a screenshot and recording tool for Windows. Open to freelance film work and part-time internships alongside school.",
+  "work": [
+    {
+      "show": true,
+      "title": "Hoplite",
+      "type": "Concept film, independent",
+      "year": "2026",
+      "tools": [
+        "After Effects"
+      ],
+      "oneLine": "A 32 second launch film for Hoplite. Rebuilt the interface and animated every shot, sound included.",
+      "link": "oskarpajka.com/work/hoplite"
+    },
+    {
+      "show": true,
+      "title": "BridgeMind",
+      "type": "Concept film, independent",
+      "year": "2026",
+      "tools": [
+        "After Effects"
+      ],
+      "oneLine": "A 30 second square film for BridgeMind's BridgeSpace and BridgeVoice.",
+      "link": "oskarpajka.com/work/bridgemind"
+    },
+    {
+      "show": true,
+      "title": "framecatch",
+      "type": "Screenshot and recording tool for Windows, in progress",
+      "year": "2026",
+      "tools": [
+        "Electron",
+        "React",
+        "TypeScript"
+      ],
+      "oneLine": "Built with Patryk (github.com/Explosivera).",
+      "link": "github.com/Common-Branch/framecatch"
+    }
+  ],
+  "experience": [],
+  "education": [
+    {
+      "school": "Zespół Szkół Informatycznych (ZSI), Kielce",
+      "programme": "Technik programista (programming technician)",
+      "from": "2024",
+      "to": "2029 (expected)"
+    }
+  ],
+  "awards": [
+    {
+      "title": "Laureate, Świętokrzyskie regional computer science competition for primary schools",
+      "year": "2023 to 2024"
+    }
+  ],
+  "skills": {
+    "motion": [
+      "After Effects",
+      "Illustrator",
+      "Photoshop",
+      "Figma"
+    ],
+    "code": [
+      "TypeScript",
+      "JavaScript",
+      "React",
+      "HTML",
+      "CSS",
+      "Python",
+      "Swift",
+      "MySQL"
+    ]
+  },
+  "languages": [
+    {
+      "language": "Polish",
+      "level": "Native"
+    },
+    {
+      "language": "English",
+      "level": "C1, preparing for Cambridge C1 Advanced (CAE)"
+    }
+  ],
+  "gdprClause": {
+    "show": false,
+    "text": "Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. (RODO)."
+  }
+}

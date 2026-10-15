@@ -1,0 +1,223 @@
+---
+// The home page, in either language.
+import Base from '../layouts/Base.astro';
+import Hero from './Hero.astro';
+import Footer from './Footer.astro';
+import { films } from '../data/films';
+import { media, path, strings, timecode, type Lang } from '../lib/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = strings(lang);
+const h = t.home;
+const other = t.otherLang as Lang;
+const hop = films.hoplite;
+const bri = films.bridgemind;
+const zero = timecode(0);
+---
+
+<Base lang={lang} page="home" title={t.meta.homeTitle} description={t.meta.homeDescription} og="home">
+  <div class="op-page">
+    <header id="top" class="op-head edge-b">
+      <div class="op-tagline">{t.nav.tagline}</div>
+      <nav aria-label={t.nav.label}>
+        <a class="op-nav" href="#work">{t.nav.work}</a>
+        <a class="op-nav" href="#about">{t.nav.about}</a>
+        <a class="op-nav" href="#contact">{t.nav.contact}</a>
+        <a class="op-nav op-lang" href={path('home', other)} hreflang={other} lang={other} aria-label={t.otherName}>{t.otherLabel}</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <div class="cells edge" data-op-pin-after>
+        <div class="op-wm">
+          <h1>oskar pajka</h1>
+        </div>
+
+        <Hero />
+
+        <div class="op-intro">
+          <div class="cell">
+            <p class="op-lede">{h.lede}</p>
+          </div>
+          <div class="cell">
+            <dl class="t-data">
+              <dt class="t-muted">{h.basedInLabel}</dt>
+              <dd>{h.basedIn}</dd>
+              <dt class="t-muted">{h.openToLabel}</dt>
+              <dd>{h.openTo}</dd>
+            </dl>
+          </div>
+          <div class="cell" style="display: flex; align-items: flex-end">
+            <a class="btn" href={path('hoplite', lang)}>{h.watch}</a>
+          </div>
+          <div class="op-cover op-only-desk" aria-hidden="true" style="left: calc((100cqw - 2px) * 0.583333 + 0.5px - 2px); --op-delay: 988ms"></div>
+          <div class="op-cover op-only-desk" aria-hidden="true" style="left: calc((100cqw - 2px) * 0.75 + 1.5px - 2px); --op-delay: 1230ms"></div>
+        </div>
+      </div>
+
+      <section id="work" class="cells edge" aria-labelledby="work-h">
+        <div class="section-head">
+          <h2 id="work-h" class="t-h2">{h.selectedWork}</h2>
+        </div>
+
+        <div class="op-work">
+          <article class="op-blk op-blk-hop" aria-labelledby="hop-h">
+            <div class="op-k-head">
+              <h3 id="hop-h" class="op-k-name t-card">Hoplite</h3>
+              <p class="op-k-meta t-data">{h.hoplite.meta}</p>
+            </div>
+            <div class="op-k-lower">
+              <div class="op-k-media">
+                <div class="op-film" style={`aspect-ratio: ${hop.ratio}`}>
+                  <video
+                    data-op-loop
+                    src={media(hop.loop)}
+                    poster={hop.poster}
+                    muted
+                    loop
+                    playsinline
+                    preload="none"
+                    tabindex="0"
+                    aria-label={h.hoplite.videoLabel}
+                    width="1280"
+                    height="720"></video>
+                  <span class="chip" aria-hidden="true"><span data-op-tc>{zero}</span><span class="t-muted"> / {timecode(hop.frames)}</span></span>
+                </div>
+              </div>
+              <div class="op-k-text op-sticky">
+                <p class="op-k-para t-copy">{h.hoplite.para}</p>
+                <div class="op-k-extra">
+                  <div class="op-compare" data-op-compare>
+                    <img src="/images/hoplite-rebuild-0-00-23-14.jpg" alt={h.hoplite.rebuildAlt} width="1920" height="1080" loading="lazy" decoding="async" />
+                    <span class="chip chip-r">{h.hoplite.rebuildCaption}</span>
+                    <div class="op-cut">
+                      <img src="/images/hoplite-app-2026-10.jpg" alt={h.hoplite.realAlt} width="1920" height="1080" loading="lazy" decoding="async" />
+                      <span class="chip chip-l">{h.hoplite.realCaption}</span>
+                    </div>
+                    <div class="op-bar-line" aria-hidden="true"><span></span></div>
+                    <input class="op-range" type="range" min="0" max="100" step="1" value="50" aria-label={h.hoplite.compareLabel} />
+                  </div>
+                </div>
+                <a class="op-k-link link link-control" href={path('hoplite', lang)}>{h.viewProject}<span class="visually-hidden">: Hoplite</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="op-blk op-blk-bri" aria-labelledby="bri-h">
+            <div class="op-k-media">
+              <div class="op-film" style={`aspect-ratio: ${bri.ratio}`}>
+                <video
+                  data-op-loop
+                  src={media(bri.loop)}
+                  poster={bri.poster}
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  tabindex="0"
+                  aria-label={h.bridgemind.videoLabel}
+                  width="720"
+                  height="720"></video>
+                <span class="chip" aria-hidden="true"><span data-op-tc>{zero}</span><span class="t-muted"> / {timecode(bri.frames)}</span></span>
+              </div>
+            </div>
+            <div class="op-k-text op-sticky">
+              <h3 id="bri-h" class="op-k-name t-card">BridgeMind</h3>
+              <div class="op-k-rowswrap">
+                <dl class="rows t-data">
+                  {
+                    h.bridgemind.rows.map(([k, v]) => (
+                      <div>
+                        <dt>{k}</dt>
+                        <dd>{v}</dd>
+                      </div>
+                    ))
+                  }
+                </dl>
+              </div>
+              <p class="op-k-para t-copy">{h.bridgemind.para}</p>
+              <a class="op-k-link link link-control" href={path('bridgemind', lang)}>{h.viewProject}<span class="visually-hidden">: BridgeMind</span></a>
+            </div>
+          </article>
+
+          <article class="op-blk op-blk-fc" aria-labelledby="fc-h">
+            <div class="op-k-text">
+              <h3 id="fc-h" class="op-k-name t-card">framecatch</h3>
+              <div class="op-k-rowswrap">
+                <dl class="rows t-data">
+                  {
+                    h.framecatch.rows.map(([k, v], i) => (
+                      <div>
+                        <dt>{k}</dt>
+                        <dd>
+                          {i === 2 ? (
+                            <a class="link" href="https://github.com/Explosivera" rel="noopener">
+                              {v}
+                            </a>
+                          ) : (
+                            v
+                          )}
+                        </dd>
+                      </div>
+                    ))
+                  }
+                </dl>
+              </div>
+              <p class="op-k-para t-copy">{h.framecatch.para}</p>
+              <a class="op-k-link link link-control" href="https://github.com/Common-Branch/framecatch" rel="noopener">{h.framecatch.link}<span class="visually-hidden">: framecatch</span></a>
+            </div>
+            <div class="op-k-media">
+              <div class="op-sel" data-op-reveal="sel">
+                <div class="op-sel-box">
+                  <img src="/images/framecatch-logo.png" alt={h.framecatch.logoAlt} width="2022" height="249" loading="lazy" decoding="async" />
+                </div>
+                <svg class="op-sel-svg" aria-hidden="true">
+                  <defs>
+                    <mask id="opSelMask" maskUnits="userSpaceOnUse" x="-20" y="-20" width="4000" height="4000">
+                      <rect class="op-sel-draw" x="0" y="0" width="100%" height="100%" pathLength="1" fill="none" stroke="#fff" stroke-width="6"></rect>
+                    </mask>
+                  </defs>
+                  <rect x="0.5" y="0.5" width="100%" height="100%" fill="none" stroke="#111110" stroke-width="1" stroke-dasharray="6 4" mask="url(#opSelMask)"></rect>
+                </svg>
+                <div class="op-sel-hs" aria-hidden="true">
+                  <span class="op-sel-h"></span><span class="op-sel-h"></span><span class="op-sel-h"></span><span class="op-sel-h"></span>
+                  <span class="op-sel-label t-data">1280 x 800</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="about" class="cells edge" aria-labelledby="about-h">
+        <div class="section-head">
+          <h2 id="about-h" class="t-h2">{h.about}</h2>
+        </div>
+        <div class="op-about">
+          <div class="cell" style="padding-bottom: 48px">
+            <p class="op-statement">{h.statement}</p>
+          </div>
+          <div class="cell" style="display: flex; align-items: flex-end">
+            <p class="t-copy t-muted" style="margin: 0; max-width: 26em">{h.aside}</p>
+          </div>
+        </div>
+        <div class="row op-facts">
+          {
+            h.facts.map(([k, v]) => (
+              <div class="cell">
+                <span class="t-data t-muted">{k}</span>
+                <span class="v">{v}</span>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+    </main>
+
+    <Footer lang={lang} />
+  </div>
+</Base>

@@ -1,0 +1,197 @@
+---
+// A film's project page, in either language: Hoplite or BridgeMind.
+import Base from '../layouts/Base.astro';
+import CompactHeader from './CompactHeader.astro';
+import Player from './Player.astro';
+import Footer from './Footer.astro';
+import { films, type Film } from '../data/films';
+import { fill, path, strings, timecode, type Lang } from '../lib/site';
+
+interface Props {
+  lang: Lang;
+  film: Film['key'];
+}
+
+const { lang, film: key } = Astro.props;
+const t = strings(lang);
+const pr = t.project;
+const film = films[key];
+const copy = key === 'hoplite' ? t.hoplite : t.bridgemind;
+const isHop = key === 'hoplite';
+const next = films[isHop ? 'bridgemind' : 'hoplite'];
+const title = isHop ? t.meta.hopliteTitle : t.meta.bridgemindTitle;
+const size = `${film.width} x ${film.height}`;
+
+const spec: [string, string][] = [
+  [pr.spec.length, timecode(film.frames)],
+  [pr.spec.size, size],
+  [pr.spec.rate, '24 fps'],
+  isHop ? [pr.spec.sound, t.hoplite.sound] : [pr.spec.cuts, t.bridgemind.cuts],
+  [pr.spec.madeWith, 'After Effects'],
+  [pr.spec.year, '2026'],
+];
+---
+
+<Base lang={lang} page={key} title={title} description={copy.lede} og={key}>
+  <div class="op-page">
+    <CompactHeader lang={lang} page={key} id="top" edge />
+
+    <main id="main">
+      <div class="cells edge">
+        <div class="row op-title-row">
+          <div class="cell">
+            <h1 class="t-h1" style={isHop ? undefined : 'font-size: clamp(44px, 8.2cqw, 118px); white-space: nowrap'}>{film.name}</h1>
+          </div>
+          <div class="cell t-data">
+            <span class="t-muted">{pr.kind}</span>
+            <span>{fill(pr.notAffiliated, { name: film.name })}</span>
+          </div>
+        </div>
+
+        {
+          isHop ? (
+            <>
+              <Player lang={lang} film={film} />
+              <div class="row op-lede-row">
+                <div class="cell">
+                  <p class="op-lede">{copy.lede}</p>
+                </div>
+                <div class="cell">
+                  <dl class="spec t-data">
+                    {spec.map(([k, v]) => (
+                      <>
+                        <dt>{k}</dt>
+                        <dd>{v}</dd>
+                      </>
+                    ))}
+                  </dl>
+                </div>
+              </div>
+            </>
+          ) : (
+            <div class="op-sqrow">
+              <Player lang={lang} film={film} />
+              <div class="cell">
+                <p class="op-lede" style="max-width: 24em">{copy.lede}</p>
+                <dl class="spec t-data">
+                  {spec.map(([k, v]) => (
+                    <>
+                      <dt>{k}</dt>
+                      <dd>{v}</dd>
+                    </>
+                  ))}
+                </dl>
+              </div>
+            </div>
+          )
+        }
+      </div>
+
+      <section class="cells edge" aria-labelledby="shots-h">
+        <div class="section-head">
+          <h2 id="shots-h" class="t-h2">{pr.breakdown}</h2>
+        </div>
+
+        <div class="row op-shots">
+          {
+            film.shots.map((s, i) => {
+              const tc = timecode(s.frame);
+              const shot = copy.shots[i];
+              return (
+                <figure>
+                  <button class="op-jump" type="button" data-op-frame={s.frame} aria-label={`${pr.playFilmFrom} ${tc}. ${shot.alt}`} style={`aspect-ratio: ${film.ratio}`}>
+                    <img src={s.image} alt="" loading="lazy" decoding="async" width={isHop ? 1920 : 1080} height={1080} />
+                    <span class="chip" aria-hidden="true">
+                      {pr.playFrom} {tc}
+                    </span>
+                  </button>
+                  <figcaption>
+                    <span class="h">{shot.title}</span>
+                    <span class="t-copy t-muted">{shot.text}</span>
+                  </figcaption>
+                </figure>
+              );
+            })
+          }
+        </div>
+
+        {
+          isHop ? (
+            <div class="row">
+              <div class="cell op-made-text">
+                <h3 class="t-title">{pr.made}</h3>
+                <p class="t-copy t-muted">{copy.made}</p>
+              </div>
+              <button class="op-zoom" type="button" data-op-zoom data-caption={t.hoplite.realCaption} aria-label={`${pr.viewLarger} ${t.hoplite.realCaption}`}>
+                <img src="/images/hoplite-app-2026-10.jpg" alt={t.hoplite.realAlt} width="1920" height="1080" loading="lazy" decoding="async" />
+                <span class="chip chip-l" aria-hidden="true">
+                  {t.hoplite.realCaption}
+                </span>
+              </button>
+              <button class="op-zoom" type="button" data-op-zoom data-caption={t.hoplite.rebuildCaption} aria-label={`${pr.viewLarger} ${t.hoplite.rebuildZoom}`}>
+                <img src="/images/hoplite-rebuild-0-00-23-14.jpg" alt={t.hoplite.rebuildAlt} width="1920" height="1080" loading="lazy" decoding="async" />
+                <span class="chip chip-l" aria-hidden="true">
+                  {t.hoplite.rebuildChip}
+                </span>
+                <span class="chip chip-r" aria-hidden="true">
+                  0:00:23:14
+                </span>
+              </button>
+            </div>
+          ) : (
+            <div class="row">
+              <div class="cell op-made-grid">
+                <h3 class="t-title">{pr.made}</h3>
+                <p class="t-copy t-muted">{copy.made}</p>
+              </div>
+            </div>
+          )
+        }
+
+        <a class="op-card" href={path(next.key, lang)}>
+          <div class="op-meta">
+            <span class="t-data t-muted">{pr.next}</span>
+            <div>
+              <span class="op-next">{next.name}</span>
+              <span class="t-data t-muted">{pr.kind}</span>
+            </div>
+          </div>
+          <div class:list={['op-thumb', { wide: next.key === 'hoplite' }]}>
+            <img src={next.poster} alt={fill(pr.stillOf, { name: next.name })} width={next.posterWidth} height={next.posterHeight} loading="lazy" decoding="async" />
+          </div>
+        </a>
+
+        {
+          isHop && (
+            <dialog class="op-viewer" data-op-viewer aria-label={pr.viewer.label}>
+              <div class="op-viewer-in">
+                <div class="op-view-area" data-op-view-area>
+                  <img data-op-view-img src="/images/hoplite-app-2026-10.jpg" alt="" />
+                </div>
+                <div class="op-vbar">
+                  <button class="op-ctl" type="button" data-op-prev>
+                    {pr.viewer.previous}
+                  </button>
+                  <button class="op-ctl" type="button" data-op-next>
+                    {pr.viewer.next}
+                  </button>
+                  <div class="op-vcap t-data">
+                    <span data-op-view-caption />
+                  </div>
+                  <div class="op-vcount t-data">
+                    <span data-op-view-count />
+                  </div>
+                  <button class="op-ctl" type="button" data-op-close>
+                    {pr.viewer.close}
+                  </button>
+                </div>
+              </div>
+            </dialog>
+          )
+        }
+      </section>
+    </main>
+
+    <Footer lang={lang} />
+  </div>
+</Base>

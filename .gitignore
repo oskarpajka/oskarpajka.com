@@ -1,0 +1,13 @@
+# Films stay out of git. Masters live only on this computer; media/web/ holds
+# the web versions made by `npm run media`, which are uploaded to Cloudflare R2.
+media/masters/
+media/web/
+
+# Build output and dependencies.
+node_modules/
+dist/
+.astro/
+
+# Local settings.
+.env
+.wrangler/

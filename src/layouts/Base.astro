@@ -1,0 +1,82 @@
+---
+// Every page: head tags, fonts, the pinned header and the page script.
+import '../styles/global.css';
+import PinnedHeader from '../components/PinnedHeader.astro';
+import { SITE, path, strings, type Lang, type PageKey } from '../lib/site';
+
+interface Props {
+  lang: Lang;
+  page: PageKey;
+  title: string;
+  description?: string;
+  og?: string; // file in public/og/
+}
+
+const { lang, page, title, description, og = 'home' } = Astro.props;
+const t = strings(lang);
+const isNotFound = page === 'notFound';
+const url = new URL(path(page, lang), SITE).href;
+const enUrl = new URL(path(page, 'en'), SITE).href;
+const plUrl = new URL(path(page, 'pl'), SITE).href;
+const image = new URL(`/og/${og}${lang === 'pl' ? '-pl' : ''}.png`, SITE).href;
+const beacon = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <meta name="author" content="Oskar Pajka" />
+    <meta name="theme-color" content="#e9e9e6" />
+    <meta name="color-scheme" content="light" />
+    {isNotFound && <meta name="robots" content="noindex" />}
+    {
+      !isNotFound && (
+        <>
+          <link rel="canonical" href={url} />
+          <link rel="alternate" hreflang="en" href={enUrl} />
+          <link rel="alternate" hreflang="pl" href={plUrl} />
+          <link rel="alternate" hreflang="x-default" href={enUrl} />
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content={t.meta.siteName} />
+          <meta property="og:url" content={url} />
+          <meta property="og:title" content={title} />
+          {description && <meta property="og:description" content={description} />}
+          <meta property="og:image" content={image} />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta property="og:locale" content={t.locale} />
+          <meta property="og:locale:alternate" content={lang === 'en' ? 'pl_PL' : 'en_GB'} />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:image" content={image} />
+        </>
+      )
+    }
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preload" href="/fonts/site/archivo-expanded.woff2" as="font" type="font/woff2" crossorigin />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip" href="#main">{t.nav.skip}</a>
+    <PinnedHeader lang={lang} page={page} />
+    <slot />
+    {
+      beacon && (
+        <script
+          is:inline
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={JSON.stringify({ token: beacon })}
+        />
+      )
+    }
+    <script>
+      import '../scripts/site';
+    </script>
+  </body>
+</html>

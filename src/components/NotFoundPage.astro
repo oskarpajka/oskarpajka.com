@@ -1,0 +1,30 @@
+---
+// Page not found: the LOST tag, no contact footer.
+import Base from '../layouts/Base.astro';
+import CompactHeader from './CompactHeader.astro';
+import SmallFooter from './SmallFooter.astro';
+import { path, strings, type Lang } from '../lib/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = strings(lang);
+---
+
+<Base lang={lang} page="notFound" title={t.meta.notFoundTitle}>
+  <div class="op-page">
+    <CompactHeader lang={lang} page="notFound" id="top" edge />
+    <main id="main" class="cells edge">
+      <div class="op-lost">
+        <img data-op-reveal="x" style="--op-dur: 600ms" src="/marks/lost.svg" alt={t.notFound.tagAlt} width="2032" height="1170" />
+        <div>
+          <p>{t.notFound.text}</p>
+          <a class="link link-control" href={path('home', lang)}>{t.footer.home}</a>
+        </div>
+      </div>
+    </main>
+    <SmallFooter href={path('privacy', lang)} label={t.footer.privacy} />
+  </div>
+</Base>

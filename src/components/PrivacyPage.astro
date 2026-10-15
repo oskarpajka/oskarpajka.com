@@ -1,0 +1,54 @@
+---
+// The privacy policy. Text lives in src/content/privacy/en.md and pl.md.
+import Base from '../layouts/Base.astro';
+import CompactHeader from './CompactHeader.astro';
+import SmallFooter from './SmallFooter.astro';
+import * as en from '../content/privacy/en.md';
+import * as pl from '../content/privacy/pl.md';
+import { EMAIL, path, strings, type Lang } from '../lib/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = strings(lang);
+const policy = lang === 'pl' ? pl : en;
+const fm = policy.frontmatter as { updated: string; updatedLabel: string; short: string[] };
+const { Content } = policy;
+---
+
+<Base lang={lang} page="privacy" title={t.meta.privacyTitle} description={t.meta.privacyDescription} og="home">
+  <div class="op-page">
+    <CompactHeader lang={lang} page="privacy" id="top" edge />
+    <main id="main" class="cells edge">
+      <div class="op-priv-title">
+        <h1>{t.privacy.title}</h1>
+      </div>
+      <div class="op-priv">
+        <aside class="cell">
+          <dl class="spec t-data">
+            <dt>{t.privacy.updated}</dt>
+            <dd><time datetime={fm.updated}>{fm.updatedLabel}</time></dd>
+            <dt>{t.privacy.appliesTo}</dt>
+            <dd>oskarpajka.com</dd>
+            <dt>{t.privacy.contact}</dt>
+            <dd><a class="link" href={`mailto:${EMAIL}`}>{EMAIL}</a></dd>
+          </dl>
+          <div class="op-short">
+            <span class="t-data t-muted">{t.privacy.short}</span>
+            <ul class="t-data">
+              {fm.short.map((line) => <li>{line}</li>)}
+            </ul>
+          </div>
+        </aside>
+        <div class="cell op-policy">
+          <div class="op-policy-body">
+            <Content />
+          </div>
+        </div>
+      </div>
+    </main>
+    <SmallFooter href={path('home', lang)} label={t.footer.home} />
+  </div>
+</Base>

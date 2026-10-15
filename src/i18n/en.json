@@ -1,0 +1,159 @@
+{
+  "lang": "en",
+  "locale": "en_GB",
+  "otherLang": "pl",
+  "otherLabel": "PL",
+  "otherName": "Polski",
+  "meta": {
+    "siteName": "Oskar Pajka",
+    "homeTitle": "Oskar Pajka, motion design and software",
+    "homeDescription": "Oskar Pajka makes launch films and product animation for software, and builds software himself. Based in Kielce, Poland.",
+    "hopliteTitle": "Hoplite concept film, Oskar Pajka",
+    "bridgemindTitle": "BridgeMind concept film, Oskar Pajka",
+    "privacyTitle": "Privacy policy, Oskar Pajka",
+    "privacyDescription": "What oskarpajka.com collects, and what it does not: no cookies, no tracking across sites, no ads.",
+    "notFoundTitle": "Page not found, Oskar Pajka"
+  },
+  "nav": {
+    "label": "Main",
+    "work": "Work",
+    "about": "About",
+    "contact": "Contact",
+    "tagline": "Motion design and software",
+    "skip": "Skip to content"
+  },
+  "home": {
+    "lede": "I make launch films and product animation for software, and I build software myself.",
+    "basedInLabel": "Based in",
+    "basedIn": "Kielce, Poland",
+    "openToLabel": "Open to",
+    "openTo": "Freelance work and internships",
+    "watch": "Watch the Hoplite film",
+    "selectedWork": "Selected work",
+    "viewProject": "View project",
+    "hoplite": {
+      "meta": "Concept film, independent / After Effects / 2026",
+      "para": "A 32 second concept film for Hoplite, a tool for building with swarms of cloud agents. I rebuilt the app's interface so every part could move, then animated each shot myself, sound included.",
+      "videoLabel": "The Hoplite film, playing without sound",
+      "compareLabel": "Compare the real Hoplite app with my rebuild",
+      "rebuildAlt": "My rebuild of the Hoplite app, a frame from the film at 0:00:23:14",
+      "realAlt": "A screenshot of the real Hoplite app, October 2026",
+      "realCaption": "Hoplite, October 2026",
+      "rebuildCaption": "My rebuild"
+    },
+    "bridgemind": {
+      "videoLabel": "The BridgeMind film, playing without sound",
+      "rows": [
+        ["Type", "Concept film, independent"],
+        ["Tool", "After Effects"],
+        ["Cuts", "1:1 and 9:16"],
+        ["Year", "2026"]
+      ],
+      "para": "A concept film for BridgeMind's BridgeSpace and BridgeVoice, made on my own and not commissioned. It shows the interface as it was in August 2026."
+    },
+    "framecatch": {
+      "rows": [
+        ["Type", "Screenshot and recording tool for Windows"],
+        ["Stack", "Electron, React, TypeScript"],
+        ["Built with", "Patryk"],
+        ["Status", "In progress, open source"]
+      ],
+      "para": "A screenshot and screen recording tool for Windows that Patryk and I are building in the open. Press a hotkey, drag over any part of the screen, and the shot lands on your desktop. Recording comes next.",
+      "link": "GitHub",
+      "logoAlt": "framecatch"
+    },
+    "about": "About",
+    "statement": "For each film I rebuild the product's interface and animate every shot myself. I also write code, so I understand what I am animating.",
+    "aside": "So far my films are independent concept pieces for real products, made to show what I can do.",
+    "facts": [
+      ["Motion and design", "After Effects, Illustrator, Photoshop, Figma"],
+      ["Code", "TypeScript, JavaScript, React, HTML, CSS, Python, Swift, MySQL"],
+      ["Languages", "Polish, English"],
+      ["Location", "Kielce, Poland (CET), remote"]
+    ]
+  },
+  "footer": {
+    "contact": "Contact",
+    "copy": "Click to copy",
+    "copied": "Copied",
+    "copyLabel": "Copy the email address oskar@oskarpajka.com",
+    "elsewhere": "Elsewhere",
+    "cv": "CV (PDF)",
+    "privacy": "Privacy",
+    "top": "Back to top",
+    "home": "Back to home"
+  },
+  "player": {
+    "stage": "Play or pause the film",
+    "play": "Play",
+    "pause": "Pause",
+    "mute": "Mute",
+    "unmute": "Unmute",
+    "fullscreen": "Full screen",
+    "exitFullscreen": "Exit full screen",
+    "position": "Position in the film"
+  },
+  "project": {
+    "notAffiliated": "Not commissioned by or affiliated with {name}.",
+    "kind": "Concept film, independent",
+    "breakdown": "Breakdown",
+    "playFrom": "Play from",
+    "playFilmFrom": "Play the film from",
+    "made": "How it was made",
+    "next": "Next project",
+    "viewLarger": "View larger:",
+    "stillOf": "Still from the {name} film",
+    "spec": {
+      "length": "Length",
+      "size": "Size",
+      "rate": "Frame rate",
+      "sound": "Sound",
+      "cuts": "Cuts",
+      "madeWith": "Made with",
+      "year": "Year"
+    },
+    "viewer": {
+      "label": "Image view",
+      "previous": "Previous",
+      "next": "Next",
+      "close": "Close"
+    }
+  },
+  "hoplite": {
+    "lede": "A 32 second concept film for Hoplite, a tool for building with swarms of cloud agents. It follows one request from a single typed sentence to a finished landing page.",
+    "sound": "Effects only, no music",
+    "shots": [
+      { "title": "The request", "text": "One sentence typed into the prompt box sets up the whole film.", "alt": "The prompt box with the request typed in" },
+      { "title": "The work", "text": "Three agents take a part each and run side by side.", "alt": "Three subagents listed with their tasks, one expanded to show its steps" },
+      { "title": "The line", "text": "The product's promise in six words, held long enough to read.", "alt": "The closing line: Build with swarms of cloud agents" }
+    ],
+    "made": "I rebuilt Hoplite's interface so every part could move, then animated each shot myself. It took about a month alongside school, and I rebuilt screens several times as Hoplite shipped updates. The sound is effects only, with no music.",
+    "realCaption": "Hoplite, October 2026",
+    "realAlt": "A screenshot of the real Hoplite app, October 2026",
+    "rebuildCaption": "My rebuild, 0:00:23:14",
+    "rebuildChip": "My rebuild",
+    "rebuildZoom": "my rebuild at 0:00:23:14",
+    "rebuildAlt": "My rebuild of the whole Hoplite app, a frame from the film at 0:00:23:14"
+  },
+  "bridgemind": {
+    "lede": "A 30 second concept film for BridgeMind. One request, typed and then finished by voice through BridgeVoice, puts a lead agent in BridgeSpace to work with five more.",
+    "cuts": "1:1 and 9:16",
+    "shots": [
+      { "title": "The voice", "text": "BridgeVoice takes over from the keyboard and finishes the request by speaking.", "alt": "The BridgeVoice badge over the Cleo pane" },
+      { "title": "The request", "text": "One sentence asks the lead agent to coordinate five more, from plan to release.", "alt": "The finished request in the Cleo pane" },
+      { "title": "The line", "text": "All six agents at work under the film's promise, held long enough to read.", "alt": "The BridgeSpace workspace with six agents and the line From one prompt to coordinated work" }
+    ],
+    "made": "I rebuilt the BridgeSpace and BridgeVoice interface as it was in August 2026 and animated each shot myself in After Effects. The film was made square for the feed, with a second 9:16 cut for stories."
+  },
+  "privacy": {
+    "title": "Privacy policy",
+    "updated": "Last updated",
+    "appliesTo": "Applies to",
+    "contact": "Contact",
+    "short": "The short version"
+  },
+  "notFound": {
+    "text": "This page does not exist.",
+    "tagAlt": "Lost"
+  }
+}

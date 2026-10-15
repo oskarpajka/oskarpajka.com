@@ -1,0 +1,44 @@
+---
+// The film player on project pages. Behaviour is in scripts/site.ts.
+import type { Film } from '../data/films';
+import { media, strings, timecode, type Lang } from '../lib/site';
+
+interface Props {
+  lang: Lang;
+  film: Film;
+}
+
+const { lang, film } = Astro.props;
+const p = strings(lang).player;
+---
+
+<div
+  class="op-player"
+  data-op-player
+  data-frames={film.frames}
+  data-play={p.play}
+  data-pause={p.pause}
+  data-mute={p.mute}
+  data-unmute={p.unmute}
+  data-fs={p.fullscreen}
+  data-exit-fs={p.exitFullscreen}>
+  <button class="op-stage" type="button" aria-label={p.stage} style={`aspect-ratio: ${film.ratio}`}>
+    <video src={media(film.film)} poster={film.poster} playsinline preload="metadata" width={film.posterWidth} height={film.posterHeight}></video>
+  </button>
+  <div class="op-bar">
+    <button class="op-ctl op-ctl-play" type="button" data-op-play>{p.play}</button>
+    <div class="op-scrub">
+      <span class="op-track" aria-hidden="true">
+        <span class="op-fill"></span>
+        <span class="op-playhead"></span>
+      </span>
+      <input class="op-range" type="range" min="0" max={film.frames} step="1" value="0" aria-label={p.position} aria-valuetext={timecode(0)} />
+    </div>
+    <div class="op-time t-data">
+      <span data-op-tc>{timecode(0)}</span>
+      <span class="op-total">/ {timecode(film.frames)}</span>
+    </div>
+    {film.hasSound && <button class="op-ctl op-ctl-mute" type="button" data-op-mute>{p.mute}</button>}
+    <button class="op-ctl op-ctl-fs" type="button" data-op-fs>{p.fullscreen}</button>
+  </div>
+</div>
