@@ -19,7 +19,6 @@ const url = new URL(path(page, lang), SITE).href;
 const enUrl = new URL(path(page, 'en'), SITE).href;
 const plUrl = new URL(path(page, 'pl'), SITE).href;
 const image = new URL(`/og/${og}${lang === 'pl' ? '-pl' : ''}.png`, SITE).href;
-const beacon = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
 ---
 
 <!doctype html>
@@ -65,16 +64,6 @@ const beacon = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
     <a class="skip" href="#main">{t.nav.skip}</a>
     <PinnedHeader lang={lang} page={page} />
     <slot />
-    {
-      beacon && (
-        <script
-          is:inline
-          defer
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon={JSON.stringify({ token: beacon })}
-        />
-      )
-    }
     <script>
       import '../scripts/site';
     </script>

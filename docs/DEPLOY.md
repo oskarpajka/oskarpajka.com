@@ -38,7 +38,13 @@ If a film changes later, upload it under a new name (for example `hoplite-1080-v
 
 ## 3. Settings to check once
 
-- **Web Analytics:** Analytics & Logs, Web Analytics, Add a site, pick `oskarpajka.com`, automatic setup. After the next visit, View Source on the live site should show a script from `static.cloudflareinsights.com`. If it does not, open Manage site, copy the token from the JS snippet, put it in `.env` as `PUBLIC_CF_BEACON_TOKEN=...` and deploy again.
+- **Web Analytics: must be off, and Cloudflare can turn it on by itself.** On Free plans Cloudflare enables Web Analytics (RUM) automatically, with EU visitors excluded ([docs](https://developers.cloudflare.com/speed/observatory/rum-beacon/)). Its script would make the privacy policy false ("runs no tracking or analytics script") and would need consent under Polish law (PKE art. 399). Visits per page and per country are already in the zone's Analytics tab, counted on Cloudflare's side with no script. Check after the first deploy and after every deploy:
+  1. Dashboard, Web Analytics (account level). If `oskarpajka.com` is listed, open Manage site and choose **Disable**. "Enable, excluding EU" is not good enough.
+  2. Run `curl -s https://oskarpajka.com/ | grep -c cloudflareinsights`. It must print `0`. Repeat for `https://oskarpajka.com/pl/`.
+  Checked through the API on 16 Oct 2026, before the site was deployed: no Web Analytics site existed for the account.
+- **Zaraz: no script on the page.** The zone has Cloudflare's default Zaraz setup (no tools added, automatic injection on). It should add nothing, but check after every deploy: `curl -s https://oskarpajka.com/ | grep -ci zaraz` must print `0`. If it does not, dashboard, oskarpajka.com, Zaraz, and turn Zaraz off.
+- **Always Use HTTPS: on** (SSL/TLS, Edge Certificates). Sends `http://` visitors to `https://`. Cloudflare's security cookie needs HTTPS to work properly.
+- **Network Error Logging: off** (turned off 16 Oct 2026 in the zone settings). Keep it off; the privacy policy does not describe it.
 - **Email Address Obfuscation: off** (type its name into the dashboard search; it sits under the zone's security settings). When it is on, Cloudflare rewrites the email address in the page and adds its own script, which breaks the copy button and the privacy policy's promise.
 - **Rocket Loader: off** (also findable by name in the dashboard search). It rewrites scripts.
 - **Workers logs stay off.** `wrangler.jsonc` sets `observability` to false; the privacy policy says you only see totals.

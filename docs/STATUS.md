@@ -4,6 +4,8 @@ Last updated: 15 October 2026
 
 ## Where the project is
 
+The open work list is in docs/TODO.md.
+
 Built, not yet live. Every page works in English and Polish, desktop and phone, and is committed locally (not pushed). Left: put the films on R2, deploy, and Oskar's review of the Polish copy and the privacy policy. Steps in docs/DEPLOY.md.
 
 ## Done
@@ -38,7 +40,7 @@ Built, not yet live. Every page works in English and Polish, desktop and phone, 
 - [x] Email: oskar@oskarpajka.com set up on iCloud+
 - [x] Email: DMARC added and tested (SPF, DKIM, DMARC pass), policy p=quarantine
 - [ ] Deploy to Cloudflare Workers on oskarpajka.com
-- [ ] Turn on Cloudflare Web Analytics
+- [x] ~~Turn on Cloudflare Web Analytics~~ Dropped 16 Oct: zone analytics instead, no script (see TODO.md)
 - [ ] Test on a real iPhone and on Windows Chrome, Edge and Firefox
 - [ ] Later: dark mode, performance pass
 

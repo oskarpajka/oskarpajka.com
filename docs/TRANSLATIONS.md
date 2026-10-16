@@ -9,11 +9,11 @@ Strings that are the same in both languages are left out.
 | English | Polski | Key |
 | --- | --- | --- |
 | Oskar Pajka, motion design and software | Oskar Pajka, motion design i programowanie | `meta.homeTitle` |
-| Oskar Pajka makes launch films and product animation for software, and builds software himself. Based in Kielce, Poland. | Oskar Pajka tworzy filmy premierowe i animacje produktowe dla aplikacji, a do tego sam programuje. Kielce. | `meta.homeDescription` |
+| Oskar Pajka makes launch films and product animation for software, and builds software himself. Based in Kielce, Poland. | Oskar Pajka robi filmy na premiery aplikacji i animacje produktowe, a do tego sam programuje. Mieszka w Kielcach. | `meta.homeDescription` |
 | Hoplite concept film, Oskar Pajka | Film koncepcyjny dla Hoplite, Oskar Pajka | `meta.hopliteTitle` |
 | BridgeMind concept film, Oskar Pajka | Film koncepcyjny dla BridgeMind, Oskar Pajka | `meta.bridgemindTitle` |
 | Privacy policy, Oskar Pajka | Polityka prywatności, Oskar Pajka | `meta.privacyTitle` |
-| What oskarpajka.com collects, and what it does not: no cookies, no tracking across sites, no ads. | Co zbiera oskarpajka.com, a czego nie: bez plików cookie, bez śledzenia między stronami, bez reklam. | `meta.privacyDescription` |
+| What oskarpajka.com collects, and what it does not: no tracking cookies, no tracking across sites, no ads. | Co zbiera oskarpajka.com, a czego nie: bez śledzących plików cookie, bez śledzenia między stronami, bez reklam. | `meta.privacyDescription` |
 | Page not found, Oskar Pajka | Nie ma takiej strony, Oskar Pajka | `meta.notFoundTitle` |
 | Main | Główna nawigacja | `nav.label` |
 | Work | Prace | `nav.work` |
@@ -21,16 +21,16 @@ Strings that are the same in both languages are left out.
 | Contact | Kontakt | `nav.contact` |
 | Motion design and software | Motion design i programowanie | `nav.tagline` |
 | Skip to content | Przejdź do treści | `nav.skip` |
-| I make launch films and product animation for software, and I build software myself. | Tworzę filmy premierowe i animacje produktowe dla aplikacji, a do tego sam programuję. | `home.lede` |
+| I make launch films and product animation for software, and I build software myself. | Robię filmy na premiery aplikacji i animacje produktowe, a do tego sam programuję. | `home.lede` |
 | Based in | Miasto | `home.basedInLabel` |
 | Kielce, Poland | Kielce | `home.basedIn` |
-| Open to | Szukam | `home.openToLabel` |
-| Freelance work and internships | Zleceń i praktyk | `home.openTo` |
+| Open to | Otwarty na | `home.openToLabel` |
+| Freelance work and internships | Zlecenia i praktyki | `home.openTo` |
 | Watch the Hoplite film | Obejrzyj film dla Hoplite | `home.watch` |
 | Selected work | Wybrane prace | `home.selectedWork` |
 | View project | Zobacz projekt | `home.viewProject` |
 | Concept film, independent / After Effects / 2026 | Film koncepcyjny, niezależny / After Effects / 2026 | `home.hoplite.meta` |
-| A 32 second concept film for Hoplite, a tool for building with swarms of cloud agents. I rebuilt the app's interface so every part could move, then animated each shot myself, sound included. | 32-sekundowy film koncepcyjny dla Hoplite, narzędzia do budowania aplikacji z pomocą rojów agentów w chmurze. Odtworzyłem interfejs tak, żeby każdy element dało się animować, a potem sam zanimowałem każde ujęcie, łącznie z dźwiękiem. | `home.hoplite.para` |
+| A 32 second concept film for Hoplite, a tool for building with swarms of cloud agents. I rebuilt the app's interface so every part could move, then animated each shot myself, sound included. | 32-sekundowy film koncepcyjny dla Hoplite, narzędzia do budowania aplikacji z pomocą rojów agentów w chmurze. Zbudowałem interfejs od nowa tak, żeby każdy element dało się animować, a potem sam zanimowałem każde ujęcie, łącznie z dźwiękiem. | `home.hoplite.para` |
 | The Hoplite film, playing without sound | Film dla Hoplite, odtwarzany bez dźwięku | `home.hoplite.videoLabel` |
 | Compare the real Hoplite app with my rebuild | Porównaj prawdziwą aplikację Hoplite z moją wersją | `home.hoplite.compareLabel` |
 | My rebuild of the Hoplite app, a frame from the film at 0:00:23:14 | Moja wersja aplikacji Hoplite, klatka z filmu w 0:00:23:14 | `home.hoplite.rebuildAlt` |
@@ -51,9 +51,9 @@ Strings that are the same in both languages are left out.
 | Built with | Razem z | `home.framecatch.rows.2.0` |
 | Patryk | Patrykiem | `home.framecatch.rows.2.1` |
 | In progress, open source | W budowie, open source | `home.framecatch.rows.3.1` |
-| A screenshot and screen recording tool for Windows that Patryk and I are building in the open. Press a hotkey, drag over any part of the screen, and the shot lands on your desktop. Recording comes next. | Narzędzie do zrzutów i nagrywania ekranu w Windowsie, które budujemy z Patrykiem jako open source. Wciskasz skrót, zaznaczasz dowolny fragment ekranu i zrzut od razu ląduje na pulpicie. Następne w kolejce jest nagrywanie. | `home.framecatch.para` |
+| A screenshot and screen recording tool for Windows that Patryk and I are building in the open. Press a hotkey, drag over any part of the screen, and the shot lands on your desktop. Recording comes next. | Narzędzie do zrzutów i nagrywania ekranu w Windowsie, które budujemy z Patrykiem jako open source. Naciskasz skrót, zaznaczasz dowolny fragment ekranu i zrzut od razu ląduje na pulpicie. Następne w kolejce jest nagrywanie. | `home.framecatch.para` |
 | About | O mnie | `home.about` |
-| For each film I rebuild the product's interface and animate every shot myself. I also write code, so I understand what I am animating. | Do każdego filmu sam odtwarzam interfejs produktu i animuję każde ujęcie. Programuję też, więc rozumiem, co animuję. | `home.statement` |
+| For each film I rebuild the product's interface and animate every shot myself. I also write code, so I understand what I am animating. | Do każdego filmu sam buduję od nowa interfejs produktu i animuję każde ujęcie. Programuję też, więc rozumiem, co animuję. | `home.statement` |
 | So far my films are independent concept pieces for real products, made to show what I can do. | Na razie moje filmy to niezależne projekty koncepcyjne dla prawdziwych produktów. Robię je, żeby pokazać, co potrafię. | `home.aside` |
 | Motion and design | Motion design i grafika | `home.facts.0.0` |
 | Code | Programowanie | `home.facts.1.0` |
@@ -78,7 +78,7 @@ Strings that are the same in both languages are left out.
 | Full screen | Pełny ekran | `player.fullscreen` |
 | Exit full screen | Zamknij pełny ekran | `player.exitFullscreen` |
 | Position in the film | Pozycja w filmie | `player.position` |
-| Not commissioned by or affiliated with {name}. | Film nie powstał na zlecenie {name} ani we współpracy z firmą. | `project.notAffiliated` |
+| Not commissioned by or affiliated with {name}. | Film nie powstał na zlecenie ani we współpracy z {name}. | `project.notAffiliated` |
 | Concept film, independent | Film koncepcyjny, niezależny | `project.kind` |
 | Breakdown | Kluczowe ujęcia | `project.breakdown` |
 | Play from | Odtwórz od | `project.playFrom` |
@@ -109,7 +109,7 @@ Strings that are the same in both languages are left out.
 | The line | Hasło | `hoplite.shots.2.title` |
 | The product's promise in six words, held long enough to read. | Obietnica produktu w sześciu słowach, na ekranie na tyle długo, żeby dało się ją przeczytać. | `hoplite.shots.2.text` |
 | The closing line: Build with swarms of cloud agents | Hasło końcowe: Build with swarms of cloud agents | `hoplite.shots.2.alt` |
-| I rebuilt Hoplite's interface so every part could move, then animated each shot myself. It took about a month alongside school, and I rebuilt screens several times as Hoplite shipped updates. The sound is effects only, with no music. | Odtworzyłem interfejs Hoplite tak, żeby każdy element dało się animować, a potem sam zanimowałem każde ujęcie. Zajęło mi to około miesiąca, równolegle ze szkołą, a kilka ekranów robiłem od nowa, bo Hoplite w tym czasie wypuszczał aktualizacje. Dźwięk to same efekty, bez muzyki. | `hoplite.made` |
+| I rebuilt Hoplite's interface so every part could move, then animated each shot myself. It took about a month alongside school, and I rebuilt screens several times as Hoplite shipped updates. The sound is effects only, with no music. | Zbudowałem interfejs Hoplite od nowa tak, żeby każdy element dało się animować, a potem sam zanimowałem każde ujęcie. Zajęło mi to około miesiąca, równolegle ze szkołą, a kilka ekranów robiłem od nowa, bo Hoplite w tym czasie wypuszczał aktualizacje. Dźwięk to same efekty, bez muzyki. | `hoplite.made` |
 | Hoplite, October 2026 | Hoplite, październik 2026 | `hoplite.realCaption` |
 | A screenshot of the real Hoplite app, October 2026 | Zrzut ekranu prawdziwej aplikacji Hoplite, październik 2026 | `hoplite.realAlt` |
 | My rebuild, 0:00:23:14 | Moja wersja, 0:00:23:14 | `hoplite.rebuildCaption` |
@@ -127,7 +127,7 @@ Strings that are the same in both languages are left out.
 | The line | Hasło | `bridgemind.shots.2.title` |
 | All six agents at work under the film's promise, held long enough to read. | Wszystkich sześciu agentów przy pracy pod hasłem filmu, które zostaje na ekranie na tyle długo, żeby je przeczytać. | `bridgemind.shots.2.text` |
 | The BridgeSpace workspace with six agents and the line From one prompt to coordinated work | Obszar roboczy BridgeSpace z sześcioma agentami i hasłem From one prompt to coordinated work | `bridgemind.shots.2.alt` |
-| I rebuilt the BridgeSpace and BridgeVoice interface as it was in August 2026 and animated each shot myself in After Effects. The film was made square for the feed, with a second 9:16 cut for stories. | Odtworzyłem interfejs BridgeSpace i BridgeVoice w wersji z sierpnia 2026 i sam zanimowałem każde ujęcie w After Effects. Film powstał w kwadracie do feedu, z drugą wersją 9:16 do relacji. | `bridgemind.made` |
+| I rebuilt the BridgeSpace and BridgeVoice interface as it was in August 2026 and animated each shot myself in After Effects. The film was made square for the feed, with a second 9:16 cut for stories. | Zbudowałem od nowa interfejs BridgeSpace i BridgeVoice w wersji z sierpnia 2026 i sam zanimowałem każde ujęcie w After Effects. Film powstał w kwadracie do feedu, z drugą wersją 9:16 do relacji. | `bridgemind.made` |
 | Privacy policy | Polityka prywatności | `privacy.title` |
 | Last updated | Ostatnia aktualizacja | `privacy.updated` |
 | Applies to | Dotyczy | `privacy.appliesTo` |

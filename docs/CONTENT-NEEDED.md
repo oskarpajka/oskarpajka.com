@@ -22,7 +22,8 @@ Tick each item when it is in. Anything marked "check" is already on the canvas b
 - [x] Email provider: iCloud+ (Oskar pays for it). Setup steps: docs/EMAIL-SETUP.md
 - [x] Privacy policy written (English).
 - [x] Privacy policy saved in the repo as `src/content/privacy/en.md` and `src/content/privacy/pl.md`.
-- [ ] Read both policies. One choice is yours: emails are deleted at the latest two years after the last message. Change the number in both files if you want another rule.
+- [x] Email retention: no fixed two-year rule (Oskar will not track it). The policy now says he reviews the mailbox about once a year and deletes sooner on request (decided 16 Oct).
+- [ ] Oskar reads both policies once more.
 
 - [x] Polish version: yes, at /pl/ (STACK.md, "Languages").
 - [ ] Check the Polish copy in docs/TRANSLATIONS.md (reworked 15 Oct to read more naturally; edit src/i18n/pl.json, then `npm run translations`).
@@ -34,4 +35,4 @@ Tick each item when it is in. Anything marked "check" is already on the canvas b
 - [x] BridgeMind 9:16 cut: mentioned in the facts only, no second video (confirmed).
 - [x] BridgeMind reaction: not quoted on the site. The founder said something like "It's cool" or "I like it" on a Discord call, but the exact words are not remembered, so nothing is attributed to him.
 - [x] framecatch paragraph changed to what the app does now: "Press a hotkey, drag over any part of the screen, and the shot lands on your desktop. Recording comes next." Update it when recording or the corner preview ships.
-- [ ] Hoplite home paragraph: "...then animated each shot myself, sound included." Confirm you made the sound design yourself.
+- [x] Hoplite home paragraph: "...then animated each shot myself, sound included." Oskar confirmed on 16 Oct that he made the sound himself.

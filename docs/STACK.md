@@ -9,8 +9,8 @@ Everything runs on Cloudflare, where the domain is registered. The site is fully
 | Framework | Astro, static output | Ships plain HTML and CSS, adds JavaScript only where a page needs it (player, comparison, copy email, reveals). Fast to load, good for search engines. |
 | Hosting | Cloudflare Workers with static assets | Cloudflare's current recommended way to host a static site. Free tier is enough. No adapter needed for a static Astro site. |
 | Films and loops | Cloudflare R2 bucket on a custom domain, `media.oskarpajka.com` | Video files are too large for the repo and the Workers asset limit. R2 has no fee for traffic out. |
-| Visit statistics | Cloudflare Web Analytics | No cookies, no cross-site tracking, so no cookie banner. |
-| Fonts | Self-hosted woff2 files (Archivo Expanded and Archivo) | No request to Google on page load. SIL Open Font License (public/fonts/Archivo-OFL.txt). |
+| Visit statistics | Cloudflare zone analytics (server side, no script) | Counted from requests Cloudflare already handles. No script and nothing stored on the device, so no consent banner. |
+| Fonts | Self-hosted woff2 files (Archivo Expanded and Archivo) | No request to Google on page load. SIL Open Font License (public/fonts/site/OFL.txt). |
 | Email | iCloud+ Custom Email Domain | Send and receive as oskar@oskarpajka.com in Apple Mail and on the web. |
 | Code | GitHub, `oskarpajka/oskarpajka.com` | Already created. |
 
@@ -134,4 +134,4 @@ Full steps, including R2 and the dashboard settings: docs/DEPLOY.md. In short:
 
 ## Not used, on purpose
 
-No cookies or localStorage for tracking, no Google Fonts, no YouTube or Vimeo embeds, no contact form, no CMS, no newsletter, no ads, no third-party scripts except the Cloudflare Web Analytics beacon.
+No cookies or localStorage for tracking, no Google Fonts, no YouTube or Vimeo embeds, no contact form, no CMS, no newsletter, no ads, no third-party scripts at all (not even the Cloudflare Web Analytics beacon).

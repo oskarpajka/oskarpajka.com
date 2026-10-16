@@ -28,5 +28,6 @@ The portfolio of Oskar Pajka, motion designer and developer. Motion design is th
 ## Rules that apply to everything
 
 - No em dashes anywhere: copy, code comments, docs.
+- Privacy: the policy promises no analytics script. After any deploy or Cloudflare change, remind Oskar to check that Web Analytics is still disabled (Cloudflare enables it by default on Free plans). Steps in docs/DEPLOY.md, section 3.
 - Light theme first. Dark mode comes only after the light site is finished.
 - The canvas is the source of truth for layout. The guidelines are the source of truth for the rules behind it. The code is the source of truth for copy.
