@@ -7,11 +7,11 @@
   "meta": {
     "siteName": "Oskar Pajka",
     "homeTitle": "Oskar Pajka, motion design i programowanie",
-    "homeDescription": "Oskar Pajka tworzy filmy premierowe i animacje produktowe dla aplikacji, a do tego sam programuje. Kielce.",
+    "homeDescription": "Oskar Pajka robi filmy na premiery aplikacji i animacje produktowe, a do tego sam programuje. Mieszka w Kielcach.",
     "hopliteTitle": "Film koncepcyjny dla Hoplite, Oskar Pajka",
     "bridgemindTitle": "Film koncepcyjny dla BridgeMind, Oskar Pajka",
     "privacyTitle": "Polityka prywatności, Oskar Pajka",
-    "privacyDescription": "Co zbiera oskarpajka.com, a czego nie: bez plików cookie, bez śledzenia między stronami, bez reklam.",
+    "privacyDescription": "Co zbiera oskarpajka.com, a czego nie: bez śledzących plików cookie, bez śledzenia między stronami, bez reklam.",
     "notFoundTitle": "Nie ma takiej strony, Oskar Pajka"
   },
   "nav": {
@@ -23,17 +23,17 @@
     "skip": "Przejdź do treści"
   },
   "home": {
-    "lede": "Tworzę filmy premierowe i animacje produktowe dla aplikacji, a do tego sam programuję.",
+    "lede": "Robię filmy na premiery aplikacji i animacje produktowe, a do tego sam programuję.",
     "basedInLabel": "Miasto",
     "basedIn": "Kielce",
-    "openToLabel": "Szukam",
-    "openTo": "Zleceń i praktyk",
+    "openToLabel": "Otwarty na",
+    "openTo": "Zlecenia i praktyki",
     "watch": "Obejrzyj film dla Hoplite",
     "selectedWork": "Wybrane prace",
     "viewProject": "Zobacz projekt",
     "hoplite": {
       "meta": "Film koncepcyjny, niezależny / After Effects / 2026",
-      "para": "32-sekundowy film koncepcyjny dla Hoplite, narzędzia do budowania aplikacji z pomocą rojów agentów w chmurze. Odtworzyłem interfejs tak, żeby każdy element dało się animować, a potem sam zanimowałem każde ujęcie, łącznie z dźwiękiem.",
+      "para": "32-sekundowy film koncepcyjny dla Hoplite, narzędzia do budowania aplikacji z pomocą rojów agentów w chmurze. Zbudowałem interfejs od nowa tak, żeby każdy element dało się animować, a potem sam zanimowałem każde ujęcie, łącznie z dźwiękiem.",
       "videoLabel": "Film dla Hoplite, odtwarzany bez dźwięku",
       "compareLabel": "Porównaj prawdziwą aplikację Hoplite z moją wersją",
       "rebuildAlt": "Moja wersja aplikacji Hoplite, klatka z filmu w 0:00:23:14",
@@ -58,12 +58,12 @@
         ["Razem z", "Patrykiem"],
         ["Status", "W budowie, open source"]
       ],
-      "para": "Narzędzie do zrzutów i nagrywania ekranu w Windowsie, które budujemy z Patrykiem jako open source. Wciskasz skrót, zaznaczasz dowolny fragment ekranu i zrzut od razu ląduje na pulpicie. Następne w kolejce jest nagrywanie.",
+      "para": "Narzędzie do zrzutów i nagrywania ekranu w Windowsie, które budujemy z Patrykiem jako open source. Naciskasz skrót, zaznaczasz dowolny fragment ekranu i zrzut od razu ląduje na pulpicie. Następne w kolejce jest nagrywanie.",
       "link": "GitHub",
       "logoAlt": "framecatch"
     },
     "about": "O mnie",
-    "statement": "Do każdego filmu sam odtwarzam interfejs produktu i animuję każde ujęcie. Programuję też, więc rozumiem, co animuję.",
+    "statement": "Do każdego filmu sam buduję od nowa interfejs produktu i animuję każde ujęcie. Programuję też, więc rozumiem, co animuję.",
     "aside": "Na razie moje filmy to niezależne projekty koncepcyjne dla prawdziwych produktów. Robię je, żeby pokazać, co potrafię.",
     "facts": [
       ["Motion design i grafika", "After Effects, Illustrator, Photoshop, Figma"],
@@ -94,7 +94,7 @@
     "position": "Pozycja w filmie"
   },
   "project": {
-    "notAffiliated": "Film nie powstał na zlecenie {name} ani we współpracy z firmą.",
+    "notAffiliated": "Film nie powstał na zlecenie ani we współpracy z {name}.",
     "kind": "Film koncepcyjny, niezależny",
     "breakdown": "Kluczowe ujęcia",
     "playFrom": "Odtwórz od",
@@ -127,7 +127,7 @@
       { "title": "Praca", "text": "Trzech agentów bierze po jednej części i pracuje równolegle.", "alt": "Trzech subagentów z zadaniami, jeden rozwinięty, żeby pokazać kolejne kroki" },
       { "title": "Hasło", "text": "Obietnica produktu w sześciu słowach, na ekranie na tyle długo, żeby dało się ją przeczytać.", "alt": "Hasło końcowe: Build with swarms of cloud agents" }
     ],
-    "made": "Odtworzyłem interfejs Hoplite tak, żeby każdy element dało się animować, a potem sam zanimowałem każde ujęcie. Zajęło mi to około miesiąca, równolegle ze szkołą, a kilka ekranów robiłem od nowa, bo Hoplite w tym czasie wypuszczał aktualizacje. Dźwięk to same efekty, bez muzyki.",
+    "made": "Zbudowałem interfejs Hoplite od nowa tak, żeby każdy element dało się animować, a potem sam zanimowałem każde ujęcie. Zajęło mi to około miesiąca, równolegle ze szkołą, a kilka ekranów robiłem od nowa, bo Hoplite w tym czasie wypuszczał aktualizacje. Dźwięk to same efekty, bez muzyki.",
     "realCaption": "Hoplite, październik 2026",
     "realAlt": "Zrzut ekranu prawdziwej aplikacji Hoplite, październik 2026",
     "rebuildCaption": "Moja wersja, 0:00:23:14",
@@ -143,7 +143,7 @@
       { "title": "Polecenie", "text": "Jedno zdanie prosi głównego agenta, żeby pokierował pięcioma kolejnymi, od planu po wydanie.", "alt": "Gotowe polecenie w panelu Cleo" },
       { "title": "Hasło", "text": "Wszystkich sześciu agentów przy pracy pod hasłem filmu, które zostaje na ekranie na tyle długo, żeby je przeczytać.", "alt": "Obszar roboczy BridgeSpace z sześcioma agentami i hasłem From one prompt to coordinated work" }
     ],
-    "made": "Odtworzyłem interfejs BridgeSpace i BridgeVoice w wersji z sierpnia 2026 i sam zanimowałem każde ujęcie w After Effects. Film powstał w kwadracie do feedu, z drugą wersją 9:16 do relacji."
+    "made": "Zbudowałem od nowa interfejs BridgeSpace i BridgeVoice w wersji z sierpnia 2026 i sam zanimowałem każde ujęcie w After Effects. Film powstał w kwadracie do feedu, z drugą wersją 9:16 do relacji."
   },
   "privacy": {
     "title": "Polityka prywatności",

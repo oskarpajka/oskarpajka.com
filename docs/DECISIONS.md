@@ -41,6 +41,9 @@ Newest first. Each line says what was decided and why.
 
 ## Tech
 
+- 2026-10-16: Privacy policy review applied. Keeping emails longer now rests on the law (6(1)(c)) or legal claims (6(1)(f)), not "a contract"; the invoice example is gone. The short version says "no tracking cookies", because Cloudflare may set cf_clearance. Cookies have their own heading. English kept near 1,100 words, Polish mirrors it.
+- 2026-10-16: Cloudflare enables Web Analytics automatically on Free plans (EU excluded). It must stay Disabled; checked after every deploy (DEPLOY.md, section 3).
+- 2026-10-16: No Cloudflare Web Analytics script. Under Polish law (PKE art. 399, read with EDPB Guidelines 2/2023) a script that makes the browser send data needs consent, and the zone's server-side analytics already show visits per page and country. Network Error Logging switched off in the zone for the same reason.
 - 2026-10-15: Copy lives in src/i18n/en.json and pl.json; docs/TRANSLATIONS.md is generated from them. The privacy policy is Markdown in src/content/privacy/.
 - 2026-10-15: Fonts are subset to Latin and Polish letters (about 36 KB each). The canvas's Archivo Expanded is the main face; Archivo at normal width only for the privacy text.
 - 2026-10-15: If the copy button cannot reach the clipboard, it opens the mail app instead.

@@ -57,6 +57,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: clip;
   background: var(--ground);
   color: var(--ink);
   font-family: var(--display);
@@ -308,6 +309,11 @@ button {
   line-height: 1;
 }
 
+/* The last cell (language) gets a right edge like the cells before it have a left one. */
+.op-nav.op-lang {
+  box-shadow: inset -1px 0 0 var(--ink);
+}
+
 .op-nav:focus-visible {
   outline-offset: -4px;
 }
@@ -372,7 +378,8 @@ button {
     transform 200ms var(--ease-leave),
     visibility 0s linear 200ms;
 }
-.op-pin .op-chead {
+/* The bar is full width, so its line is too; the cells stay in the page column. */
+.op-pin {
   border-bottom: 1px solid var(--ink);
 }
 .op-pin[data-on='1'] {
@@ -708,6 +715,17 @@ button {
   position: relative;
   overflow: hidden;
   background: var(--ground);
+}
+/* The page is a framed column, but the rule above the footer runs the full screen width. */
+.op-footrule {
+  height: 1px;
+  margin-left: calc(50% - 50vw);
+  width: 100vw;
+  background: var(--ink);
+}
+/* One line, not two: the section's own bottom border gives way to the full-width rule. */
+main:has(+ .op-footrule) > .cells.edge:last-child {
+  border-bottom: 0;
 }
 .op-tag-wide {
   position: absolute;
@@ -1300,6 +1318,21 @@ dialog.op-viewer::backdrop {
   font-weight: 400;
   line-height: 1.6;
 }
+.op-policy-body ul {
+  margin: 0;
+  padding-left: 1.2em;
+  list-style: disc;
+}
+.op-policy-body li {
+  font-family: var(--text);
+  font-stretch: 100%;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+.op-policy-body li + li {
+  margin-top: 6px;
+}
 
 /* ---------- 404 ---------- */
 
@@ -1601,8 +1634,19 @@ dialog.op-viewer::backdrop {
   }
 }
 
+/* The line under a header runs the full screen width, drawn once so it stays even. */
 .edge-b {
-  border-bottom: 1px solid var(--ink);
+  position: relative;
+}
+.edge-b::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 50vw);
+  width: 100vw;
+  height: 1px;
+  background: var(--ink);
+  pointer-events: none;
 }
 
 /* Hover only where there is a real pointer, so taps on phones do not leave a stuck state. */
