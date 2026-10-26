@@ -1,92 +1,103 @@
 {
-  "updated": "2026-10-13",
+  "updated": "2026-10-26",
   "name": "Oskar Pajka",
-  "role": "Motion designer and developer",
-  "location": "Kielce, Poland (CET), works remotely",
+  "headline": "Software Developer and Motion Designer",
+  "location": "Kielce, Poland (remote)",
   "email": "oskar@oskarpajka.com",
+  "phone": "",
   "website": "oskarpajka.com",
   "linkedin": "linkedin.com/in/oskarpajka",
   "github": "github.com/oskarpajka",
-  "profile": "I make independent concept launch films for software products in After Effects, rebuilding each interface and animating every shot, sound included. I also build software in TypeScript and React, currently framecatch, a screenshot and recording tool for Windows. Open to freelance film work and part-time internships alongside school.",
-  "work": [
+  "summary": "Programming student who builds full-stack web applications in TypeScript, React and Next.js, with automated tests and containerised deployment from the first commit. Also produces launch films for software products in After Effects. Looking for a software internship or part-time role, available remotely alongside school.",
+  "projects": [
     {
       "show": true,
-      "title": "Hoplite",
-      "type": "Concept film, independent",
-      "year": "2026",
-      "tools": [
-        "After Effects"
-      ],
-      "oneLine": "A 32 second launch film for Hoplite. Rebuilt the interface and animated every shot, sound included.",
-      "link": "oskarpajka.com/work/hoplite"
+      "name": "Slotwise",
+      "kind": "Booking and SMS reminder app for small businesses",
+      "stack": ["Next.js", "TypeScript", "PostgreSQL", "Drizzle ORM", "Docker"],
+      "from": "Oct 2026",
+      "to": "present",
+      "link": "github.com/oskarpajka/slotwise",
+      "points": [
+        "Designing and building a self-hosted web app for a business owner to manage clients, services and appointments, with SMS confirmations and reminders.",
+        "Implemented password sign-in with required two-factor authentication (authenticator app and backup codes) using Better Auth.",
+        "Set up Docker Compose deployment with automatic database migrations, and a CI pipeline running unit, integration and end-to-end tests (Vitest, Playwright)."
+      ]
     },
     {
       "show": true,
-      "title": "BridgeMind",
-      "type": "Concept film, independent",
-      "year": "2026",
-      "tools": [
-        "After Effects"
-      ],
-      "oneLine": "A 30 second square film for BridgeMind's BridgeSpace and BridgeVoice.",
-      "link": "oskarpajka.com/work/bridgemind"
+      "name": "framecatch",
+      "kind": "Open-source screenshot and screen recording tool for Windows",
+      "stack": ["Electron", "React", "TypeScript"],
+      "from": "Oct 2026",
+      "to": "present",
+      "link": "github.com/Common-Branch/framecatch",
+      "points": [
+        "Co-developing with a second developer: hotkey-driven region and full-screen capture that saves straight to the desktop; screen recording in progress.",
+        "Work through pull requests with code review on every change and agreed branch and commit conventions."
+      ]
     },
     {
       "show": true,
-      "title": "framecatch",
-      "type": "Screenshot and recording tool for Windows, in progress",
-      "year": "2026",
-      "tools": [
-        "Electron",
-        "React",
-        "TypeScript"
-      ],
-      "oneLine": "Built with Patryk (github.com/Explosivera).",
-      "link": "github.com/Common-Branch/framecatch"
+      "name": "oskarpajka.com",
+      "kind": "Personal website, English and Polish",
+      "stack": ["Astro", "TypeScript", "Cloudflare Workers", "Cloudflare R2"],
+      "from": "Oct 2026",
+      "to": "Oct 2026",
+      "link": "oskarpajka.com",
+      "points": [
+        "Designed and built a static bilingual site with a custom video player, deployed automatically from GitHub, with no tracking scripts or cookies."
+      ]
+    },
+    {
+      "show": true,
+      "name": "Hoplite launch film",
+      "kind": "Independent concept film",
+      "stack": ["After Effects"],
+      "from": "Oct 2026",
+      "to": "Oct 2026",
+      "link": "oskarpajka.com/work/hoplite",
+      "points": [
+        "Rebuilt the product's interface for animation and produced a 32-second 4K film, including sound design."
+      ]
+    },
+    {
+      "show": true,
+      "name": "BridgeMind launch film",
+      "kind": "Independent concept film",
+      "stack": ["After Effects"],
+      "from": "Aug 2026",
+      "to": "Aug 2026",
+      "link": "oskarpajka.com/work/bridgemind",
+      "points": [
+        "Produced a 30-second film in square and vertical cuts, rebuilding the BridgeSpace and BridgeVoice interface."
+      ]
     }
   ],
   "experience": [],
   "education": [
     {
       "school": "Zespół Szkół Informatycznych (ZSI), Kielce",
-      "programme": "Technik programista (programming technician)",
+      "programme": "Programming Technician (Technik programista)",
       "from": "2024",
       "to": "2029 (expected)"
     }
   ],
   "awards": [
     {
-      "title": "Laureate, Świętokrzyskie regional computer science competition for primary schools",
-      "year": "2023 to 2024"
+      "title": "Laureate (one of 26), 5th Świętokrzyskie Province Computer Science Competition for primary schools",
+      "year": "2024"
     }
   ],
-  "skills": {
-    "motion": [
-      "After Effects",
-      "Illustrator",
-      "Photoshop",
-      "Figma"
-    ],
-    "code": [
-      "TypeScript",
-      "JavaScript",
-      "React",
-      "HTML",
-      "CSS",
-      "Python",
-      "Swift",
-      "MySQL"
-    ]
-  },
+  "skills": [
+    { "label": "Languages", "items": ["TypeScript", "JavaScript", "HTML", "CSS", "SQL", "Python", "Swift"] },
+    { "label": "Frameworks", "items": ["React", "Next.js", "Astro", "Electron", "Tailwind CSS"] },
+    { "label": "Tools", "items": ["Git", "GitHub Actions", "Docker", "PostgreSQL", "Vitest", "Playwright", "Cloudflare"] },
+    { "label": "Design and motion", "items": ["After Effects", "Figma", "Illustrator", "Photoshop"] }
+  ],
   "languages": [
-    {
-      "language": "Polish",
-      "level": "Native"
-    },
-    {
-      "language": "English",
-      "level": "C1, preparing for Cambridge C1 Advanced (CAE)"
-    }
+    { "language": "Polish", "level": "native" },
+    { "language": "English", "level": "C1, preparing for Cambridge C1 Advanced" }
   ],
   "gdprClause": {
     "show": false,

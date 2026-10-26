@@ -1,7 +1,6 @@
 ---
 // The privacy policy. Text lives in src/content/privacy/en.md and pl.md.
 import Base from '../layouts/Base.astro';
-import CompactHeader from './CompactHeader.astro';
 import SmallFooter from './SmallFooter.astro';
 import * as en from '../content/privacy/en.md';
 import * as pl from '../content/privacy/pl.md';
@@ -20,8 +19,7 @@ const { Content } = policy;
 
 <Base lang={lang} page="privacy" title={t.meta.privacyTitle} description={t.meta.privacyDescription} og="home">
   <div class="op-page">
-    <CompactHeader lang={lang} page="privacy" id="top" edge />
-    <main id="main" class="cells edge">
+    <main id="main" class="cells edge op-boxed">
       <div class="op-priv-title">
         <h1>{t.privacy.title}</h1>
       </div>

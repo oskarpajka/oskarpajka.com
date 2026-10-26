@@ -6,8 +6,8 @@
   "otherName": "Polski",
   "meta": {
     "siteName": "Oskar Pajka",
-    "homeTitle": "Oskar Pajka, motion design and software",
-    "homeDescription": "Oskar Pajka makes launch films and product animation for software, and builds software himself. Based in Kielce, Poland.",
+    "homeTitle": "Oskar Pajka, software and motion design",
+    "homeDescription": "Oskar Pajka builds software and makes launch films for software products. Based in Kielce, Poland.",
     "hopliteTitle": "Hoplite concept film, Oskar Pajka",
     "bridgemindTitle": "BridgeMind concept film, Oskar Pajka",
     "privacyTitle": "Privacy policy, Oskar Pajka",
@@ -19,55 +19,68 @@
     "work": "Work",
     "about": "About",
     "contact": "Contact",
-    "tagline": "Motion design and software",
+    "tagline": "Software and motion design",
     "skip": "Skip to content"
   },
   "home": {
-    "lede": "I make launch films and product animation for software, and I build software myself.",
+    "lede": "I build software, and I make launch films for software products.",
     "basedInLabel": "Based in",
     "basedIn": "Kielce, Poland",
     "openToLabel": "Open to",
     "openTo": "Freelance work and internships",
-    "watch": "Watch the Hoplite film",
-    "selectedWork": "Selected work",
+    "ctaSoftware": "See what I build",
+    "ctaFilms": "Watch the films",
+    "software": "Software",
+    "films": "Films",
     "viewProject": "View project",
     "hoplite": {
-      "meta": "Concept film, independent / After Effects / 2026",
-      "para": "A 32 second concept film for Hoplite, a tool for building with swarms of cloud agents. I rebuilt the app's interface so every part could move, then animated each shot myself, sound included.",
-      "videoLabel": "The Hoplite film, playing without sound",
-      "compareLabel": "Compare the real Hoplite app with my rebuild",
-      "rebuildAlt": "My rebuild of the Hoplite app, a frame from the film at 0:00:23:14",
-      "realAlt": "A screenshot of the real Hoplite app, October 2026",
-      "realCaption": "Hoplite, October 2026",
-      "rebuildCaption": "My rebuild"
+      "rows": [
+        ["Type", "Concept film"],
+        ["Tool", "After Effects"],
+        ["Format", "16:9, 4K"],
+        ["Date", "October 2026"]
+      ],
+      "para": "A launch film for Hoplite, a tool for building with cloud AI agents. I rebuilt its interface and made every shot and sound.",
+      "videoLabel": "The Hoplite film, playing without sound"
     },
     "bridgemind": {
       "videoLabel": "The BridgeMind film, playing without sound",
       "rows": [
-        ["Type", "Concept film, independent"],
+        ["Type", "Concept film"],
         ["Tool", "After Effects"],
-        ["Cuts", "1:1 and 9:16"],
-        ["Year", "2026"]
+        ["Format", "1:1 and 9:16"],
+        ["Date", "August 2026"]
       ],
-      "para": "A concept film for BridgeMind's BridgeSpace and BridgeVoice, made on my own and not commissioned. It shows the interface as it was in August 2026."
+      "para": "A launch film for BridgeMind's AI agent workspace, cut for feeds and stories. I rebuilt the interface and animated every shot."
+    },
+    "slotwise": {
+      "rows": [
+        ["Type", "Web app"],
+        ["Stack", "Next.js, TypeScript, PostgreSQL, Docker"],
+        ["Team", "Solo"],
+        ["Status", "In development"],
+        ["Date", "October 2026 – now"]
+      ],
+      "para": "A booking app for small businesses that sends clients SMS reminders. I'm building it solo, from the database to deployment.",
+      "link": "GitHub"
     },
     "framecatch": {
       "rows": [
-        ["Type", "Screenshot and recording tool for Windows"],
+        ["Type", "Desktop app, open source"],
         ["Stack", "Electron, React, TypeScript"],
-        ["Built with", "Patryk"],
-        ["Status", "In progress, open source"]
+        ["Team", "With Patryk"],
+        ["Status", "In development"],
+        ["Date", "October 2026 – now"]
       ],
-      "para": "A screenshot and screen recording tool for Windows that Patryk and I are building in the open. Press a hotkey, drag over any part of the screen, and the shot lands on your desktop. Recording comes next.",
+      "para": "A screenshot tool for Windows: press a hotkey, select an area, and the image lands on your desktop. Screen recording is next.",
       "link": "GitHub",
       "logoAlt": "framecatch"
     },
     "about": "About",
-    "statement": "For each film I rebuild the product's interface and animate every shot myself. I also write code, so I understand what I am animating.",
-    "aside": "So far my films are independent concept pieces for real products, made to show what I can do.",
+    "statement": "I build software, mostly in TypeScript and React. I also make launch films for software, and because I write code, I understand the interfaces I animate.",
     "facts": [
+      ["Code", "TypeScript, JavaScript, React, Next.js, HTML, CSS, Python, Swift, SQL"],
       ["Motion and design", "After Effects, Illustrator, Photoshop, Figma"],
-      ["Code", "TypeScript, JavaScript, React, HTML, CSS, Python, Swift, MySQL"],
       ["Languages", "Polish, English"],
       ["Location", "Kielce, Poland (CET), remote"]
     ]
@@ -95,22 +108,20 @@
   },
   "project": {
     "notAffiliated": "Not commissioned by or affiliated with {name}.",
-    "kind": "Concept film, independent",
+    "kind": "Concept film",
     "breakdown": "Breakdown",
     "playFrom": "Play from",
-    "playFilmFrom": "Play the film from",
     "made": "How it was made",
     "next": "Next project",
     "viewLarger": "View larger:",
     "stillOf": "Still from the {name} film",
     "spec": {
       "length": "Length",
-      "size": "Size",
+      "tool": "Tool",
+      "format": "Format",
       "rate": "Frame rate",
       "sound": "Sound",
-      "cuts": "Cuts",
-      "madeWith": "Made with",
-      "year": "Year"
+      "date": "Date"
     },
     "viewer": {
       "label": "Image view",
@@ -122,6 +133,7 @@
   "hoplite": {
     "lede": "A 32 second concept film for Hoplite, a tool for building with swarms of cloud agents. It follows one request from a single typed sentence to a finished landing page.",
     "sound": "Effects only, no music",
+    "date": "October 2026",
     "shots": [
       { "title": "The request", "text": "One sentence typed into the prompt box sets up the whole film.", "alt": "The prompt box with the request typed in" },
       { "title": "The work", "text": "Three agents take a part each and run side by side.", "alt": "Three subagents listed with their tasks, one expanded to show its steps" },
@@ -132,12 +144,12 @@
     "realAlt": "A screenshot of the real Hoplite app, October 2026",
     "rebuildCaption": "My rebuild, 0:00:23:14",
     "rebuildChip": "My rebuild",
-    "rebuildZoom": "my rebuild at 0:00:23:14",
     "rebuildAlt": "My rebuild of the whole Hoplite app, a frame from the film at 0:00:23:14"
   },
   "bridgemind": {
     "lede": "A 30 second concept film for BridgeMind. One request, typed and then finished by voice through BridgeVoice, puts a lead agent in BridgeSpace to work with five more.",
     "cuts": "1:1 and 9:16",
+    "date": "August 2026",
     "shots": [
       { "title": "The voice", "text": "BridgeVoice takes over from the keyboard and finishes the request by speaking.", "alt": "The BridgeVoice badge over the Cleo pane" },
       { "title": "The request", "text": "One sentence asks the lead agent to coordinate five more, from plan to release.", "alt": "The finished request in the Cleo pane" },

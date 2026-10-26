@@ -4,6 +4,7 @@ Newest first. Each line says what was decided and why.
 
 ## Design
 
+- 2026-10-26: Favicon is a light circle with a black ring and "OP" in Geist Bold (outlines in public/favicon.svg). Replaces the brush O on the orange square. Readable at 16 px in light and dark tab bars.
 - 2026-10-15: Hover effects only on devices with a real pointer, so a tap on a phone does not leave a cell stuck in its hover colour.
 - 2026-10-15: The pinned header appears on every page once the page's own header (on home, the whole landing section) has scrolled under it.
 - 2026-10-15: On phones the Next project still takes the full width, instead of a 240px still beside a black strip.
@@ -24,7 +25,7 @@ Newest first. Each line says what was decided and why.
 - 2026-10-13: Marks are visible by default and only replay their wipe when they come into view. Reason: a missed "in view" signal hid the footer tag.
 - 2026-10-12: The gradient hero and shader are retired. The marker is the only art style: orange, never carries information, at most one per screen except the footer tag.
 - 2026-10-12: 404 page uses the LOST tag and has no contact footer.
-- 2026-10-11: The favicon is Oskar's icon on the orange square.
+- 2026-10-11: The favicon is Oskar's icon on the orange square (replaced 2026-10-26).
 - 2026-10-10: No logo. The typed name "oskar pajka" is the mark. No portraits needed.
 
 ## Content

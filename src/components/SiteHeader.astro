@@ -1,0 +1,32 @@
+---
+// The one header on every page. It sticks to the top and always shows the name.
+import { path, strings, type Lang, type PageKey } from '../lib/site';
+
+interface Props {
+  lang: Lang;
+  page: PageKey;
+}
+
+const { lang, page } = Astro.props;
+const t = strings(lang);
+const home = path('home', lang);
+const onHome = page === 'home';
+const hasFooter = page === 'home' || page === 'hoplite' || page === 'bridgemind';
+const other = t.otherLang as Lang;
+---
+
+<div class="op-hwrap" data-op-header>
+  <div class="op-page">
+    <header class="op-header">
+      <a class="op-brand" href={onHome ? '#top' : home}>
+        <span class="op-brand-name">oskar pajka</span>
+      </a>
+      <nav class="op-navs" aria-label={t.nav.label}>
+        <a class="op-nav" href={onHome ? '#software' : `${home}#software`}>{t.nav.work}</a>
+        <a class="op-nav" href={onHome ? '#about' : `${home}#about`}>{t.nav.about}</a>
+        <a class="op-nav" href={hasFooter ? '#contact' : `${home}#contact`}>{t.nav.contact}</a>
+        <a class="op-nav op-lang" href={path(page, other)} hreflang={other} lang={other}>{t.otherLabel}<span class="visually-hidden"> ({t.otherName})</span></a>
+      </nav>
+    </header>
+  </div>
+</div>

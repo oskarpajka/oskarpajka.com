@@ -1,0 +1,28 @@
+---
+// The label and value rows on every work block. `links` turns a row's value into a link.
+interface Props {
+  rows: string[][];
+  links?: Record<number, string>;
+}
+
+const { rows, links = {} } = Astro.props;
+---
+
+<dl class="rows t-data">
+  {
+    rows.map(([k, v], i) => (
+      <div>
+        <dt>{k}</dt>
+        <dd>
+          {links[i] ? (
+            <a class="link" href={links[i]} rel="noopener">
+              {v}
+            </a>
+          ) : (
+            v
+          )}
+        </dd>
+      </div>
+    ))
+  }
+</dl>

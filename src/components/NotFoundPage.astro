@@ -1,7 +1,7 @@
 ---
 // Page not found: the LOST tag, no contact footer.
 import Base from '../layouts/Base.astro';
-import CompactHeader from './CompactHeader.astro';
+import Mark from './Mark.astro';
 import SmallFooter from './SmallFooter.astro';
 import { path, strings, type Lang } from '../lib/site';
 
@@ -15,13 +15,12 @@ const t = strings(lang);
 
 <Base lang={lang} page="notFound" title={t.meta.notFoundTitle}>
   <div class="op-page">
-    <CompactHeader lang={lang} page="notFound" id="top" edge />
-    <main id="main" class="cells edge">
+    <main id="main" class="cells edge op-boxed">
       <div class="op-lost">
-        <img data-op-reveal="x" style="--op-dur: 600ms" src="/marks/lost.svg" alt={t.notFound.tagAlt} width="2032" height="1170" />
+        <Mark name="lost" play="load" dur={1200} delay={150} label={t.notFound.tagAlt} />
         <div>
-          <p>{t.notFound.text}</p>
-          <a class="link link-control" href={path('home', lang)}>{t.footer.home}</a>
+          <h1>{t.notFound.text}</h1>
+          <a class="btn btn-ink" href={path('home', lang)}>{t.footer.home}</a>
         </div>
       </div>
     </main>

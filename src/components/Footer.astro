@@ -1,5 +1,6 @@
 ---
 // Contact footer with the OSKAR tag: home and project pages.
+import Mark from './Mark.astro';
 import { EMAIL, path, strings, type Lang } from '../lib/site';
 
 interface Props {
@@ -12,24 +13,26 @@ const [user, domain] = EMAIL.split('@');
 const links = [
   ['GitHub', 'https://github.com/oskarpajka'],
   ['LinkedIn', 'https://www.linkedin.com/in/oskarpajka/'],
-  ['X', 'https://x.com/pajkaoskar'],
+  ['X', 'https://x.com/oskarpajka'],
   ['Instagram', 'https://www.instagram.com/oska.rpajka/'],
 ];
 ---
 
 <div class="op-footrule" aria-hidden="true"></div>
 <footer id="contact" class="op-footer">
-  <img class="op-tag-wide" data-op-reveal="x" style="--op-dur: 750ms" src="/marks/oskar-wide.svg" alt="" aria-hidden="true" width="1979" height="1086" loading="lazy" />
+  <div class="op-tagclip" aria-hidden="true">
+    <Mark name="oskar-wide" order="letters" dur={420} stagger={85} class="op-tag-wide" />
+    <Mark name="oskar-wide" tall order="letters" dur={420} stagger={85} class="op-tag-tall" />
+  </div>
   <div class="op-foot">
     <div class="op-contact">
-      <img class="op-tag-tall" data-op-reveal="up" style="--op-dur: 750ms" src="/marks/oskar-tall.svg" alt="" aria-hidden="true" width="1086" height="1979" loading="lazy" />
       <div class="op-contact-main">
         <h2 class="t-h2">{t.footer.contact}</h2>
         <div class="op-mailrow">
           <div class="op-mailwrap" data-op-mail data-copied="0">
-            <img class="op-circle" src="/marks/circle.svg" alt="" aria-hidden="true" />
+            <Mark name="circle" play="manual" dur={420} stretch class="op-circle" />
             <button class="op-email" type="button" data-op-copy={EMAIL} aria-label={t.footer.copyLabel}>{user}@<wbr />{domain}</button>
-            <img class="op-check" src="/marks/check.svg" alt="" aria-hidden="true" />
+            <Mark name="check" play="manual" dur={260} class="op-check" />
           </div>
           <span class="t-data t-muted" aria-live="polite" data-op-copy-label data-copy={t.footer.copy} data-copied={t.footer.copied}>{t.footer.copy}</span>
         </div>
