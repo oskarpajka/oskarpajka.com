@@ -1,13 +1,12 @@
 # oskarpajka.com
 
-The portfolio of Oskar Pajka, motion designer and developer. Motion design is the main work; software is the second.
+The portfolio of Oskar Pajka, software developer and motion designer. Software is the main work; motion design is the second.
 
 ## Where things are
 
 | What | Where |
 | --- | --- |
-| Design (every page, desktop and phone) | Claude Design canvas "Oskar Pajka Portfolio": https://claude.ai/artifact/8evhgLimzr2xQiV9tBNqsz |
-| Brand guidelines (colour, type, marks, motion, page rules) | Design System "Oskar Pajka": https://claude.ai/artifact/Nxzjhx1RzsF8BSnAYQn1mM |
+| Design, layout and copy | The code in this repository |
 | Code | https://github.com/oskarpajka/oskarpajka.com (this folder) |
 | Master renders | `media/masters/` on this computer only, never in git |
 
@@ -30,4 +29,4 @@ The portfolio of Oskar Pajka, motion designer and developer. Motion design is th
 - No em dashes anywhere: copy, code comments, docs.
 - Privacy: the policy promises no analytics script. After any deploy or Cloudflare change, remind Oskar to check that Web Analytics is still disabled (Cloudflare enables it by default on Free plans). Steps in docs/DEPLOY.md, section 3.
 - Light theme first. Dark mode comes only after the light site is finished.
-- The canvas is the source of truth for layout. The guidelines are the source of truth for the rules behind it. The code is the source of truth for copy.
+- The code is the source of truth for layout, design and copy. The original design canvas predates the October 2026 redesign and no longer matches the site.
