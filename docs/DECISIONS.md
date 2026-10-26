@@ -4,6 +4,7 @@ Newest first. Each line says what was decided and why.
 
 ## Design
 
+- 2026-10-26: Link previews have a still and a short MP4 per page and language (public/og/, og:video). Apps that play og:video show the tags writing on (home) or the film playing; all others show the still, which is a frame of the same video. Videos live in public/, not R2: they are small (under 600 KB) and ship with the site.
 - 2026-10-26: Favicon is a light circle with a black ring and "OP" in Geist Bold (outlines in public/favicon.svg). Replaces the brush O on the orange square. Readable at 16 px in light and dark tab bars.
 - 2026-10-15: Hover effects only on devices with a real pointer, so a tap on a phone does not leave a cell stuck in its hover colour.
 - 2026-10-15: The pinned header appears on every page once the page's own header (on home, the whole landing section) has scrolled under it.

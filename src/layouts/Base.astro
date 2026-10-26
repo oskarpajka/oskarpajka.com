@@ -19,6 +19,8 @@ const url = new URL(path(page, lang), SITE).href;
 const enUrl = new URL(path(page, 'en'), SITE).href;
 const plUrl = new URL(path(page, 'pl'), SITE).href;
 const image = new URL(`/og/${og}${lang === 'pl' ? '-pl' : ''}.png`, SITE).href;
+// The same preview as a short video, for the apps that play og:video; the image is one of its frames.
+const video = new URL(`/og/${og}${lang === 'pl' ? '-pl' : ''}.mp4`, SITE).href;
 ---
 
 <!doctype html>
@@ -49,6 +51,11 @@ const image = new URL(`/og/${og}${lang === 'pl' ? '-pl' : ''}.png`, SITE).href;
           <meta property="og:image" content={image} />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />
+          <meta property="og:video" content={video} />
+          <meta property="og:video:secure_url" content={video} />
+          <meta property="og:video:type" content="video/mp4" />
+          <meta property="og:video:width" content="1200" />
+          <meta property="og:video:height" content="630" />
           <meta property="og:locale" content={t.locale} />
           <meta property="og:locale:alternate" content={lang === 'en' ? 'pl_PL' : 'en_GB'} />
           <meta name="twitter:card" content="summary_large_image" />
