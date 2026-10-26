@@ -4,6 +4,7 @@
 // cut into short segments, each wide enough for every pixel nearest to it, so the
 // strokes alone cover the whole tag. The rect at the end is only a safety net.
 import strokes from '../data/strokes.json';
+import { timeMark } from '../lib/mark-timing.mjs';
 
 type Name = keyof typeof strokes;
 
@@ -41,63 +42,7 @@ const {
 } = Astro.props;
 const mark = strokes[name];
 const id = `mark-${name}-${Math.random().toString(36).slice(2, 8)}`;
-const lift = 45; // pen lift between strokes
-
-type Seg = (typeof mark.strokes)[number];
-const byStroke = new Map<number, Seg[]>();
-for (const seg of mark.strokes) byStroke.set(seg.s, [...(byStroke.get(seg.s) ?? []), seg]);
-const strokeList = [...byStroke.values()];
-const lengthOf = (segs: Seg[]) => segs.reduce((n, s) => n + s.len, 0);
-
-// The pen starts and ends a stroke slowly. Each segment's start and end time comes
-// from the inverse of a sine ease, so the pieces join into one eased stroke.
-const easeBack = (u: number) => Math.acos(1 - 2 * Math.min(1, Math.max(0, u))) / Math.PI;
-const timed: { seg: Seg; d: number; t: number }[] = [];
-const place = (segs: Seg[], start: number, time: number) => {
-  const total = lengthOf(segs);
-  let run = 0;
-  for (const seg of segs) {
-    const a = start + time * easeBack(run / total);
-    run += seg.len;
-    const b = start + time * easeBack(run / total);
-    timed.push({ seg, d: Math.round(a), t: Math.max(1, Math.round(b - a)) });
-  }
-};
-// Strokes one after another from `start`, sharing `time`; returns when the last ends.
-const write = (list: Seg[][], start: number, time: number) => {
-  const total = list.reduce((n, segs) => n + lengthOf(segs), 0);
-  const draw = Math.max(time - lift * (list.length - 1), list.length * 60);
-  let at = start;
-  for (const segs of list) {
-    const t = Math.max(60, (draw * lengthOf(segs)) / total);
-    place(segs, at, t);
-    at += t + lift;
-  }
-  return at - lift;
-};
-
-let end: number;
-if (order === 'letters') {
-  const letters = new Map<number, Seg[][]>();
-  for (const segs of strokeList) letters.set(segs[0].g, [...(letters.get(segs[0].g) ?? []), segs]);
-  const keys = [...letters.keys()];
-  // Same shuffle on every build, so the tag always writes the same way.
-  let seed = [...name].reduce((n, c) => n * 31 + c.charCodeAt(0), 7) >>> 0;
-  const rand = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 2 ** 32);
-  for (let i = keys.length - 1; i > 0; i--) {
-    const j = Math.floor(rand() * (i + 1));
-    [keys[i], keys[j]] = [keys[j], keys[i]];
-  }
-  const mean = keys.reduce((n, k) => n + letters.get(k)!.reduce((m, s) => m + lengthOf(s), 0), 0) / keys.length;
-  end = delay;
-  keys.forEach((k, rank) => {
-    const list = letters.get(k)!;
-    const scale = Math.min(1.3, Math.max(0.7, list.reduce((m, s) => m + lengthOf(s), 0) / mean));
-    end = Math.max(end, write(list, delay + rank * stagger, dur * scale));
-  });
-} else {
-  end = write(strokeList, delay, dur);
-}
+const { timed, end } = timeMark(mark, { name, order, dur, stagger, delay });
 
 const { w, h } = mark;
 const viewBox = tall ? `0 0 ${h} ${w}` : `0 0 ${w} ${h}`;
@@ -120,7 +65,7 @@ const turn = tall ? `translate(0 ${w}) rotate(-90)` : undefined;
       <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round">
         {timed.map(({ seg, d, t }) => <path d={seg.d} stroke-width={seg.w} pathLength="1" style={`--d: ${d}ms; --t: ${t}ms`} />)}
       </g>
-      <rect class="mark-lift" width={w} height={h} fill="#fff" style={`--d: ${Math.round(end)}ms`} />
+      <rect class="mark-lift" width={w} height={h} fill="#fff" style={`--d: ${end}ms`} />
     </mask>
   </defs>
   <g transform={turn}>
