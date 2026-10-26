@@ -16,7 +16,7 @@ mkdir -p "$OUT" "$IMG"
 still () { # master, h, mm, ss, ff, width, name
   local frame=$(( ($2*3600 + 10#$3*60 + 10#$4) * 24 + 10#$5 ))
   ffmpeg -hide_banner -loglevel error -y -i "$1" \
-    -vf "select=eq(n\,$frame),scale=$6:-2:flags=lanczos" -frames:v 1 -q:v 3 "$IMG/$7.jpg"
+    -vf "select=eq(n\,$frame),scale=$6:-2:flags=lanczos" -frames:v 1 -c:v libwebp -quality 82 "$IMG/$7.webp"
 }
 
 # Stills (posters, Breakdown, rebuild frame)

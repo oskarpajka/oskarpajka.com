@@ -5,7 +5,7 @@ Tick each item when it is in. Anything marked "check" is already on the canvas b
 ## Links
 
 - [x] LinkedIn: https://www.linkedin.com/in/oskarpajka/
-- [x] X: https://x.com/pajkaoskar
+- [x] X: https://x.com/oskarpajka
 - [x] Instagram: https://www.instagram.com/oska.rpajka/ (handle may change later; update the footer link when it does)
 - [x] GitHub: https://github.com/oskarpajka
 - [x] Patryk's GitHub: https://github.com/Explosivera

@@ -1,6 +1,5 @@
-// Makes the link previews (public/og/*.png, 1200 x 630) and the favicons
-// (public/favicon.ico, public/apple-touch-icon.png) from the canvas boards
-// PreviewHome, PreviewHoplite, PreviewBridgeMind and Favicon.
+// Makes the link previews (public/og/*.png, 1200 x 630) in the site's design, and the
+// favicons (public/favicon.ico, public/apple-touch-icon.png) from public/favicon.svg.
 // Run with: npm run og   (first time: npx playwright install chromium)
 import { chromium } from 'playwright';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
@@ -14,30 +13,35 @@ const en = JSON.parse(await readFile('src/i18n/en.json', 'utf8'));
 const pl = JSON.parse(await readFile('src/i18n/pl.json', 'utf8'));
 
 const page = (body) => `<!doctype html><html><head><meta charset="utf-8"><style>
-@font-face{font-family:"Archivo Expanded";src:url("${url('fonts/site/archivo-expanded.woff2')}") format("woff2");font-weight:100 900}
+@font-face{font-family:"Geist";src:url("${url('fonts/site/geist-latin.woff2')}") format("woff2");font-weight:100 900}
+@font-face{font-family:"Geist";src:url("${url('fonts/site/geist-latin-ext.woff2')}") format("woff2");font-weight:100 900;unicode-range:U+0100-02BA,U+1E00-1E9F}
+@font-face{font-family:"Geist Mono";src:url("${url('fonts/site/geist-mono-latin.woff2')}") format("woff2");font-weight:100 900}
 *{box-sizing:border-box}
-body{margin:0;width:1200px;height:630px;overflow:hidden;background:#111110;color:#111110;font-family:"Archivo Expanded",sans-serif;-webkit-font-smoothing:antialiased}
-.f{width:1200px;height:630px;display:flex;flex-direction:column;gap:1px;background:#111110}
-.bar{flex:0 0 72px;display:flex;gap:1px}
-.bar div{display:flex;align-items:center;padding:0 32px;background:#e9e9e6;font-size:24px;font-weight:600;line-height:1}
+body{margin:0;width:1200px;height:630px;overflow:hidden;background:#e9e9e6;color:#111110;font-family:"Geist",sans-serif;-webkit-font-smoothing:antialiased}
+.f{width:1200px;height:630px;display:flex;flex-direction:column}
+.bar{flex:0 0 72px;display:flex;border-bottom:1px solid #111110}
+.bar div{display:flex;align-items:center;padding:0 32px;font-size:24px;font-weight:500;line-height:1}
 .bar div:first-child{flex:1 1 auto}
-.name{font-weight:700 !important;letter-spacing:-0.03em}
-.big{flex:0 0 auto;display:flex;gap:1px}
-.big .t{flex:1 1 auto;background:#e9e9e6;padding:22px 32px 26px}
-.big .t div{margin:0 0 0 -0.04em;font-weight:700;font-size:120px;line-height:0.9;letter-spacing:-0.04em;white-space:nowrap}
-.big .tc{flex:0 0 auto;display:flex;align-items:flex-end;padding:0 32px 26px;background:#e9e9e6;font-size:24px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums}
+.bar div+div{border-left:1px solid #111110;font-family:"Geist Mono",monospace;font-weight:400;font-size:22px}
+.name{font-weight:700 !important;letter-spacing:-0.04em;text-transform:uppercase}
+.big{flex:0 0 auto;display:flex;border-bottom:1px solid #111110}
+.big .t{flex:1 1 auto;padding:26px 32px 28px}
+.big .t div{margin:0 0 0 -0.04em;font-weight:600;font-size:124px;line-height:0.9;letter-spacing:-0.045em;white-space:nowrap}
+.big .tc{flex:0 0 auto;display:flex;align-items:flex-end;padding:0 32px 30px;font-family:"Geist Mono",monospace;font-size:22px;line-height:1}
 .media{flex:1 1 auto;min-height:0;display:flex;gap:1px;background:#111110}
 .media img{display:block;flex:1 1 0;min-width:0;height:100%;object-fit:cover}
 </style></head><body>${body}</body></html>`;
 
+// The home hero: the tags large above the name on one line, as on the site.
 const home = (t) =>
   page(`<div class="f">
   <div class="bar"><div>${t.nav.tagline}</div><div>oskarpajka.com</div></div>
-  <div style="background:#e9e9e6;padding:24px 32px 30px;overflow:hidden"><div style="margin:0 0 0 -0.04em;font-weight:700;font-size:176px;line-height:0.9;letter-spacing:-0.04em;white-space:nowrap">oskar pajka</div></div>
-  <div style="position:relative;flex:1 1 auto;background:#e9e9e6">
-    <img src="${url('marks/frames.svg')}" style="position:absolute;left:236px;top:-6px;height:214px">
-    <img src="${url('marks/code.svg')}" style="position:absolute;left:708px;top:34px;height:188px">
-  </div></div>`);
+  <div style="position:relative;flex:1 1 auto">
+    <img src="${url('marks/frames.svg')}" style="position:absolute;left:56px;top:46px;width:600px">
+    <img src="${url('marks/code.svg')}" style="position:absolute;right:48px;top:52px;width:500px">
+  </div>
+  <div style="padding:0 32px 34px;margin-top:-26px;position:relative"><div style="margin:0 0 0 -0.04em;font-weight:700;font-size:170px;line-height:0.8;letter-spacing:-0.06em;white-space:nowrap;text-transform:uppercase">oskar pajka</div></div>
+  </div>`);
 
 const film = (t, name, length, images) =>
   page(`<div class="f">
@@ -49,13 +53,13 @@ const cards = [];
 for (const [lang, t] of [['en', en], ['pl', pl]]) {
   const sfx = lang === 'pl' ? '-pl' : '';
   cards.push([`home${sfx}`, home(t)]);
-  cards.push([`hoplite${sfx}`, film(t, 'Hoplite', '0:00:32:16', ['images/hoplite-poster.jpg'])]);
+  cards.push([`hoplite${sfx}`, film(t, 'Hoplite', '0:00:32:16', ['images/hoplite-poster.webp'])]);
   cards.push([
     `bridgemind${sfx}`,
     film(t, 'BridgeMind', '0:00:30:00', [
-      'images/bridgemind-shot-0-00-07-00.jpg',
-      'images/bridgemind-shot-0-00-13-00.jpg',
-      'images/bridgemind-shot-0-00-25-00.jpg',
+      'images/bridgemind-shot-0-00-07-00.webp',
+      'images/bridgemind-shot-0-00-13-00.webp',
+      'images/bridgemind-shot-0-00-25-00.webp',
     ]),
   ]);
 }
@@ -78,12 +82,14 @@ for (const [name, html] of cards) {
 
 // Favicons from public/favicon.svg
 const svg = url('favicon.svg');
-const icon = async (size) => {
+// Tab icons keep the corners around the circle transparent. iOS rounds the home
+// screen icon itself and turns transparency black, so that one sits on the page colour.
+const icon = async (size, background = 'transparent') => {
   await tab.setViewportSize({ width: size, height: size });
-  await show(tab, `<html><body style="margin:0"><img src="${svg}" style="display:block;width:${size}px;height:${size}px"></body></html>`);
-  return tab.screenshot({ type: 'png' });
+  await show(tab, `<html><body style="margin:0;background:${background}"><img src="${svg}" style="display:block;width:${size}px;height:${size}px"></body></html>`);
+  return tab.screenshot({ type: 'png', omitBackground: background === 'transparent' });
 };
-await writeFile(resolve(pub, 'apple-touch-icon.png'), await icon(180));
+await writeFile(resolve(pub, 'apple-touch-icon.png'), await icon(180, '#e9e9e6'));
 console.log('Saved public/apple-touch-icon.png');
 
 // A .ico file can hold PNG images directly: a 6 byte header, a 16 byte entry each.

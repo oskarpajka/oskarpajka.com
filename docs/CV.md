@@ -24,25 +24,30 @@ Run `npm run cv` before you deploy, so the site ships the new PDF.
 
 ## Add a project
 
-Copy an entry in `work` and put it at the top (newest first):
+Copy an entry in `projects` and put it where it belongs (most important first: software, then films):
 
 ```json
 {
   "show": true,
-  "title": "Project name",
-  "type": "Concept film, independent",
-  "year": "2026",
-  "tools": ["After Effects"],
-  "oneLine": "One or two sentences on what it is and what you did.",
-  "link": "oskarpajka.com/work/project-name"
+  "name": "Project name",
+  "kind": "What it is, in a few words",
+  "stack": ["TypeScript", "React"],
+  "from": "Oct 2026",
+  "to": "present",
+  "link": "github.com/oskarpajka/project",
+  "points": [
+    "Start with a verb: what you built or did, and the result.",
+    "One to three points per project."
+  ]
 }
 ```
 
 - `link` is written without `https://`. It is printed exactly like that and is clickable in the PDF.
-- `year` is `"2026"` or `"2025 to 2026"`.
+- `from` and `to` are `"2026"` or `"Oct 2026"`; `to` can be `"present"`. The same month for both prints one date.
 - To keep a project in the file but off the CV, set `"show": false`.
+- `phone` is printed in the contact line when it is not empty.
 
-Experience, education and awards work the same way: add an entry to the list. A section with an empty list is not shown. Dates are `"2026"` or `"Oct 2026"`, and an end date can be `"present"` or `"2029 (expected)"`.
+Experience and education work the same way: add an entry to the list. A section with an empty list is not shown. An end date can also be `"2029 (expected)"`.
 
 ## Polish clause (RODO)
 
@@ -52,10 +57,10 @@ Tip: save a copy of the Polish PDF under another name (for example `Oskar-Pajka-
 
 ## Rules the build checks
 
-- No em dashes or en dashes anywhere in cv.json. Write ranges as "2025 to 2026".
+- No em dashes or en dashes anywhere in cv.json. Ranges are `from` and `to` fields; the layout adds the dash.
 - No unknown keys, no empty fields, valid email, valid `updated` date (`YYYY-MM-DD`). `updated` is not printed; it becomes the PDF's date.
 - One page only.
 
-## Fonts
+## Look
 
-The CV uses static cuts of Archivo in `public/fonts/cv/`, so the PDF embeds real fonts. They only need remaking if a weight or width in `cv.astro` changes: `pip install fonttools brotli`, then `python scripts/make-cv-fonts.py`.
+Deliberately plain, like a conventional professional CV: one column, black text, one typeface (Source Sans 3, static cuts in `public/fonts/cv/`, so the PDF embeds real fonts), section headings with a rule, dates on the right. Nothing from the website's design.

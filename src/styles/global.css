@@ -3,18 +3,36 @@
    Light theme only for now. */
 
 @font-face {
-  font-family: 'Archivo Expanded';
-  src: url('/fonts/site/archivo-expanded.woff2') format('woff2');
+  font-family: 'Geist';
+  src: url('/fonts/site/geist-latin.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
-  font-family: 'Archivo';
-  src: url('/fonts/site/archivo.woff2') format('woff2');
+  font-family: 'Geist';
+  src: url('/fonts/site/geist-latin-ext.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/fonts/site/geist-mono-latin.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/fonts/site/geist-mono-latin-ext.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 :root {
@@ -32,12 +50,14 @@
   --film-ink: #e9e9e6;
   --film-muted: #a6a6a0;
 
-  --display: 'Archivo Expanded', 'Archivo', 'Arial Black', sans-serif;
-  --text: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --display: 'Geist', 'Helvetica Neue', Arial, sans-serif;
+  --text: 'Geist', 'Helvetica Neue', Arial, sans-serif;
+  --mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', Consolas, monospace;
 
   --ease-arrive: cubic-bezier(0.15, 0, 0, 1);
   --ease-move: cubic-bezier(0.6, 0, 0, 1);
   --ease-leave: cubic-bezier(0.6, 0, 0.8, 1);
+  --ease-pen: cubic-bezier(0.45, 0.05, 0.25, 1);
 
   --pin: 57px; /* pinned header height plus its line */
   color-scheme: light;
@@ -54,6 +74,12 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
+/* Header and footer links glide to their section instead of jumping. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
 
 body {
   margin: 0;
@@ -61,7 +87,7 @@ body {
   background: var(--ground);
   color: var(--ink);
   font-family: var(--display);
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -128,21 +154,33 @@ button {
   container-name: page;
 }
 
-/* A stack of cells divided by 1px ink lines. */
+/* Lines. Every structural line is a 1px ink border, never a gap showing a dark
+   background: borders snap to whole screen pixels, so at 125% or 150% display
+   scaling every line comes out the same width. Quiet --line rules are only for
+   label and value lists inside a box. */
+
+/* A stack of bands: a line between each, and one under the last. */
 .cells {
   display: flex;
   flex-direction: column;
-  gap: 1px;
-  background: var(--ink);
+}
+.cells > * + * {
+  border-top: 1px solid var(--ink);
 }
 .cells.edge {
   border-bottom: 1px solid var(--ink);
 }
+/* Cells side by side that wrap on small screens. Each cell draws its left and top
+   line; the ones on the outer edge are pulled 1px out and cropped. */
 .row {
   display: flex;
   flex-wrap: wrap;
-  gap: 1px;
-  background: var(--ink);
+  overflow: hidden;
+}
+.row > * {
+  margin: -1px 0 0 -1px;
+  border-left: 1px solid var(--ink);
+  border-top: 1px solid var(--ink);
 }
 .cell {
   min-width: 0;
@@ -153,10 +191,11 @@ button {
 /* ---------- Type ---------- */
 
 .t-data {
-  font-size: 13px;
-  font-weight: 450;
-  line-height: 1.35;
-  letter-spacing: 0.005em;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0;
   font-variant-numeric: tabular-nums;
 }
 .t-muted {
@@ -175,26 +214,26 @@ button {
 }
 .t-copy {
   font-size: 16px;
-  font-weight: 450;
+  font-weight: 400;
   line-height: 1.5;
   text-wrap: pretty;
 }
 .t-h2 {
   margin: 0;
-  font-size: clamp(36px, 4.5cqw, 64px);
+  font-size: clamp(32px, 4cqw, 56px);
   line-height: 1;
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-weight: 600;
+  letter-spacing: -0.04em;
 }
 .t-h1 {
   margin: 0 0 0 -0.04em;
-  font-weight: 700;
+  font-weight: 600;
   font-size: clamp(56px, 11cqw, 160px);
   line-height: 0.9;
   letter-spacing: -0.04em;
 }
 .t-card {
-  font-weight: 700;
+  font-weight: 600;
   font-size: clamp(28px, 2.92cqw, 42px);
   line-height: 1.05;
   letter-spacing: -0.025em;
@@ -202,7 +241,12 @@ button {
 
 .section-head {
   background: var(--ground);
-  padding: 64px 24px 24px;
+  padding: 72px 24px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px 24px;
 }
 
 .link {
@@ -225,10 +269,10 @@ button {
   padding: 4px 8px;
   background: var(--ground);
   color: var(--ink);
-  font-size: 13px;
-  font-weight: 450;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 400;
   line-height: 1.35;
-  letter-spacing: 0.005em;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
@@ -247,28 +291,50 @@ button {
   font-size: 14px;
   font-weight: 600;
   line-height: 1;
+  gap: 10px;
+  transition:
+    background 160ms linear,
+    color 160ms linear;
 }
 
 .btn:active {
   background: var(--signal-pressed);
   color: var(--on-signal);
 }
+.btn-quiet {
+  background: var(--ground);
+  color: var(--ink);
+}
+/* "View project": a page on this site. */
+.btn-ink {
+  background: var(--ink);
+  color: var(--ground);
+}
+.btn-ink:active {
+  background: var(--ink-muted);
+  color: var(--ground);
+}
+.btn svg {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+}
 
-/* Spec lists: label in muted grey, value in ink, quiet lines between. */
+/* Spec lists (project pages, Privacy): the same look as the rows on the work blocks. */
 .spec {
   margin: 0;
   display: grid;
-  grid-template-columns: max-content minmax(0, 1fr);
-  border-top: 1px solid var(--ink);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  border-bottom: 1px solid var(--ink);
 }
 .spec dt,
 .spec dd {
   margin: 0;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+  border-top: 1px solid var(--ink);
 }
 .spec dt {
-  padding-right: 32px;
+  padding-right: 16px;
   color: var(--ink-muted);
 }
 
@@ -292,12 +358,60 @@ button {
   color: var(--ink-muted);
 }
 
-/* ---------- Headers ---------- */
+/* ---------- Header ---------- */
 
+/* One header on every page. It sticks; its line runs the full screen width. */
+.op-hwrap {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--ground);
+  border-bottom: 1px solid var(--ink);
+}
+.op-header {
+  display: grid;
+  grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+}
+.op-brand {
+  position: relative;
+  min-width: 0;
+  height: 56px;
+  overflow: hidden;
+  background: var(--ground);
+  color: var(--ink);
+  text-decoration: none;
+  transition:
+    background 160ms linear,
+    color 160ms linear;
+}
+.op-brand-name {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  top: 0;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+.op-brand:focus-visible {
+  outline-offset: -4px;
+}
+.op-navs {
+  min-width: 0;
+  display: flex;
+}
+.op-nav {
+  border-left: 1px solid var(--ink);
+}
 .op-nav {
   flex: 1 1 0;
   min-width: 0;
-  min-height: 64px;
+  height: 56px;
   display: flex;
   align-items: center;
   padding: 0 24px;
@@ -305,172 +419,115 @@ button {
   color: var(--ink);
   text-decoration: none;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1;
+  transition:
+    background 160ms linear,
+    color 160ms linear;
 }
-
-/* The last cell (language) gets a right edge like the cells before it have a left one. */
 .op-nav.op-lang {
-  box-shadow: inset -1px 0 0 var(--ink);
+  flex: 0 0 72px;
+  justify-content: center;
+  padding: 0;
+  font-family: var(--mono);
+  font-size: 13px;
 }
-
 .op-nav:focus-visible {
   outline-offset: -4px;
 }
-
-.op-head {
-  display: grid;
-  grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
-  gap: 1px;
-  background: var(--ink);
-}
-.op-tagline {
-  min-width: 0;
-  min-height: 64px;
-  display: flex;
-  align-items: center;
-  padding: 0 24px;
-  background: var(--ground);
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-}
-.op-head nav {
-  min-width: 0;
-  display: flex;
-  gap: 1px;
-  background: var(--ink);
+/* The section on screen, on the home page. */
+.op-nav[aria-current='true'] {
+  box-shadow: inset 0 -3px 0 var(--signal);
 }
 
-.op-chead {
-  display: flex;
-  gap: 1px;
-  background: var(--ink);
-}
-.op-chead .op-nav {
-  min-height: 56px;
-}
-.op-chead .op-name {
-  flex: 1 1 0;
-  white-space: nowrap;
-  font-size: 21px;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-}
-.op-navs {
-  flex: 0 0 480px;
-  display: flex;
-  gap: 1px;
-  background: var(--ink);
-}
-
-/* The compact header that slides in once the page header has scrolled away. */
-.op-pin {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 50;
-  background: var(--ground);
-  transform: translateY(-101%);
-  visibility: hidden;
-  transition:
-    transform 200ms var(--ease-leave),
-    visibility 0s linear 200ms;
-}
-/* The bar is full width, so its line is too; the cells stay in the page column. */
-.op-pin {
-  border-bottom: 1px solid var(--ink);
-}
-.op-pin[data-on='1'] {
-  transform: translateY(0);
-  visibility: visible;
-  transition:
-    transform 200ms var(--ease-arrive),
-    visibility 0s;
-}
-
-/* ---------- Home: name, hero marks, intro ---------- */
-
-.op-wm {
-  background: var(--ground);
-  padding: 20px 24px 28px;
-  overflow: hidden;
-}
-.op-wm h1 {
-  margin: 0 0 0 -0.04em;
-  font-weight: 700;
-  font-size: calc((100cqw - 48px) / 6.45);
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-  white-space: nowrap;
-}
+/* ---------- Home: name, tags, intro ---------- */
 
 .op-hero {
   position: relative;
-  z-index: 1;
-  height: 17.5cqw;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
   background: var(--ground);
+  padding: 24px 24px 28px;
 }
-.op-hero > div {
-  position: absolute;
-  inset: 0;
+/* The name on one line across the page, the tags large above it. */
+.op-name {
+  margin: 0 0 0 -0.04em;
+  font-size: 15.1cqw;
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
-.op-hero img,
-.op-hero .op-dripwrap {
-  position: absolute;
-  z-index: 1;
+.op-hero-tags {
+  position: relative;
+  order: -1;
+  height: 21cqw;
+  margin-bottom: -1.5cqw;
   pointer-events: none;
 }
-.op-hero img {
-  width: auto;
+.op-hero-tags .mark {
+  position: absolute;
+  height: auto;
   max-width: none;
 }
-.op-drip {
-  width: 100%;
-  height: 100%;
-  background: var(--signal);
+.op-tag-frames {
+  left: 6cqw;
+  top: 0;
+  width: 44cqw;
 }
-.op-bulb {
-  position: absolute;
-  left: 50%;
-  border-radius: 50% 50% 50% 50% / 42% 42% 58% 58%;
-  background: var(--signal);
+.op-tag-code {
+  right: 4cqw;
+  top: 0.5cqw;
+  width: 38cqw;
 }
 
 .op-intro {
-  position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 7fr) minmax(0, 2fr) minmax(0, 3fr);
-  gap: 1px;
-  background: var(--ink);
+  grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
 }
-.op-intro dl {
+.op-intro > .cell + .cell {
+  border-left: 1px solid var(--ink);
+}
+.op-intro-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+.op-intro-main p {
   margin: 0;
 }
-.op-intro dt,
-.op-intro dd {
+.op-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 8px;
+}
+.op-where {
+  margin: 0;
+  padding-top: 8px;
+}
+.op-where dt,
+.op-where dd {
   margin: 0;
 }
-.op-intro dd {
-  margin-bottom: 12px;
+.op-where dd {
+  margin-bottom: 16px;
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 500;
 }
 .op-lede {
   margin: 0;
   max-width: 22em;
-  font-size: 28px;
-  line-height: 1.15;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  text-wrap: pretty;
-}
-.op-cover {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: var(--ground);
+  font-size: clamp(24px, 2.6cqw, 38px);
+  line-height: 1.12;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
 }
 
 /* ---------- Home: work blocks ---------- */
@@ -486,41 +543,26 @@ button {
 .op-blk + .op-blk {
   border-top: 1px solid var(--ink);
 }
-.op-blk-hop {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-.op-k-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 8px 32px;
-  flex-wrap: wrap;
-}
-.op-k-name {
-  margin: 0;
-}
-.op-k-meta {
-  margin: 0;
-}
-.op-k-lower {
-  display: grid;
-  grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
-  gap: 24px 48px;
-  align-items: start;
-}
-.op-blk-bri {
+.op-blk-film-right {
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   column-gap: 48px;
   align-items: start;
 }
-.op-blk-fc {
+.op-blk-text-first {
   display: grid;
   grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
   column-gap: 48px;
   align-items: start;
+}
+.op-blk-media-first {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  column-gap: 48px;
+  align-items: start;
+}
+.op-k-name {
+  margin: 0;
 }
 .op-k-text {
   display: flex;
@@ -536,7 +578,6 @@ button {
   margin: 0;
   max-width: 34em;
 }
-.op-k-extra,
 .op-k-rowswrap {
   align-self: stretch;
 }
@@ -564,57 +605,7 @@ button {
   outline-offset: 2px;
 }
 
-/* Image comparison: the real app on the left of the handle, my rebuild on the right. */
-.op-compare {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  background: var(--film);
-}
-.op-compare:focus-within {
-  outline: 2px solid var(--ink);
-  outline-offset: -2px;
-}
-.op-compare img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.op-compare .op-cut {
-  position: absolute;
-  inset: 0;
-  background: var(--film);
-  clip-path: inset(0 50% 0 0);
-}
-.op-compare .op-bar-line {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: var(--ink);
-}
-.op-compare .op-bar-line span {
-  position: absolute;
-  left: -6px;
-  top: 50%;
-  width: 12px;
-  height: 44px;
-  margin-top: -22px;
-  background: var(--signal);
-  border: 1px solid var(--ink);
-}
-.op-compare .chip-l {
-  left: 12px;
-  bottom: 12px;
-}
-.op-compare .chip-r {
-  right: 12px;
-  bottom: 12px;
-}
+/* An invisible range input over a track: the player's scrubber. */
 .op-range {
   position: absolute;
   inset: 0;
@@ -625,7 +616,7 @@ button {
   cursor: ew-resize;
 }
 
-/* framecatch: the selection rectangle */
+/* Logo frames: a light board in a dashed selection frame (LogoFrame.astro) */
 .op-sel {
   position: relative;
   margin: 36px 8px 8px;
@@ -669,32 +660,26 @@ button {
 .op-sel-h:nth-child(2) { right: -4px; top: -4px; }
 .op-sel-h:nth-child(3) { left: -4px; bottom: -4px; }
 .op-sel-h:nth-child(4) { right: -4px; bottom: -4px; }
-.op-sel-label {
-  position: absolute;
-  left: 0;
-  bottom: 100%;
-  margin-bottom: 8px;
-  padding: 4px 8px;
-  background: var(--ink);
-  color: var(--ground);
-  white-space: nowrap;
+/* Slotwise: the name set in type until the logo exists. */
+.op-logo-word {
+  font-size: clamp(32px, 4.2cqw, 60px);
+  font-weight: 600;
+  letter-spacing: -0.05em;
 }
 
 /* ---------- Home: about ---------- */
 
 .op-about {
-  display: grid;
-  grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
-  gap: 1px;
-  background: var(--ink);
+  padding-top: 32px;
+  padding-bottom: 56px;
 }
 .op-statement {
   margin: 0;
   max-width: 21em;
-  font-weight: 600;
-  font-size: clamp(28px, 2.92cqw, 42px);
-  line-height: 1.05;
-  letter-spacing: -0.025em;
+  font-weight: 500;
+  font-size: clamp(26px, 2.8cqw, 40px);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
   text-wrap: pretty;
 }
 .op-facts .cell {
@@ -713,8 +698,14 @@ button {
 
 .op-footer {
   position: relative;
-  overflow: hidden;
   background: var(--ground);
+}
+/* Crops the OSKAR tag to the footer, without cropping the circle around the email. */
+.op-tagclip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 /* The page is a framed column, but the rule above the footer runs the full screen width. */
 .op-footrule {
@@ -769,11 +760,12 @@ main:has(+ .op-footrule) > .cells.edge:last-child {
   flex-direction: column;
   gap: 16px;
 }
+/* The hint sits under the address, clear of the circle drawn around it. */
 .op-mailrow {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 4px 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
 }
 .op-mailwrap {
   position: relative;
@@ -798,10 +790,10 @@ main:has(+ .op-footrule) > .cells.edge:last-child {
   text-decoration-thickness: 2px;
   text-underline-offset: 0.18em;
   font-family: var(--display);
-  font-size: 28px;
+  font-size: 30px;
   line-height: 1.15;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-weight: 500;
+  letter-spacing: -0.03em;
 }
 .op-circle {
   position: absolute;
@@ -810,47 +802,28 @@ main:has(+ .op-footrule) > .cells.edge:last-child {
   width: 106%;
   height: 184%;
   max-width: none;
-  object-fit: fill;
   pointer-events: none;
-  clip-path: inset(0 100% 0 0);
-  transition: clip-path 350ms var(--ease-arrive);
-}
-.op-mailwrap:hover .op-circle,
-.op-mailwrap:focus-within .op-circle {
-  clip-path: inset(0 0 0 0);
-}
-.op-mailwrap[data-copied='1'] .op-circle {
-  clip-path: inset(0 100% 0 0);
-  transition: none;
 }
 .op-check {
   position: relative;
   flex: 0 0 auto;
   height: 34px;
   width: auto;
-  opacity: 0;
-  clip-path: inset(0 100% 0 0);
-  transition:
-    opacity 300ms linear,
-    clip-path 0s linear 300ms;
-}
-.op-mailwrap[data-copied='1'] .op-check {
-  opacity: 1;
-  clip-path: inset(0 0 0 0);
-  transition: clip-path 400ms var(--ease-arrive);
 }
 .op-elsewhere {
   position: relative;
   display: flex;
   flex-direction: column;
 }
+/* No background: the tag runs behind the copyright line on purpose. */
 .op-footline {
   position: relative;
-  padding: 0 24px 24px;
+  min-height: 56px;
+  padding: 0 24px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   gap: 12px 24px;
 }
 .op-footline div {
@@ -1038,8 +1011,9 @@ main:has(+ .op-footrule) > .cells.edge:last-child {
 .op-sqrow {
   display: grid;
   grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-  gap: 1px;
-  background: var(--ink);
+}
+.op-sqrow > * + * {
+  border-left: 1px solid var(--ink);
 }
 .op-sqrow > .cell {
   display: flex;
@@ -1057,8 +1031,6 @@ main:has(+ .op-footrule) > .cells.edge:last-child {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 1px;
-  background: var(--ink);
 }
 .op-jump,
 .op-zoom {
@@ -1090,6 +1062,7 @@ main:has(+ .op-footrule) > .cells.edge:last-child {
 }
 .op-shots figcaption {
   flex-grow: 1;
+  border-top: 1px solid var(--ink);
   background: var(--ground);
   padding: 24px;
   display: flex;
@@ -1145,10 +1118,11 @@ main:has(+ .op-footrule) > .cells.edge:last-child {
 .op-card {
   display: flex;
   flex-wrap: wrap;
-  gap: 1px;
-  background: var(--ink);
   color: var(--ink);
   text-decoration: none;
+}
+.op-card .op-thumb {
+  border-left: 1px solid var(--ink);
 }
 .op-card .op-meta {
   flex: 1 1 320px;
@@ -1267,8 +1241,9 @@ dialog.op-viewer::backdrop {
 .op-priv {
   display: grid;
   grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
-  gap: 1px;
-  background: var(--ink);
+}
+.op-priv > * + * {
+  border-left: 1px solid var(--ink);
 }
 .op-priv aside {
   display: flex;
@@ -1347,7 +1322,7 @@ dialog.op-viewer::backdrop {
   gap: 32px;
   text-align: center;
 }
-.op-lost img {
+.op-lost .mark {
   width: min(720px, 80%);
   height: auto;
 }
@@ -1357,36 +1332,61 @@ dialog.op-viewer::backdrop {
   align-items: center;
   gap: 16px;
 }
-.op-lost p {
+.op-lost h1 {
   margin: 0;
   font-size: 21px;
   line-height: 1.2;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.02em;
 }
 
 /* ---------- Motion ---------- */
 
-@keyframes opWipeX {
-  from { clip-path: inset(0 100% 0 0); }
-  to { clip-path: inset(0 0 0 0); }
+/* Marks: the traced strokes uncover the tag in painting order (see Mark.astro).
+   No state: shown. armed: hidden, waiting. draw: writing on. */
+.mark {
+  overflow: visible;
 }
-@keyframes opWipeUp {
-  from { clip-path: inset(100% 0 0 0); }
-  to { clip-path: inset(0 0 0 0); }
+.mark path {
+  stroke-dasharray: 1 2;
 }
-@keyframes opDrip {
-  from { transform: scaleY(0); }
-  to { transform: scaleY(1); }
+.mark[data-state='armed'] path,
+.js .mark[data-mark='load']:not([data-state]) path {
+  visibility: hidden;
 }
-@keyframes opBulb {
-  from { transform: translateY(var(--op-from)); }
-  to { transform: translateY(0); }
+.mark[data-state='armed'] .mark-lift,
+.js .mark[data-mark='load']:not([data-state]) .mark-lift {
+  opacity: 0;
 }
-@keyframes opLine {
-  from { transform: scaleY(1); }
-  to { transform: scaleY(0); }
+/* If the page script never runs, a hero tag still shows up after a moment. */
+.js .mark[data-mark='load']:not([data-state]) .mark-lift {
+  animation: markLift 0s linear 3s forwards;
 }
+.mark[data-state='draw'] path {
+  visibility: hidden;
+  stroke-dashoffset: 1;
+  animation: markStroke var(--t) linear var(--d) forwards;
+}
+.mark[data-state='draw'] .mark-lift {
+  opacity: 0;
+  animation: markLift 120ms linear var(--d) forwards;
+}
+@keyframes markStroke {
+  from {
+    visibility: visible;
+    stroke-dashoffset: 1;
+  }
+  to {
+    visibility: visible;
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes markLift {
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes opSelDraw {
   from { stroke-dashoffset: 1; }
   to { stroke-dashoffset: 0; }
@@ -1395,41 +1395,36 @@ dialog.op-viewer::backdrop {
   from { transform: scale(0); }
   to { transform: scale(1); }
 }
+@keyframes opRise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes opDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-14px) scale(0.96);
+  }
+  60% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
 
-.op-hero-tag {
-  animation: opWipeX 600ms var(--ease-arrive) both;
-}
-.op-drip {
-  transform-origin: 50% 0;
-  animation: opDrip var(--op-dur) cubic-bezier(0.55, 0, 1, 0.45) var(--op-delay) both;
-}
-.op-bulb {
-  animation: opBulb var(--op-dur) cubic-bezier(0.55, 0, 1, 0.45) var(--op-delay) both;
-}
-.op-cover {
-  transform-origin: 50% 100%;
-  transform: scaleY(0);
-  animation: opLine 260ms var(--ease-arrive) var(--op-delay) both;
-}
-/* Marks are visible by default and replay their wipe when they come into view. */
-[data-op-reveal].op-in {
-  animation: opWipeX var(--op-dur, 450ms) var(--ease-arrive) both;
-}
-[data-op-reveal='up'].op-in {
-  animation-name: opWipeUp;
-}
-[data-op-reveal='sel'].op-in {
-  animation: none;
-}
 [data-op-reveal='sel'].op-in .op-sel-draw {
   stroke-dasharray: 1 1;
-  animation: opSelDraw 240ms var(--ease-arrive) both;
+  animation: opSelDraw 420ms var(--ease-pen) both;
 }
 [data-op-reveal='sel'].op-in .op-sel-h {
-  animation: opPop 120ms var(--ease-arrive) 220ms both;
-}
-[data-op-reveal='sel'].op-in .op-sel-label {
-  animation: opWipeX 140ms var(--ease-arrive) 220ms both;
+  animation: opPop 160ms var(--ease-arrive) 380ms both;
 }
 
 .op-only-phone {
@@ -1437,32 +1432,24 @@ dialog.op-viewer::backdrop {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .op-hero-tag,
-  .op-drip,
-  .op-bulb {
-    animation: none !important;
-  }
-  .op-cover {
-    display: none !important;
-  }
-  [data-op-reveal],
-  [data-op-reveal].op-in {
-    clip-path: none !important;
-    animation: none !important;
-  }
-  .op-check,
-  .op-circle,
-  .op-pin {
+  .op-brand,
+  .op-nav {
     transition: none !important;
   }
-  [data-op-reveal='sel'] .op-sel-draw {
-    stroke-dasharray: none !important;
+  .mark path,
+  .mark .mark-lift {
+    visibility: visible !important;
+    opacity: 1 !important;
+    stroke-dashoffset: 0 !important;
     animation: none !important;
   }
-  [data-op-reveal='sel'] .op-sel-h,
-  [data-op-reveal='sel'] .op-sel-label {
+  .mark[data-state='armed'] {
+    visibility: hidden;
+  }
+  [data-op-reveal] *,
+  [data-op-reveal] .op-sel-draw {
+    stroke-dasharray: none !important;
     transform: none !important;
-    clip-path: none !important;
     animation: none !important;
   }
 }
@@ -1470,30 +1457,58 @@ dialog.op-viewer::backdrop {
 /* ---------- Phones (the page is 640px wide or less) ---------- */
 
 @container page (max-width: 640px) {
-  .op-tagline {
-    display: none !important;
+  .op-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .op-brand,
+  .op-brand-name,
+  .op-nav {
+    height: 48px;
+  }
+  .op-brand-name {
+    left: 14px;
+    right: 8px;
+  }
+  .op-brand-name {
+    font-size: 16px;
   }
   .op-nav {
-    min-height: 48px !important;
-  }
-  .op-chead .op-name {
-    font-size: 16px;
-    padding: 0 10px 0 14px;
-  }
-  .op-navs {
     flex: 0 0 auto;
-  }
-  .op-navs .op-nav {
-    flex: 0 0 auto;
-    padding: 0 9px;
+    padding: 0 10px;
     font-size: 13px;
     white-space: nowrap;
   }
-  .op-wm {
-    padding: 16px 16px 20px;
+  .op-nav.op-lang {
+    flex: 0 0 44px;
   }
-  .op-wm h1 {
-    font-size: calc((100cqw - 32px) / 6.45);
+  /* On phones the name stacks, with the tags under it. */
+  .op-hero {
+    padding: 24px 16px 16px;
+  }
+  .op-name {
+    font-size: 28cqw;
+    white-space: normal;
+  }
+  .op-name span {
+    display: block;
+  }
+  .op-hero-tags {
+    order: 0;
+    height: 46cqw;
+    margin: 16px 0 0;
+  }
+  .op-tag-code {
+    left: 0;
+    right: auto;
+    top: 0;
+    width: 48cqw;
+  }
+  .op-tag-frames {
+    left: auto;
+    right: 0;
+    top: auto;
+    bottom: 0;
+    width: 52cqw;
   }
   .op-bar {
     display: grid;
@@ -1534,21 +1549,13 @@ dialog.op-viewer::backdrop {
     gap: 0;
   }
   .op-contact {
-    overflow: hidden;
     flex-direction: column;
     flex-wrap: nowrap;
     gap: 24px;
     padding: 48px 35% 24px 24px;
   }
   .op-email {
-    font-size: 6cqw;
-  }
-  .op-footline {
-    align-items: center;
-    min-height: 56px;
-    padding: 0 24px;
-    border-top: 1px solid var(--ink);
-    background: var(--ground);
+    font-size: 6.4cqw;
   }
   .op-footline a {
     display: inline-flex;
@@ -1575,30 +1582,26 @@ dialog.op-viewer::backdrop {
   .op-only-phone {
     display: block !important;
   }
-  .op-hero {
-    height: 40cqw;
-  }
-  .op-intro,
-  .op-head {
+  .op-intro {
     grid-template-columns: minmax(0, 1fr);
   }
-  .op-head nav {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  .op-intro > .cell + .cell {
+    border-left: 0;
+    border-top: 1px solid var(--ink);
   }
-  .op-head .op-nav {
-    padding: 0 12px;
-    white-space: nowrap;
-  }
-  .op-about,
   .op-sqrow,
   .op-priv,
   .op-made-grid {
     grid-template-columns: minmax(0, 1fr);
   }
+  .op-sqrow > * + *,
+  .op-priv > * + * {
+    border-left: 0;
+    border-top: 1px solid var(--ink);
+  }
   .op-lede {
-    font-size: 22px;
-    line-height: 1.2;
+    font-size: 24px;
+    line-height: 1.15;
   }
   .op-blk {
     display: flex;
@@ -1608,12 +1611,9 @@ dialog.op-viewer::backdrop {
     padding: 56px 24px;
   }
   .op-k-name,
-  .op-k-link,
-  .op-k-meta {
+  .op-k-link {
     align-self: flex-start;
   }
-  .op-k-head,
-  .op-k-lower,
   .op-k-text {
     display: contents;
   }
@@ -1622,15 +1622,15 @@ dialog.op-viewer::backdrop {
   }
   .op-k-name { order: 1; }
   .op-k-media { order: 2; width: 100%; }
-  .op-k-meta,
   .op-k-rowswrap { order: 3; align-self: stretch; }
   .op-k-para { order: 4; }
-  .op-k-extra { order: 5; margin-top: 8px; }
   .op-k-link { order: 6; }
   /* Next project: the still takes the full width instead of leaving a black strip. */
   .op-card .op-thumb,
   .op-card .op-thumb.wide {
     flex: 1 1 100%;
+    border-left: 0;
+    border-top: 1px solid var(--ink);
   }
 }
 
@@ -1649,8 +1649,24 @@ dialog.op-viewer::backdrop {
   pointer-events: none;
 }
 
+/* Wider than the column, these boxes get their own side edges: the header, the intro,
+   the section headings and About. Project blocks, the hero and the footer stay open. */
+@media (min-width: 1441px) {
+  .op-header,
+  .op-intro,
+  .section-head,
+  .op-about,
+  .op-facts,
+  .op-boxed .cells > *,
+  .op-boxed.cells > * {
+    border-left: 1px solid var(--ink);
+    border-right: 1px solid var(--ink);
+  }
+}
+
 /* Hover only where there is a real pointer, so taps on phones do not leave a stuck state. */
 @media (hover: hover) {
+  .op-brand:hover,
   .op-nav:hover {
     background: var(--ink);
     color: var(--ground);
@@ -1658,6 +1674,10 @@ dialog.op-viewer::backdrop {
   .btn:hover {
     background: var(--ink);
     color: var(--ground);
+  }
+  .btn-ink:hover {
+    background: var(--signal);
+    color: var(--on-signal);
   }
   .op-ctl:hover {
     background: var(--film-ink);

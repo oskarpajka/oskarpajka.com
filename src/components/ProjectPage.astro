@@ -1,7 +1,6 @@
 ---
 // A film's project page, in either language: Hoplite or BridgeMind.
 import Base from '../layouts/Base.astro';
-import CompactHeader from './CompactHeader.astro';
 import Player from './Player.astro';
 import Footer from './Footer.astro';
 import { films, type Film } from '../data/films';
@@ -22,21 +21,20 @@ const next = films[isHop ? 'bridgemind' : 'hoplite'];
 const title = isHop ? t.meta.hopliteTitle : t.meta.bridgemindTitle;
 const size = `${film.width} x ${film.height}`;
 
+// The same labels, in the same order, as the film rows on the home page.
 const spec: [string, string][] = [
+  [pr.spec.tool, 'After Effects'],
+  [pr.spec.format, isHop ? `16:9, ${size}` : `${t.bridgemind.cuts}, ${size}`],
   [pr.spec.length, timecode(film.frames)],
-  [pr.spec.size, size],
   [pr.spec.rate, '24 fps'],
-  isHop ? [pr.spec.sound, t.hoplite.sound] : [pr.spec.cuts, t.bridgemind.cuts],
-  [pr.spec.madeWith, 'After Effects'],
-  [pr.spec.year, '2026'],
+  ...(isHop ? [[pr.spec.sound, t.hoplite.sound] as [string, string]] : []),
+  [pr.spec.date, copy.date],
 ];
 ---
 
 <Base lang={lang} page={key} title={title} description={copy.lede} og={key}>
   <div class="op-page">
-    <CompactHeader lang={lang} page={key} id="top" edge />
-
-    <main id="main">
+    <main id="main" class="op-boxed">
       <div class="cells edge">
         <div class="row op-title-row">
           <div class="cell">
@@ -99,7 +97,7 @@ const spec: [string, string][] = [
               const shot = copy.shots[i];
               return (
                 <figure>
-                  <button class="op-jump" type="button" data-op-frame={s.frame} aria-label={`${pr.playFilmFrom} ${tc}. ${shot.alt}`} style={`aspect-ratio: ${film.ratio}`}>
+                  <button class="op-jump" type="button" data-op-frame={s.frame} aria-label={`${pr.playFrom} ${tc}. ${shot.alt}`} style={`aspect-ratio: ${film.ratio}`}>
                     <img src={s.image} alt="" loading="lazy" decoding="async" width={isHop ? 1920 : 1080} height={1080} />
                     <span class="chip" aria-hidden="true">
                       {pr.playFrom} {tc}
@@ -122,14 +120,14 @@ const spec: [string, string][] = [
                 <h3 class="t-title">{pr.made}</h3>
                 <p class="t-copy t-muted">{copy.made}</p>
               </div>
-              <button class="op-zoom" type="button" data-op-zoom data-caption={t.hoplite.realCaption} aria-label={`${pr.viewLarger} ${t.hoplite.realCaption}`}>
-                <img src="/images/hoplite-app-2026-10.jpg" alt={t.hoplite.realAlt} width="1920" height="1080" loading="lazy" decoding="async" />
+              <button class="op-zoom" type="button" data-op-zoom data-caption={t.hoplite.realCaption} aria-label={`${t.hoplite.realCaption}. ${pr.viewLarger.replace(/:$/, '')}`}>
+                <img src="/images/hoplite-app-2026-10.webp" alt={t.hoplite.realAlt} width="1920" height="1080" loading="lazy" decoding="async" />
                 <span class="chip chip-l" aria-hidden="true">
                   {t.hoplite.realCaption}
                 </span>
               </button>
-              <button class="op-zoom" type="button" data-op-zoom data-caption={t.hoplite.rebuildCaption} aria-label={`${pr.viewLarger} ${t.hoplite.rebuildZoom}`}>
-                <img src="/images/hoplite-rebuild-0-00-23-14.jpg" alt={t.hoplite.rebuildAlt} width="1920" height="1080" loading="lazy" decoding="async" />
+              <button class="op-zoom" type="button" data-op-zoom data-caption={t.hoplite.rebuildCaption} aria-label={`${t.hoplite.rebuildChip} 0:00:23:14. ${pr.viewLarger.replace(/:$/, '')}`}>
+                <img src="/images/hoplite-rebuild-0-00-23-14.webp" alt={t.hoplite.rebuildAlt} width="1920" height="1080" loading="lazy" decoding="async" />
                 <span class="chip chip-l" aria-hidden="true">
                   {t.hoplite.rebuildChip}
                 </span>
@@ -166,7 +164,7 @@ const spec: [string, string][] = [
             <dialog class="op-viewer" data-op-viewer aria-label={pr.viewer.label}>
               <div class="op-viewer-in">
                 <div class="op-view-area" data-op-view-area>
-                  <img data-op-view-img src="/images/hoplite-app-2026-10.jpg" alt="" />
+                  <img data-op-view-img src="/images/hoplite-app-2026-10.webp" alt="" />
                 </div>
                 <div class="op-vbar">
                   <button class="op-ctl" type="button" data-op-prev>

@@ -33,8 +33,8 @@ try {
   await page.goto('http://localhost:4329/cv/', { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);
 
-  const fontsOk = await page.evaluate(() => document.fonts.check('10pt Archivo'));
-  if (!fontsOk) fail('Archivo did not load. Check public/fonts/.');
+  const fontsOk = await page.evaluate(() => document.fonts.check("10pt 'Source Sans 3'"));
+  if (!fontsOk) fail('Source Sans 3 did not load. Check public/fonts/cv/.');
 
   const pdf = await page.pdf({ format: 'A4', printBackground: true, preferCSSPageSize: true });
   const doc = await PDFDocument.load(pdf);
@@ -54,7 +54,7 @@ try {
     fail(
       `the content runs onto ${doc.getPageCount()} pages` +
         (over > 0 ? `, about ${over.toFixed(1)} mm too long` : '') +
-        '.\nShorten a oneLine or the profile, or set "show": false on a work item, then run npm run cv again.',
+        '.\nShorten a bullet point or the summary, or set "show": false on a project, then run npm run cv again.',
     );
   }
 

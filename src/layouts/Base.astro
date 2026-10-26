@@ -1,7 +1,7 @@
 ---
-// Every page: head tags, fonts, the pinned header and the page script.
+// Every page: head tags, fonts, the header and the page script.
 import '../styles/global.css';
-import PinnedHeader from '../components/PinnedHeader.astro';
+import SiteHeader from '../components/SiteHeader.astro';
 import { SITE, path, strings, type Lang, type PageKey } from '../lib/site';
 
 interface Props {
@@ -26,6 +26,8 @@ const image = new URL(`/og/${og}${lang === 'pl' ? '-pl' : ''}.png`, SITE).href;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Lets the hero tags start hidden before the page script draws them on. -->
+    <script is:inline>document.documentElement.classList.add('js');</script>
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
     <meta name="author" content="Oskar Pajka" />
@@ -57,12 +59,12 @@ const image = new URL(`/og/${og}${lang === 'pl' ? '-pl' : ''}.png`, SITE).href;
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="preload" href="/fonts/site/archivo-expanded.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/site/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
     <slot name="head" />
   </head>
-  <body>
+  <body id="top">
     <a class="skip" href="#main">{t.nav.skip}</a>
-    <PinnedHeader lang={lang} page={page} />
+    <SiteHeader lang={lang} page={page} />
     <slot />
     <script>
       import '../scripts/site';

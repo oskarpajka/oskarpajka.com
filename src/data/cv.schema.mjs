@@ -2,44 +2,45 @@
 import { z } from 'zod';
 
 const text = z.string().trim().min(1);
-// Dates are "2026" or "Oct 2026". Ranges use "to", never a dash.
+// Dates are "2026" or "Oct 2026"; an end date can also be "present" or "2029 (expected)".
+// The layout joins a range with an en dash, so the data never contains one.
 const date = z.string().regex(/^((Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) )?\d{4}( \(expected\))?$|^present$/, 'Use "2026", "Oct 2026" or "present"');
-const noDashes = (value) => !/[\u2013\u2014]/.test(JSON.stringify(value));
+const noDashes = (value) => !/[–—]/.test(JSON.stringify(value));
 
 export const cvSchema = z
   .strictObject({
     updated: z.iso.date(),
     name: text,
-    role: text,
+    headline: text,
     location: text,
     email: z.email(),
+    phone: z.string().trim(), // empty: not printed
     website: text,
     linkedin: text,
     github: text,
-    profile: text,
-    work: z.array(
+    summary: text,
+    projects: z.array(
       z.strictObject({
         show: z.boolean(),
-        title: text,
-        type: text,
-        year: z.string().regex(/^\d{4}( to \d{4})?$/, 'Use "2026" or "2025 to 2026"'),
-        tools: z.array(text).min(1),
-        oneLine: text,
+        name: text,
+        kind: text,
+        stack: z.array(text).min(1),
+        from: date,
+        to: date,
         link: text,
+        points: z.array(text).min(1).max(3),
       }),
     ),
     experience: z.array(
-      z.strictObject({ role: text, organisation: text, from: date, to: date, oneLine: text }),
+      z.strictObject({ role: text, organisation: text, from: date, to: date, points: z.array(text).min(1).max(3) }),
     ),
     education: z.array(z.strictObject({ school: text, programme: text, from: date, to: date })),
-    awards: z.array(
-      z.strictObject({ title: text, year: z.string().regex(/^\d{4}( to \d{4})?$/, 'Use "2024" or "2023 to 2024"') }),
-    ),
-    skills: z.strictObject({ motion: z.array(text).min(1), code: z.array(text).min(1) }),
+    awards: z.array(z.strictObject({ title: text, year: z.string().regex(/^\d{4}$/, 'Use "2024"') })),
+    skills: z.array(z.strictObject({ label: text, items: z.array(text).min(1) })).min(1),
     languages: z.array(z.strictObject({ language: text, level: text })).min(1),
     gdprClause: z.strictObject({ show: z.boolean(), text }),
   })
-  .refine(noDashes, 'cv.json contains an em dash or en dash. Write ranges as "2025 to 2026".');
+  .refine(noDashes, 'cv.json contains an em dash or en dash. Give ranges as "from" and "to" fields.');
 
 export function parseCv(data) {
   const result = cvSchema.safeParse(data);

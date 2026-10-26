@@ -14,45 +14,97 @@ const quietPlay = (v: HTMLVideoElement) => {
   if (p) p.catch(() => {});
 };
 
-/* ---------- Pinned header ---------- */
+/* ---------- Header: mark the section on screen (home page) ---------- */
 
-function pinnedHeader() {
-  const pin = document.querySelector<HTMLElement>('[data-op-pin]');
-  // On the home page the header pins once the whole landing section is gone;
-  // on other pages, as soon as the page's own header has scrolled away.
-  const head = document.querySelector('[data-op-pin-after]') ?? document.getElementById('top');
-  if (!pin || !head || !('IntersectionObserver' in window)) return;
-  new IntersectionObserver(
-    ([entry]) => {
-      pin.dataset.on = entry.isIntersecting ? '0' : '1';
+function header() {
+  const bar = document.querySelector<HTMLElement>('[data-op-header]');
+  if (!bar) return;
+
+  // Mark the nav cell of the section that fills the middle of the screen.
+  const links = new Map<string, HTMLElement>();
+  bar.querySelectorAll<HTMLElement>('.op-nav[href^="#"]').forEach((a) => links.set(a.getAttribute('href')!.slice(1), a));
+  const sections = ['software', 'films', 'about', 'contact']
+    .map((id) => document.getElementById(id))
+    .filter((el): el is HTMLElement => !!el);
+  const linkFor = (id: string) => links.get(id === 'films' ? 'software' : id);
+  let queued = false;
+  const spy = () => {
+    queued = false;
+    const line = window.innerHeight * 0.4;
+    let current = '';
+    for (const s of sections) if (s.getBoundingClientRect().top <= line) current = s.id;
+    // At the very bottom the footer may never reach the line: it still counts.
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) current = 'contact';
+    links.forEach((a) => a.removeAttribute('aria-current'));
+    if (current) linkFor(current)?.setAttribute('aria-current', 'true');
+  };
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (!queued) {
+        queued = true;
+        requestAnimationFrame(spy);
+      }
     },
-    // The pinned header covers the top 57px, so anything under it counts as gone.
-    { threshold: 0, rootMargin: '-57px 0px 0px 0px' },
-  ).observe(head);
+    { passive: true },
+  );
+  spy();
 }
 
-/* ---------- Marks: replay their wipe when they come into view ---------- */
+/* ---------- Marks: tags write themselves on, stroke by stroke ---------- */
+
+const arm = (m: Element) => {
+  (m as SVGElement).dataset.state = 'armed';
+};
+const draw = (m: Element) => {
+  const el = m as SVGElement;
+  if (calm()) {
+    delete el.dataset.state;
+    return;
+  }
+  // From the start again, even if it was drawn before.
+  el.dataset.state = 'armed';
+  el.getBoundingClientRect();
+  el.dataset.state = 'draw';
+};
 
 function marks() {
+  document.querySelectorAll('.mark[data-mark="load"]').forEach(draw);
   if (calm() || !('IntersectionObserver' in window)) return;
-  const groups = new Map<Element, Element[]>();
-  document.querySelectorAll('[data-op-reveal]').forEach((m) => {
-    const parent = m.parentElement;
-    if (!parent) return;
-    if (!groups.has(parent)) groups.set(parent, []);
-    groups.get(parent)!.push(m);
+  const tags = document.querySelectorAll('.mark[data-mark="view"]');
+  // Written when its top is a little way up the screen.
+  const enter = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) if (e.isIntersecting && (e.target as SVGElement).dataset.state !== 'draw') draw(e.target);
+    },
+    { threshold: 0, rootMargin: '0px 0px -12% 0px' },
+  );
+  // Hidden again only once no part of it is on screen, so scrolling back a little
+  // keeps it; scrolling it fully away and back writes it again.
+  const leave = new IntersectionObserver((entries) => {
+    for (const e of entries) if (!e.isIntersecting) arm(e.target);
   });
+  tags.forEach((m) => {
+    enter.observe(m);
+    leave.observe(m);
+  });
+}
+
+/* ---------- Reveals: the logo frames draw their outline ---------- */
+
+function reveals() {
+  if (calm() || !('IntersectionObserver' in window)) return;
   const io = new IntersectionObserver(
     (entries) => {
       for (const e of entries) {
         if (!e.isIntersecting) continue;
-        groups.get(e.target)?.forEach((m) => m.classList.add('op-in'));
+        e.target.classList.add('op-in');
         io.unobserve(e.target);
       }
     },
-    { threshold: 0 },
+    { threshold: 0.35 },
   );
-  groups.forEach((_, parent) => io.observe(parent));
+  document.querySelectorAll('[data-op-reveal]').forEach((r) => io.observe(r));
 }
 
 /* ---------- Home: loops that play while half on screen ---------- */
@@ -114,24 +166,6 @@ function loops() {
   });
 }
 
-/* ---------- Image comparison ---------- */
-
-function compare() {
-  document.querySelectorAll<HTMLElement>('[data-op-compare]').forEach((box) => {
-    const input = box.querySelector<HTMLInputElement>('input');
-    const cut = box.querySelector<HTMLElement>('.op-cut');
-    const bar = box.querySelector<HTMLElement>('.op-bar-line');
-    if (!input || !cut || !bar) return;
-    const set = () => {
-      const v = Number(input.value);
-      cut.style.clipPath = `inset(0 ${100 - v}% 0 0)`;
-      bar.style.left = `${v}%`;
-    };
-    input.addEventListener('input', set);
-    set();
-  });
-}
-
 /* ---------- Copy the email address ---------- */
 
 function copyEmail() {
@@ -139,6 +173,33 @@ function copyEmail() {
   const btn = wrap?.querySelector<HTMLButtonElement>('[data-op-copy]');
   const label = document.querySelector<HTMLElement>('[data-op-copy-label]');
   if (!wrap || !btn) return;
+  const circle = wrap.querySelector('.op-circle');
+  const check = wrap.querySelector('.op-check');
+  // The circle shows while the pointer is over the address or it has keyboard focus.
+  // It draws once when that starts and hides when both have ended, so dragging out
+  // with the button held, or a click leaving focus behind, cannot replay it.
+  // The pointer is tracked by its own enter and leave events: :hover sticks to the
+  // address while a button is held, even after the pointer has left.
+  let shown = false;
+  let inside = false;
+  const engaged = () => inside || !!wrap.querySelector(':focus-visible');
+  const sync = () => {
+    if (!circle) return;
+    const want = engaged() && wrap.dataset.copied !== '1';
+    if (want && !shown) draw(circle);
+    if (!want && shown) arm(circle);
+    shown = want;
+  };
+  wrap.addEventListener('pointerenter', () => {
+    inside = true;
+    sync();
+  });
+  wrap.addEventListener('pointerleave', () => {
+    inside = false;
+    sync();
+  });
+  wrap.addEventListener('focusin', () => requestAnimationFrame(sync));
+  wrap.addEventListener('focusout', () => requestAnimationFrame(sync));
   let timer = 0;
   btn.addEventListener('click', async () => {
     const email = btn.dataset.opCopy!;
@@ -150,10 +211,14 @@ function copyEmail() {
       return;
     }
     wrap.dataset.copied = '1';
+    sync();
+    if (check) draw(check);
     if (label) label.textContent = label.dataset.copied ?? '';
     clearTimeout(timer);
     timer = window.setTimeout(() => {
       wrap.dataset.copied = '0';
+      if (check) arm(check);
+      sync();
       if (label) label.textContent = label.dataset.copy ?? '';
     }, 2000);
   });
@@ -321,10 +386,10 @@ function viewer() {
   });
 }
 
-pinnedHeader();
+header();
 marks();
+reveals();
 loops();
-compare();
 copyEmail();
 players();
 viewer();

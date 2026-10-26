@@ -8,8 +8,8 @@ Strings that are the same in both languages are left out.
 
 | English | Polski | Key |
 | --- | --- | --- |
-| Oskar Pajka, motion design and software | Oskar Pajka, motion design i programowanie | `meta.homeTitle` |
-| Oskar Pajka makes launch films and product animation for software, and builds software himself. Based in Kielce, Poland. | Oskar Pajka robi filmy na premiery aplikacji i animacje produktowe, a do tego sam programuje. Mieszka w Kielcach. | `meta.homeDescription` |
+| Oskar Pajka, software and motion design | Oskar Pajka, programowanie i motion design | `meta.homeTitle` |
+| Oskar Pajka builds software and makes launch films for software products. Based in Kielce, Poland. | Oskar Pajka tworzy oprogramowanie i robi filmy na premiery aplikacji. Mieszka w Kielcach. | `meta.homeDescription` |
 | Hoplite concept film, Oskar Pajka | Film koncepcyjny dla Hoplite, Oskar Pajka | `meta.hopliteTitle` |
 | BridgeMind concept film, Oskar Pajka | Film koncepcyjny dla BridgeMind, Oskar Pajka | `meta.bridgemindTitle` |
 | Privacy policy, Oskar Pajka | Polityka prywatności, Oskar Pajka | `meta.privacyTitle` |
@@ -19,44 +19,55 @@ Strings that are the same in both languages are left out.
 | Work | Prace | `nav.work` |
 | About | O mnie | `nav.about` |
 | Contact | Kontakt | `nav.contact` |
-| Motion design and software | Motion design i programowanie | `nav.tagline` |
+| Software and motion design | Programowanie i motion design | `nav.tagline` |
 | Skip to content | Przejdź do treści | `nav.skip` |
-| I make launch films and product animation for software, and I build software myself. | Robię filmy na premiery aplikacji i animacje produktowe, a do tego sam programuję. | `home.lede` |
+| I build software, and I make launch films for software products. | Tworzę oprogramowanie, a do tego robię filmy na premiery aplikacji. | `home.lede` |
 | Based in | Miasto | `home.basedInLabel` |
 | Kielce, Poland | Kielce | `home.basedIn` |
 | Open to | Otwarty na | `home.openToLabel` |
 | Freelance work and internships | Zlecenia i praktyki | `home.openTo` |
-| Watch the Hoplite film | Obejrzyj film dla Hoplite | `home.watch` |
-| Selected work | Wybrane prace | `home.selectedWork` |
+| See what I build | Zobacz, co buduję | `home.ctaSoftware` |
+| Watch the films | Obejrzyj filmy | `home.ctaFilms` |
+| Software | Oprogramowanie | `home.software` |
+| Films | Filmy | `home.films` |
 | View project | Zobacz projekt | `home.viewProject` |
-| Concept film, independent / After Effects / 2026 | Film koncepcyjny, niezależny / After Effects / 2026 | `home.hoplite.meta` |
-| A 32 second concept film for Hoplite, a tool for building with swarms of cloud agents. I rebuilt the app's interface so every part could move, then animated each shot myself, sound included. | 32-sekundowy film koncepcyjny dla Hoplite, narzędzia do budowania aplikacji z pomocą rojów agentów w chmurze. Zbudowałem interfejs od nowa tak, żeby każdy element dało się animować, a potem sam zanimowałem każde ujęcie, łącznie z dźwiękiem. | `home.hoplite.para` |
+| Type | Rodzaj | `home.hoplite.rows.0.0` |
+| Concept film | Film koncepcyjny | `home.hoplite.rows.0.1` |
+| Tool | Program | `home.hoplite.rows.1.0` |
+| Date | Data | `home.hoplite.rows.3.0` |
+| October 2026 | Październik 2026 | `home.hoplite.rows.3.1` |
+| A launch film for Hoplite, a tool for building with cloud AI agents. I rebuilt its interface and made every shot and sound. | Film premierowy dla Hoplite, narzędzia do budowania z pomocą agentów AI w chmurze. Odtworzyłem jego interfejs i sam zrobiłem każde ujęcie oraz dźwięk. | `home.hoplite.para` |
 | The Hoplite film, playing without sound | Film dla Hoplite, odtwarzany bez dźwięku | `home.hoplite.videoLabel` |
-| Compare the real Hoplite app with my rebuild | Porównaj prawdziwą aplikację Hoplite z moją wersją | `home.hoplite.compareLabel` |
-| My rebuild of the Hoplite app, a frame from the film at 0:00:23:14 | Moja wersja aplikacji Hoplite, klatka z filmu w 0:00:23:14 | `home.hoplite.rebuildAlt` |
-| A screenshot of the real Hoplite app, October 2026 | Zrzut ekranu prawdziwej aplikacji Hoplite, październik 2026 | `home.hoplite.realAlt` |
-| Hoplite, October 2026 | Hoplite, październik 2026 | `home.hoplite.realCaption` |
-| My rebuild | Moja wersja | `home.hoplite.rebuildCaption` |
 | The BridgeMind film, playing without sound | Film dla BridgeMind, odtwarzany bez dźwięku | `home.bridgemind.videoLabel` |
 | Type | Rodzaj | `home.bridgemind.rows.0.0` |
-| Concept film, independent | Film koncepcyjny, niezależny | `home.bridgemind.rows.0.1` |
+| Concept film | Film koncepcyjny | `home.bridgemind.rows.0.1` |
 | Tool | Program | `home.bridgemind.rows.1.0` |
-| Cuts | Formaty | `home.bridgemind.rows.2.0` |
 | 1:1 and 9:16 | 1:1 i 9:16 | `home.bridgemind.rows.2.1` |
-| Year | Rok | `home.bridgemind.rows.3.0` |
-| A concept film for BridgeMind's BridgeSpace and BridgeVoice, made on my own and not commissioned. It shows the interface as it was in August 2026. | Film koncepcyjny o BridgeSpace i BridgeVoice od BridgeMind. Zrobiłem go sam, bez zlecenia. Pokazuje interfejs w wersji z sierpnia 2026. | `home.bridgemind.para` |
+| Date | Data | `home.bridgemind.rows.3.0` |
+| August 2026 | Sierpień 2026 | `home.bridgemind.rows.3.1` |
+| A launch film for BridgeMind's AI agent workspace, cut for feeds and stories. I rebuilt the interface and animated every shot. | Film premierowy dla przestrzeni roboczej agentów AI od BridgeMind, w formatach na feed i stories. Odtworzyłem interfejs i zanimowałem każde ujęcie. | `home.bridgemind.para` |
+| Type | Rodzaj | `home.slotwise.rows.0.0` |
+| Web app | Aplikacja webowa | `home.slotwise.rows.0.1` |
+| Stack | Technologie | `home.slotwise.rows.1.0` |
+| Team | Zespół | `home.slotwise.rows.2.0` |
+| Solo | Samodzielnie | `home.slotwise.rows.2.1` |
+| In development | W budowie | `home.slotwise.rows.3.1` |
+| Date | Data | `home.slotwise.rows.4.0` |
+| October 2026 – now | Październik 2026 – obecnie | `home.slotwise.rows.4.1` |
+| A booking app for small businesses that sends clients SMS reminders. I'm building it solo, from the database to deployment. | Aplikacja do rezerwacji dla małych firm, która wysyła klientom przypomnienia SMS. Buduję ją sam, od bazy danych po wdrożenie. | `home.slotwise.para` |
 | Type | Rodzaj | `home.framecatch.rows.0.0` |
-| Screenshot and recording tool for Windows | Zrzuty i nagrywanie ekranu w Windowsie | `home.framecatch.rows.0.1` |
+| Desktop app, open source | Aplikacja desktopowa, open source | `home.framecatch.rows.0.1` |
 | Stack | Technologie | `home.framecatch.rows.1.0` |
-| Built with | Razem z | `home.framecatch.rows.2.0` |
-| Patryk | Patrykiem | `home.framecatch.rows.2.1` |
-| In progress, open source | W budowie, open source | `home.framecatch.rows.3.1` |
-| A screenshot and screen recording tool for Windows that Patryk and I are building in the open. Press a hotkey, drag over any part of the screen, and the shot lands on your desktop. Recording comes next. | Narzędzie do zrzutów i nagrywania ekranu w Windowsie, które budujemy z Patrykiem jako open source. Naciskasz skrót, zaznaczasz dowolny fragment ekranu i zrzut od razu ląduje na pulpicie. Następne w kolejce jest nagrywanie. | `home.framecatch.para` |
+| Team | Zespół | `home.framecatch.rows.2.0` |
+| With Patryk | Z Patrykiem | `home.framecatch.rows.2.1` |
+| In development | W budowie | `home.framecatch.rows.3.1` |
+| Date | Data | `home.framecatch.rows.4.0` |
+| October 2026 – now | Październik 2026 – obecnie | `home.framecatch.rows.4.1` |
+| A screenshot tool for Windows: press a hotkey, select an area, and the image lands on your desktop. Screen recording is next. | Narzędzie do zrzutów ekranu w Windowsie: naciskasz skrót, zaznaczasz obszar i obraz ląduje na pulpicie. Następne będzie nagrywanie ekranu. | `home.framecatch.para` |
 | About | O mnie | `home.about` |
-| For each film I rebuild the product's interface and animate every shot myself. I also write code, so I understand what I am animating. | Do każdego filmu sam buduję od nowa interfejs produktu i animuję każde ujęcie. Programuję też, więc rozumiem, co animuję. | `home.statement` |
-| So far my films are independent concept pieces for real products, made to show what I can do. | Na razie moje filmy to niezależne projekty koncepcyjne dla prawdziwych produktów. Robię je, żeby pokazać, co potrafię. | `home.aside` |
-| Motion and design | Motion design i grafika | `home.facts.0.0` |
-| Code | Programowanie | `home.facts.1.0` |
+| I build software, mostly in TypeScript and React. I also make launch films for software, and because I write code, I understand the interfaces I animate. | Tworzę oprogramowanie, głównie w TypeScripcie i Reakcie. Robię też filmy na premiery aplikacji, a że sam programuję, rozumiem interfejsy, które animuję. | `home.statement` |
+| Code | Programowanie | `home.facts.0.0` |
+| Motion and design | Motion design i grafika | `home.facts.1.0` |
 | Languages | Języki | `home.facts.2.0` |
 | Polish, English | polski, angielski | `home.facts.2.1` |
 | Location | Lokalizacja | `home.facts.3.0` |
@@ -79,27 +90,25 @@ Strings that are the same in both languages are left out.
 | Exit full screen | Zamknij pełny ekran | `player.exitFullscreen` |
 | Position in the film | Pozycja w filmie | `player.position` |
 | Not commissioned by or affiliated with {name}. | Film nie powstał na zlecenie ani we współpracy z {name}. | `project.notAffiliated` |
-| Concept film, independent | Film koncepcyjny, niezależny | `project.kind` |
+| Concept film | Film koncepcyjny | `project.kind` |
 | Breakdown | Kluczowe ujęcia | `project.breakdown` |
 | Play from | Odtwórz od | `project.playFrom` |
-| Play the film from | Odtwórz film od | `project.playFilmFrom` |
 | How it was made | Jak powstał | `project.made` |
 | Next project | Następny projekt | `project.next` |
 | View larger: | Powiększ: | `project.viewLarger` |
 | Still from the {name} film | Kadr z filmu dla {name} | `project.stillOf` |
 | Length | Długość | `project.spec.length` |
-| Size | Rozdzielczość | `project.spec.size` |
+| Tool | Program | `project.spec.tool` |
 | Frame rate | Klatkaż | `project.spec.rate` |
 | Sound | Dźwięk | `project.spec.sound` |
-| Cuts | Formaty | `project.spec.cuts` |
-| Made with | Program | `project.spec.madeWith` |
-| Year | Rok | `project.spec.year` |
+| Date | Data | `project.spec.date` |
 | Image view | Podgląd obrazu | `project.viewer.label` |
 | Previous | Poprzedni | `project.viewer.previous` |
 | Next | Następny | `project.viewer.next` |
 | Close | Zamknij | `project.viewer.close` |
 | A 32 second concept film for Hoplite, a tool for building with swarms of cloud agents. It follows one request from a single typed sentence to a finished landing page. | 32-sekundowy film koncepcyjny dla Hoplite, narzędzia do budowania aplikacji z pomocą rojów agentów w chmurze. Pokazuje drogę jednego polecenia: od wpisanego zdania do gotowej strony. | `hoplite.lede` |
 | Effects only, no music | Same efekty, bez muzyki | `hoplite.sound` |
+| October 2026 | Październik 2026 | `hoplite.date` |
 | The request | Polecenie | `hoplite.shots.0.title` |
 | One sentence typed into the prompt box sets up the whole film. | Jedno zdanie wpisane w pole promptu wprawia w ruch cały film. | `hoplite.shots.0.text` |
 | The prompt box with the request typed in | Pole promptu z wpisanym poleceniem | `hoplite.shots.0.alt` |
@@ -114,10 +123,10 @@ Strings that are the same in both languages are left out.
 | A screenshot of the real Hoplite app, October 2026 | Zrzut ekranu prawdziwej aplikacji Hoplite, październik 2026 | `hoplite.realAlt` |
 | My rebuild, 0:00:23:14 | Moja wersja, 0:00:23:14 | `hoplite.rebuildCaption` |
 | My rebuild | Moja wersja | `hoplite.rebuildChip` |
-| my rebuild at 0:00:23:14 | moja wersja w 0:00:23:14 | `hoplite.rebuildZoom` |
 | My rebuild of the whole Hoplite app, a frame from the film at 0:00:23:14 | Moja wersja całej aplikacji Hoplite, klatka z filmu w 0:00:23:14 | `hoplite.rebuildAlt` |
 | A 30 second concept film for BridgeMind. One request, typed and then finished by voice through BridgeVoice, puts a lead agent in BridgeSpace to work with five more. | 30-sekundowy film koncepcyjny dla BridgeMind. Jedno polecenie, zaczęte na klawiaturze i dokończone głosem w BridgeVoice, uruchamia w BridgeSpace głównego agenta, który pracuje razem z pięcioma kolejnymi. | `bridgemind.lede` |
 | 1:1 and 9:16 | 1:1 i 9:16 | `bridgemind.cuts` |
+| August 2026 | Sierpień 2026 | `bridgemind.date` |
 | The voice | Głos | `bridgemind.shots.0.title` |
 | BridgeVoice takes over from the keyboard and finishes the request by speaking. | BridgeVoice przejmuje pałeczkę od klawiatury i kończy polecenie głosem. | `bridgemind.shots.0.text` |
 | The BridgeVoice badge over the Cleo pane | Plakietka BridgeVoice nad panelem Cleo | `bridgemind.shots.0.alt` |
