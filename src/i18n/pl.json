@@ -8,8 +8,8 @@
     "siteName": "Oskar Pajka",
     "homeTitle": "Oskar Pajka, programowanie i motion design",
     "homeDescription": "Oskar Pajka tworzy oprogramowanie i robi filmy na premiery aplikacji. Mieszka w Kielcach.",
-    "hopliteTitle": "Film koncepcyjny dla Hoplite, Oskar Pajka",
-    "bridgemindTitle": "Film koncepcyjny dla BridgeMind, Oskar Pajka",
+    "hopliteTitle": "Film premierowy dla Hoplite (projekt własny), Oskar Pajka",
+    "bridgemindTitle": "Film premierowy dla BridgeMind (projekt własny), Oskar Pajka",
     "privacyTitle": "Polityka prywatności, Oskar Pajka",
     "privacyDescription": "Co zbiera oskarpajka.com, a czego nie: bez śledzących plików cookie, bez śledzenia między stronami, bez reklam.",
     "notFoundTitle": "Nie znaleziono strony, Oskar Pajka"
@@ -35,7 +35,7 @@
     "viewProject": "Zobacz projekt",
     "hoplite": {
       "rows": [
-        ["Rodzaj", "Film koncepcyjny"],
+        ["Rodzaj", "Film premierowy, projekt własny"],
         ["Program", "After Effects"],
         ["Format", "16:9, 4K"],
         ["Data", "Październik 2026"]
@@ -46,7 +46,7 @@
     "bridgemind": {
       "videoLabel": "Film dla BridgeMind, odtwarzany bez dźwięku",
       "rows": [
-        ["Rodzaj", "Film koncepcyjny"],
+        ["Rodzaj", "Film premierowy, projekt własny"],
         ["Program", "After Effects"],
         ["Format", "1:1 i 9:16"],
         ["Data", "Sierpień 2026"]
@@ -108,7 +108,7 @@
   },
   "project": {
     "notAffiliated": "Film nie powstał na zlecenie ani we współpracy z {name}.",
-    "kind": "Film koncepcyjny",
+    "kind": "Film premierowy, projekt własny",
     "breakdown": "Kluczowe ujęcia",
     "playFrom": "Odtwórz od",
     "made": "Jak powstał",
@@ -131,7 +131,7 @@
     }
   },
   "hoplite": {
-    "lede": "32-sekundowy film koncepcyjny dla Hoplite, narzędzia do budowania aplikacji z pomocą wielu agentów działających w chmurze. Film śledzi jedno polecenie, od wpisanego zdania po gotową stronę.",
+    "lede": "32-sekundowy film premierowy dla Hoplite, mój projekt własny. Hoplite to narzędzie do budowania aplikacji z pomocą wielu agentów działających w chmurze. Film śledzi jedno polecenie, od wpisanego zdania po gotową stronę.",
     "sound": "Same efekty, bez muzyki",
     "date": "Październik 2026",
     "shots": [
@@ -147,7 +147,7 @@
     "rebuildAlt": "Moja wersja całej aplikacji Hoplite, klatka z filmu w 0:00:23:14"
   },
   "bridgemind": {
-    "lede": "30-sekundowy film koncepcyjny dla BridgeMind. Jedno polecenie, zaczęte na klawiaturze i dokończone głosem w BridgeVoice, uruchamia w BridgeSpace głównego agenta, który pracuje razem z pięcioma innymi.",
+    "lede": "30-sekundowy film premierowy dla BridgeMind, mój projekt własny. Jedno polecenie, zaczęte na klawiaturze i dokończone głosem w BridgeVoice, uruchamia w BridgeSpace głównego agenta, który pracuje razem z pięcioma innymi.",
     "cuts": "1:1 i 9:16",
     "date": "Sierpień 2026",
     "shots": [

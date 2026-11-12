@@ -10,8 +10,8 @@ Strings that are the same in both languages are left out.
 | --- | --- | --- |
 | Oskar Pajka, software and motion design | Oskar Pajka, programowanie i motion design | `meta.homeTitle` |
 | Oskar Pajka builds software and makes launch films for software products. Based in Kielce, Poland. | Oskar Pajka tworzy oprogramowanie i robi filmy na premiery aplikacji. Mieszka w Kielcach. | `meta.homeDescription` |
-| Hoplite concept film, Oskar Pajka | Film koncepcyjny dla Hoplite, Oskar Pajka | `meta.hopliteTitle` |
-| BridgeMind concept film, Oskar Pajka | Film koncepcyjny dla BridgeMind, Oskar Pajka | `meta.bridgemindTitle` |
+| Hoplite concept film, Oskar Pajka | Film premierowy dla Hoplite (projekt własny), Oskar Pajka | `meta.hopliteTitle` |
+| BridgeMind concept film, Oskar Pajka | Film premierowy dla BridgeMind (projekt własny), Oskar Pajka | `meta.bridgemindTitle` |
 | Privacy policy, Oskar Pajka | Polityka prywatności, Oskar Pajka | `meta.privacyTitle` |
 | What oskarpajka.com collects, and what it does not: no tracking cookies, no tracking across sites, no ads. | Co zbiera oskarpajka.com, a czego nie: bez śledzących plików cookie, bez śledzenia między stronami, bez reklam. | `meta.privacyDescription` |
 | Page not found, Oskar Pajka | Nie znaleziono strony, Oskar Pajka | `meta.notFoundTitle` |
@@ -32,7 +32,7 @@ Strings that are the same in both languages are left out.
 | Films | Filmy | `home.films` |
 | View project | Zobacz projekt | `home.viewProject` |
 | Type | Rodzaj | `home.hoplite.rows.0.0` |
-| Concept film | Film koncepcyjny | `home.hoplite.rows.0.1` |
+| Concept film | Film premierowy, projekt własny | `home.hoplite.rows.0.1` |
 | Tool | Program | `home.hoplite.rows.1.0` |
 | Date | Data | `home.hoplite.rows.3.0` |
 | October 2026 | Październik 2026 | `home.hoplite.rows.3.1` |
@@ -40,7 +40,7 @@ Strings that are the same in both languages are left out.
 | The Hoplite film, playing without sound | Film dla Hoplite, odtwarzany bez dźwięku | `home.hoplite.videoLabel` |
 | The BridgeMind film, playing without sound | Film dla BridgeMind, odtwarzany bez dźwięku | `home.bridgemind.videoLabel` |
 | Type | Rodzaj | `home.bridgemind.rows.0.0` |
-| Concept film | Film koncepcyjny | `home.bridgemind.rows.0.1` |
+| Concept film | Film premierowy, projekt własny | `home.bridgemind.rows.0.1` |
 | Tool | Program | `home.bridgemind.rows.1.0` |
 | 1:1 and 9:16 | 1:1 i 9:16 | `home.bridgemind.rows.2.1` |
 | Date | Data | `home.bridgemind.rows.3.0` |
@@ -90,7 +90,7 @@ Strings that are the same in both languages are left out.
 | Exit full screen | Zamknij pełny ekran | `player.exitFullscreen` |
 | Position in the film | Pozycja w filmie | `player.position` |
 | Not commissioned by or affiliated with {name}. | Film nie powstał na zlecenie ani we współpracy z {name}. | `project.notAffiliated` |
-| Concept film | Film koncepcyjny | `project.kind` |
+| Concept film | Film premierowy, projekt własny | `project.kind` |
 | Breakdown | Kluczowe ujęcia | `project.breakdown` |
 | Play from | Odtwórz od | `project.playFrom` |
 | How it was made | Jak powstał | `project.made` |
@@ -106,7 +106,7 @@ Strings that are the same in both languages are left out.
 | Previous | Poprzedni | `project.viewer.previous` |
 | Next | Następny | `project.viewer.next` |
 | Close | Zamknij | `project.viewer.close` |
-| A 32 second concept film for Hoplite, a tool for building with swarms of cloud agents. It follows one request from a single typed sentence to a finished landing page. | 32-sekundowy film koncepcyjny dla Hoplite, narzędzia do budowania aplikacji z pomocą wielu agentów działających w chmurze. Film śledzi jedno polecenie, od wpisanego zdania po gotową stronę. | `hoplite.lede` |
+| A 32 second concept film for Hoplite, a tool for building with swarms of cloud agents. It follows one request from a single typed sentence to a finished landing page. | 32-sekundowy film premierowy dla Hoplite, mój projekt własny. Hoplite to narzędzie do budowania aplikacji z pomocą wielu agentów działających w chmurze. Film śledzi jedno polecenie, od wpisanego zdania po gotową stronę. | `hoplite.lede` |
 | Effects only, no music | Same efekty, bez muzyki | `hoplite.sound` |
 | October 2026 | Październik 2026 | `hoplite.date` |
 | The request | Polecenie | `hoplite.shots.0.title` |
@@ -124,7 +124,7 @@ Strings that are the same in both languages are left out.
 | My rebuild, 0:00:23:14 | Moja wersja, 0:00:23:14 | `hoplite.rebuildCaption` |
 | My rebuild | Moja wersja | `hoplite.rebuildChip` |
 | My rebuild of the whole Hoplite app, a frame from the film at 0:00:23:14 | Moja wersja całej aplikacji Hoplite, klatka z filmu w 0:00:23:14 | `hoplite.rebuildAlt` |
-| A 30 second concept film for BridgeMind. One request, typed and then finished by voice through BridgeVoice, puts a lead agent in BridgeSpace to work with five more. | 30-sekundowy film koncepcyjny dla BridgeMind. Jedno polecenie, zaczęte na klawiaturze i dokończone głosem w BridgeVoice, uruchamia w BridgeSpace głównego agenta, który pracuje razem z pięcioma innymi. | `bridgemind.lede` |
+| A 30 second concept film for BridgeMind. One request, typed and then finished by voice through BridgeVoice, puts a lead agent in BridgeSpace to work with five more. | 30-sekundowy film premierowy dla BridgeMind, mój projekt własny. Jedno polecenie, zaczęte na klawiaturze i dokończone głosem w BridgeVoice, uruchamia w BridgeSpace głównego agenta, który pracuje razem z pięcioma innymi. | `bridgemind.lede` |
 | 1:1 and 9:16 | 1:1 i 9:16 | `bridgemind.cuts` |
 | August 2026 | Sierpień 2026 | `bridgemind.date` |
 | The voice | Głos | `bridgemind.shots.0.title` |
