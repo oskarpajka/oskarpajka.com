@@ -14,18 +14,18 @@ Strings that are the same in both languages are left out.
 | BridgeMind concept film, Oskar Pajka | Film koncepcyjny dla BridgeMind, Oskar Pajka | `meta.bridgemindTitle` |
 | Privacy policy, Oskar Pajka | Polityka prywatności, Oskar Pajka | `meta.privacyTitle` |
 | What oskarpajka.com collects, and what it does not: no tracking cookies, no tracking across sites, no ads. | Co zbiera oskarpajka.com, a czego nie: bez śledzących plików cookie, bez śledzenia między stronami, bez reklam. | `meta.privacyDescription` |
-| Page not found, Oskar Pajka | Nie ma takiej strony, Oskar Pajka | `meta.notFoundTitle` |
+| Page not found, Oskar Pajka | Nie znaleziono strony, Oskar Pajka | `meta.notFoundTitle` |
 | Main | Główna nawigacja | `nav.label` |
-| Work | Prace | `nav.work` |
+| Work | Projekty | `nav.work` |
 | About | O mnie | `nav.about` |
 | Contact | Kontakt | `nav.contact` |
 | Software and motion design | Programowanie i motion design | `nav.tagline` |
 | Skip to content | Przejdź do treści | `nav.skip` |
-| I build software, and I make launch films for software products. | Tworzę oprogramowanie, a do tego robię filmy na premiery aplikacji. | `home.lede` |
-| Based in | Miasto | `home.basedInLabel` |
+| I build software, and I make launch films for software products. | Tworzę oprogramowanie i robię filmy na premiery aplikacji. | `home.lede` |
+| Based in | Mieszkam w | `home.basedInLabel` |
 | Kielce, Poland | Kielce | `home.basedIn` |
-| Open to | Otwarty na | `home.openToLabel` |
-| Freelance work and internships | Zlecenia i praktyki | `home.openTo` |
+| Open to | Szukam | `home.openToLabel` |
+| Freelance work and internships | Zleceń i praktyk | `home.openTo` |
 | See what I build | Zobacz, co buduję | `home.ctaSoftware` |
 | Watch the films | Obejrzyj filmy | `home.ctaFilms` |
 | Software | Oprogramowanie | `home.software` |
@@ -36,7 +36,7 @@ Strings that are the same in both languages are left out.
 | Tool | Program | `home.hoplite.rows.1.0` |
 | Date | Data | `home.hoplite.rows.3.0` |
 | October 2026 | Październik 2026 | `home.hoplite.rows.3.1` |
-| A launch film for Hoplite, a tool for building with cloud AI agents. I rebuilt its interface and made every shot and sound. | Film premierowy dla Hoplite, narzędzia do budowania z pomocą agentów AI w chmurze. Odtworzyłem jego interfejs i sam zrobiłem każde ujęcie oraz dźwięk. | `home.hoplite.para` |
+| A launch film for Hoplite, a tool for building with cloud AI agents. I rebuilt its interface and made every shot and sound. | Film premierowy dla Hoplite, narzędzia do budowania z pomocą agentów AI w chmurze. Odtworzyłem jego interfejs, a każde ujęcie i dźwięk zrobiłem sam. | `home.hoplite.para` |
 | The Hoplite film, playing without sound | Film dla Hoplite, odtwarzany bez dźwięku | `home.hoplite.videoLabel` |
 | The BridgeMind film, playing without sound | Film dla BridgeMind, odtwarzany bez dźwięku | `home.bridgemind.videoLabel` |
 | Type | Rodzaj | `home.bridgemind.rows.0.0` |
@@ -50,20 +50,20 @@ Strings that are the same in both languages are left out.
 | Web app | Aplikacja webowa | `home.slotwise.rows.0.1` |
 | Stack | Technologie | `home.slotwise.rows.1.0` |
 | Team | Zespół | `home.slotwise.rows.2.0` |
-| Solo | Samodzielnie | `home.slotwise.rows.2.1` |
+| Solo | Tylko ja | `home.slotwise.rows.2.1` |
 | In development | W budowie | `home.slotwise.rows.3.1` |
 | Date | Data | `home.slotwise.rows.4.0` |
-| October 2026 – now | Październik 2026 – obecnie | `home.slotwise.rows.4.1` |
+| October 2026 – now | Od października 2026 | `home.slotwise.rows.4.1` |
 | A booking app for small businesses that sends clients SMS reminders. I'm building it solo, from the database to deployment. | Aplikacja do rezerwacji dla małych firm, która wysyła klientom przypomnienia SMS. Buduję ją sam, od bazy danych po wdrożenie. | `home.slotwise.para` |
 | Type | Rodzaj | `home.framecatch.rows.0.0` |
-| Desktop app, open source | Aplikacja desktopowa, open source | `home.framecatch.rows.0.1` |
+| Desktop app, open source | Aplikacja na komputer, open source | `home.framecatch.rows.0.1` |
 | Stack | Technologie | `home.framecatch.rows.1.0` |
 | Team | Zespół | `home.framecatch.rows.2.0` |
-| With Patryk | Z Patrykiem | `home.framecatch.rows.2.1` |
+| With Patryk | Razem z Patrykiem | `home.framecatch.rows.2.1` |
 | In development | W budowie | `home.framecatch.rows.3.1` |
 | Date | Data | `home.framecatch.rows.4.0` |
-| October 2026 – now | Październik 2026 – obecnie | `home.framecatch.rows.4.1` |
-| A screenshot tool for Windows: press a hotkey, select an area, and the image lands on your desktop. Screen recording is next. | Narzędzie do zrzutów ekranu w Windowsie: naciskasz skrót, zaznaczasz obszar i obraz ląduje na pulpicie. Następne będzie nagrywanie ekranu. | `home.framecatch.para` |
+| October 2026 – now | Od października 2026 | `home.framecatch.rows.4.1` |
+| A screenshot tool for Windows: press a hotkey, select an area, and the image lands on your desktop. Screen recording is next. | Narzędzie do zrzutów ekranu w Windowsie: naciskasz skrót, zaznaczasz obszar i obraz trafia na pulpit. W planach jest nagrywanie ekranu. | `home.framecatch.para` |
 | About | O mnie | `home.about` |
 | I build software, mostly in TypeScript and React. I also make launch films for software, and because I write code, I understand the interfaces I animate. | Tworzę oprogramowanie, głównie w TypeScripcie i Reakcie. Robię też filmy na premiery aplikacji, a że sam programuję, rozumiem interfejsy, które animuję. | `home.statement` |
 | Code | Programowanie | `home.facts.0.0` |
@@ -71,12 +71,12 @@ Strings that are the same in both languages are left out.
 | Languages | Języki | `home.facts.2.0` |
 | Polish, English | polski, angielski | `home.facts.2.1` |
 | Location | Lokalizacja | `home.facts.3.0` |
-| Kielce, Poland (CET), remote | Kielce (CET), pracuję też zdalnie | `home.facts.3.1` |
+| Kielce, Poland (CET), remote | Kielce (CET), pracuję także zdalnie | `home.facts.3.1` |
 | Contact | Kontakt | `footer.contact` |
 | Click to copy | Kliknij, żeby skopiować | `footer.copy` |
 | Copied | Skopiowano | `footer.copied` |
 | Copy the email address oskar@oskarpajka.com | Skopiuj adres e-mail oskar@oskarpajka.com | `footer.copyLabel` |
-| Elsewhere | Gdzie indziej | `footer.elsewhere` |
+| Elsewhere | W sieci | `footer.elsewhere` |
 | CV (PDF) | CV (PDF, po angielsku) | `footer.cv` |
 | Privacy | Prywatność | `footer.privacy` |
 | Back to top | Na górę | `footer.top` |
@@ -106,17 +106,17 @@ Strings that are the same in both languages are left out.
 | Previous | Poprzedni | `project.viewer.previous` |
 | Next | Następny | `project.viewer.next` |
 | Close | Zamknij | `project.viewer.close` |
-| A 32 second concept film for Hoplite, a tool for building with swarms of cloud agents. It follows one request from a single typed sentence to a finished landing page. | 32-sekundowy film koncepcyjny dla Hoplite, narzędzia do budowania aplikacji z pomocą rojów agentów w chmurze. Pokazuje drogę jednego polecenia: od wpisanego zdania do gotowej strony. | `hoplite.lede` |
+| A 32 second concept film for Hoplite, a tool for building with swarms of cloud agents. It follows one request from a single typed sentence to a finished landing page. | 32-sekundowy film koncepcyjny dla Hoplite, narzędzia do budowania aplikacji z pomocą wielu agentów działających w chmurze. Film śledzi jedno polecenie, od wpisanego zdania po gotową stronę. | `hoplite.lede` |
 | Effects only, no music | Same efekty, bez muzyki | `hoplite.sound` |
 | October 2026 | Październik 2026 | `hoplite.date` |
 | The request | Polecenie | `hoplite.shots.0.title` |
-| One sentence typed into the prompt box sets up the whole film. | Jedno zdanie wpisane w pole promptu wprawia w ruch cały film. | `hoplite.shots.0.text` |
+| One sentence typed into the prompt box sets up the whole film. | Całą akcję filmu uruchamia jedno zdanie wpisane w pole promptu. | `hoplite.shots.0.text` |
 | The prompt box with the request typed in | Pole promptu z wpisanym poleceniem | `hoplite.shots.0.alt` |
 | The work | Praca | `hoplite.shots.1.title` |
-| Three agents take a part each and run side by side. | Trzech agentów bierze po jednej części i pracuje równolegle. | `hoplite.shots.1.text` |
+| Three agents take a part each and run side by side. | Trzech agentów dzieli się zadaniem i pracuje równolegle. | `hoplite.shots.1.text` |
 | Three subagents listed with their tasks, one expanded to show its steps | Trzech subagentów z zadaniami, jeden rozwinięty, żeby pokazać kolejne kroki | `hoplite.shots.1.alt` |
 | The line | Hasło | `hoplite.shots.2.title` |
-| The product's promise in six words, held long enough to read. | Obietnica produktu w sześciu słowach, na ekranie na tyle długo, żeby dało się ją przeczytać. | `hoplite.shots.2.text` |
+| The product's promise in six words, held long enough to read. | Obietnica produktu w sześciu słowach, widoczna dość długo, by dało się ją przeczytać. | `hoplite.shots.2.text` |
 | The closing line: Build with swarms of cloud agents | Hasło końcowe: Build with swarms of cloud agents | `hoplite.shots.2.alt` |
 | I rebuilt Hoplite's interface so every part could move, then animated each shot myself. It took about a month alongside school, and I rebuilt screens several times as Hoplite shipped updates. The sound is effects only, with no music. | Zbudowałem interfejs Hoplite od nowa tak, żeby każdy element dało się animować, a potem sam zanimowałem każde ujęcie. Zajęło mi to około miesiąca, równolegle ze szkołą, a kilka ekranów robiłem od nowa, bo Hoplite w tym czasie wypuszczał aktualizacje. Dźwięk to same efekty, bez muzyki. | `hoplite.made` |
 | Hoplite, October 2026 | Hoplite, październik 2026 | `hoplite.realCaption` |
@@ -124,22 +124,22 @@ Strings that are the same in both languages are left out.
 | My rebuild, 0:00:23:14 | Moja wersja, 0:00:23:14 | `hoplite.rebuildCaption` |
 | My rebuild | Moja wersja | `hoplite.rebuildChip` |
 | My rebuild of the whole Hoplite app, a frame from the film at 0:00:23:14 | Moja wersja całej aplikacji Hoplite, klatka z filmu w 0:00:23:14 | `hoplite.rebuildAlt` |
-| A 30 second concept film for BridgeMind. One request, typed and then finished by voice through BridgeVoice, puts a lead agent in BridgeSpace to work with five more. | 30-sekundowy film koncepcyjny dla BridgeMind. Jedno polecenie, zaczęte na klawiaturze i dokończone głosem w BridgeVoice, uruchamia w BridgeSpace głównego agenta, który pracuje razem z pięcioma kolejnymi. | `bridgemind.lede` |
+| A 30 second concept film for BridgeMind. One request, typed and then finished by voice through BridgeVoice, puts a lead agent in BridgeSpace to work with five more. | 30-sekundowy film koncepcyjny dla BridgeMind. Jedno polecenie, zaczęte na klawiaturze i dokończone głosem w BridgeVoice, uruchamia w BridgeSpace głównego agenta, który pracuje razem z pięcioma innymi. | `bridgemind.lede` |
 | 1:1 and 9:16 | 1:1 i 9:16 | `bridgemind.cuts` |
 | August 2026 | Sierpień 2026 | `bridgemind.date` |
 | The voice | Głos | `bridgemind.shots.0.title` |
 | BridgeVoice takes over from the keyboard and finishes the request by speaking. | BridgeVoice przejmuje pałeczkę od klawiatury i kończy polecenie głosem. | `bridgemind.shots.0.text` |
 | The BridgeVoice badge over the Cleo pane | Plakietka BridgeVoice nad panelem Cleo | `bridgemind.shots.0.alt` |
 | The request | Polecenie | `bridgemind.shots.1.title` |
-| One sentence asks the lead agent to coordinate five more, from plan to release. | Jedno zdanie prosi głównego agenta, żeby pokierował pięcioma kolejnymi, od planu po wydanie. | `bridgemind.shots.1.text` |
+| One sentence asks the lead agent to coordinate five more, from plan to release. | Jedno zdanie prosi głównego agenta, żeby koordynował pracę pięciu innych, od planu po wydanie. | `bridgemind.shots.1.text` |
 | The finished request in the Cleo pane | Gotowe polecenie w panelu Cleo | `bridgemind.shots.1.alt` |
 | The line | Hasło | `bridgemind.shots.2.title` |
-| All six agents at work under the film's promise, held long enough to read. | Wszystkich sześciu agentów przy pracy pod hasłem filmu, które zostaje na ekranie na tyle długo, żeby je przeczytać. | `bridgemind.shots.2.text` |
+| All six agents at work under the film's promise, held long enough to read. | Sześciu agentów przy pracy, a nad nimi hasło filmu, które zostaje na ekranie dość długo, by dało się je przeczytać. | `bridgemind.shots.2.text` |
 | The BridgeSpace workspace with six agents and the line From one prompt to coordinated work | Obszar roboczy BridgeSpace z sześcioma agentami i hasłem From one prompt to coordinated work | `bridgemind.shots.2.alt` |
-| I rebuilt the BridgeSpace and BridgeVoice interface as it was in August 2026 and animated each shot myself in After Effects. The film was made square for the feed, with a second 9:16 cut for stories. | Zbudowałem od nowa interfejs BridgeSpace i BridgeVoice w wersji z sierpnia 2026 i sam zanimowałem każde ujęcie w After Effects. Film powstał w kwadracie do feedu, z drugą wersją 9:16 do relacji. | `bridgemind.made` |
+| I rebuilt the BridgeSpace and BridgeVoice interface as it was in August 2026 and animated each shot myself in After Effects. The film was made square for the feed, with a second 9:16 cut for stories. | Zbudowałem od nowa interfejs BridgeSpace i BridgeVoice w wersji z sierpnia 2026 i sam zanimowałem każde ujęcie w After Effects. Film powstał w kwadracie na feed, z drugą wersją 9:16 na relacje. | `bridgemind.made` |
 | Privacy policy | Polityka prywatności | `privacy.title` |
 | Last updated | Ostatnia aktualizacja | `privacy.updated` |
 | Applies to | Dotyczy | `privacy.appliesTo` |
 | Contact | Kontakt | `privacy.contact` |
 | The short version | W skrócie | `privacy.short` |
-| This page does not exist. | Nie ma takiej strony. | `notFound.text` |
+| This page does not exist. | Nie znaleziono takiej strony. | `notFound.text` |
