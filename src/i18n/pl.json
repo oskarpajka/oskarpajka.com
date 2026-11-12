@@ -8,26 +8,26 @@
     "siteName": "Oskar Pajka",
     "homeTitle": "Oskar Pajka, programowanie i motion design",
     "homeDescription": "Oskar Pajka tworzy oprogramowanie i robi filmy na premiery aplikacji. Mieszka w Kielcach.",
-    "hopliteTitle": "Film koncepcyjny dla Hoplite, Oskar Pajka",
-    "bridgemindTitle": "Film koncepcyjny dla BridgeMind, Oskar Pajka",
+    "hopliteTitle": "Film premierowy dla Hoplite (projekt własny), Oskar Pajka",
+    "bridgemindTitle": "Film premierowy dla BridgeMind (projekt własny), Oskar Pajka",
     "privacyTitle": "Polityka prywatności, Oskar Pajka",
     "privacyDescription": "Co zbiera oskarpajka.com, a czego nie: bez śledzących plików cookie, bez śledzenia między stronami, bez reklam.",
-    "notFoundTitle": "Nie ma takiej strony, Oskar Pajka"
+    "notFoundTitle": "Nie znaleziono strony, Oskar Pajka"
   },
   "nav": {
     "label": "Główna nawigacja",
-    "work": "Prace",
+    "work": "Projekty",
     "about": "O mnie",
     "contact": "Kontakt",
     "tagline": "Programowanie i motion design",
     "skip": "Przejdź do treści"
   },
   "home": {
-    "lede": "Tworzę oprogramowanie, a do tego robię filmy na premiery aplikacji.",
-    "basedInLabel": "Miasto",
+    "lede": "Tworzę oprogramowanie i robię filmy na premiery aplikacji.",
+    "basedInLabel": "Mieszkam w",
     "basedIn": "Kielce",
-    "openToLabel": "Otwarty na",
-    "openTo": "Zlecenia i praktyki",
+    "openToLabel": "Szukam",
+    "openTo": "Zleceń i praktyk",
     "ctaSoftware": "Zobacz, co buduję",
     "ctaFilms": "Obejrzyj filmy",
     "software": "Oprogramowanie",
@@ -35,18 +35,18 @@
     "viewProject": "Zobacz projekt",
     "hoplite": {
       "rows": [
-        ["Rodzaj", "Film koncepcyjny"],
+        ["Rodzaj", "Film premierowy, projekt własny"],
         ["Program", "After Effects"],
         ["Format", "16:9, 4K"],
         ["Data", "Październik 2026"]
       ],
-      "para": "Film premierowy dla Hoplite, narzędzia do budowania z pomocą agentów AI w chmurze. Odtworzyłem jego interfejs i sam zrobiłem każde ujęcie oraz dźwięk.",
+      "para": "Film premierowy dla Hoplite, narzędzia do budowania z pomocą agentów AI w chmurze. Odtworzyłem jego interfejs, a każde ujęcie i dźwięk zrobiłem sam.",
       "videoLabel": "Film dla Hoplite, odtwarzany bez dźwięku"
     },
     "bridgemind": {
       "videoLabel": "Film dla BridgeMind, odtwarzany bez dźwięku",
       "rows": [
-        ["Rodzaj", "Film koncepcyjny"],
+        ["Rodzaj", "Film premierowy, projekt własny"],
         ["Program", "After Effects"],
         ["Format", "1:1 i 9:16"],
         ["Data", "Sierpień 2026"]
@@ -57,22 +57,22 @@
       "rows": [
         ["Rodzaj", "Aplikacja webowa"],
         ["Technologie", "Next.js, TypeScript, PostgreSQL, Docker"],
-        ["Zespół", "Samodzielnie"],
+        ["Zespół", "Tylko ja"],
         ["Status", "W budowie"],
-        ["Data", "Październik 2026 – obecnie"]
+        ["Data", "Od października 2026"]
       ],
       "para": "Aplikacja do rezerwacji dla małych firm, która wysyła klientom przypomnienia SMS. Buduję ją sam, od bazy danych po wdrożenie.",
       "link": "GitHub"
     },
     "framecatch": {
       "rows": [
-        ["Rodzaj", "Aplikacja desktopowa, open source"],
+        ["Rodzaj", "Aplikacja na komputer, open source"],
         ["Technologie", "Electron, React, TypeScript"],
-        ["Zespół", "Z Patrykiem"],
+        ["Zespół", "Razem z Patrykiem"],
         ["Status", "W budowie"],
-        ["Data", "Październik 2026 – obecnie"]
+        ["Data", "Od października 2026"]
       ],
-      "para": "Narzędzie do zrzutów ekranu w Windowsie: naciskasz skrót, zaznaczasz obszar i obraz ląduje na pulpicie. Następne będzie nagrywanie ekranu.",
+      "para": "Narzędzie do zrzutów ekranu w Windowsie: naciskasz skrót, zaznaczasz obszar i obraz trafia na pulpit. W planach jest nagrywanie ekranu.",
       "link": "GitHub",
       "logoAlt": "framecatch"
     },
@@ -82,7 +82,7 @@
       ["Programowanie", "TypeScript, JavaScript, React, Next.js, HTML, CSS, Python, Swift, SQL"],
       ["Motion design i grafika", "After Effects, Illustrator, Photoshop, Figma"],
       ["Języki", "polski, angielski"],
-      ["Lokalizacja", "Kielce (CET), pracuję też zdalnie"]
+      ["Lokalizacja", "Kielce (CET), pracuję także zdalnie"]
     ]
   },
   "footer": {
@@ -90,7 +90,7 @@
     "copy": "Kliknij, żeby skopiować",
     "copied": "Skopiowano",
     "copyLabel": "Skopiuj adres e-mail oskar@oskarpajka.com",
-    "elsewhere": "Gdzie indziej",
+    "elsewhere": "W sieci",
     "cv": "CV (PDF, po angielsku)",
     "privacy": "Prywatność",
     "top": "Na górę",
@@ -108,7 +108,7 @@
   },
   "project": {
     "notAffiliated": "Film nie powstał na zlecenie ani we współpracy z {name}.",
-    "kind": "Film koncepcyjny",
+    "kind": "Film premierowy, projekt własny",
     "breakdown": "Kluczowe ujęcia",
     "playFrom": "Odtwórz od",
     "made": "Jak powstał",
@@ -131,13 +131,13 @@
     }
   },
   "hoplite": {
-    "lede": "32-sekundowy film koncepcyjny dla Hoplite, narzędzia do budowania aplikacji z pomocą rojów agentów w chmurze. Pokazuje drogę jednego polecenia: od wpisanego zdania do gotowej strony.",
+    "lede": "32-sekundowy film premierowy dla Hoplite, mój projekt własny. Hoplite to narzędzie do budowania aplikacji z pomocą wielu agentów działających w chmurze. Film śledzi jedno polecenie, od wpisanego zdania po gotową stronę.",
     "sound": "Same efekty, bez muzyki",
     "date": "Październik 2026",
     "shots": [
-      { "title": "Polecenie", "text": "Jedno zdanie wpisane w pole promptu wprawia w ruch cały film.", "alt": "Pole promptu z wpisanym poleceniem" },
-      { "title": "Praca", "text": "Trzech agentów bierze po jednej części i pracuje równolegle.", "alt": "Trzech subagentów z zadaniami, jeden rozwinięty, żeby pokazać kolejne kroki" },
-      { "title": "Hasło", "text": "Obietnica produktu w sześciu słowach, na ekranie na tyle długo, żeby dało się ją przeczytać.", "alt": "Hasło końcowe: Build with swarms of cloud agents" }
+      { "title": "Polecenie", "text": "Całą akcję filmu uruchamia jedno zdanie wpisane w pole promptu.", "alt": "Pole promptu z wpisanym poleceniem" },
+      { "title": "Praca", "text": "Trzech agentów dzieli się zadaniem i pracuje równolegle.", "alt": "Trzech subagentów z zadaniami, jeden rozwinięty, żeby pokazać kolejne kroki" },
+      { "title": "Hasło", "text": "Obietnica produktu w sześciu słowach, widoczna dość długo, by dało się ją przeczytać.", "alt": "Hasło końcowe: Build with swarms of cloud agents" }
     ],
     "made": "Zbudowałem interfejs Hoplite od nowa tak, żeby każdy element dało się animować, a potem sam zanimowałem każde ujęcie. Zajęło mi to około miesiąca, równolegle ze szkołą, a kilka ekranów robiłem od nowa, bo Hoplite w tym czasie wypuszczał aktualizacje. Dźwięk to same efekty, bez muzyki.",
     "realCaption": "Hoplite, październik 2026",
@@ -147,15 +147,15 @@
     "rebuildAlt": "Moja wersja całej aplikacji Hoplite, klatka z filmu w 0:00:23:14"
   },
   "bridgemind": {
-    "lede": "30-sekundowy film koncepcyjny dla BridgeMind. Jedno polecenie, zaczęte na klawiaturze i dokończone głosem w BridgeVoice, uruchamia w BridgeSpace głównego agenta, który pracuje razem z pięcioma kolejnymi.",
+    "lede": "30-sekundowy film premierowy dla BridgeMind, mój projekt własny. Jedno polecenie, zaczęte na klawiaturze i dokończone głosem w BridgeVoice, uruchamia w BridgeSpace głównego agenta, który pracuje razem z pięcioma innymi.",
     "cuts": "1:1 i 9:16",
     "date": "Sierpień 2026",
     "shots": [
       { "title": "Głos", "text": "BridgeVoice przejmuje pałeczkę od klawiatury i kończy polecenie głosem.", "alt": "Plakietka BridgeVoice nad panelem Cleo" },
-      { "title": "Polecenie", "text": "Jedno zdanie prosi głównego agenta, żeby pokierował pięcioma kolejnymi, od planu po wydanie.", "alt": "Gotowe polecenie w panelu Cleo" },
-      { "title": "Hasło", "text": "Wszystkich sześciu agentów przy pracy pod hasłem filmu, które zostaje na ekranie na tyle długo, żeby je przeczytać.", "alt": "Obszar roboczy BridgeSpace z sześcioma agentami i hasłem From one prompt to coordinated work" }
+      { "title": "Polecenie", "text": "Jedno zdanie prosi głównego agenta, żeby koordynował pracę pięciu innych, od planu po wydanie.", "alt": "Gotowe polecenie w panelu Cleo" },
+      { "title": "Hasło", "text": "Sześciu agentów przy pracy, a nad nimi hasło filmu, które zostaje na ekranie dość długo, by dało się je przeczytać.", "alt": "Obszar roboczy BridgeSpace z sześcioma agentami i hasłem From one prompt to coordinated work" }
     ],
-    "made": "Zbudowałem od nowa interfejs BridgeSpace i BridgeVoice w wersji z sierpnia 2026 i sam zanimowałem każde ujęcie w After Effects. Film powstał w kwadracie do feedu, z drugą wersją 9:16 do relacji."
+    "made": "Zbudowałem od nowa interfejs BridgeSpace i BridgeVoice w wersji z sierpnia 2026 i sam zanimowałem każde ujęcie w After Effects. Film powstał w kwadracie na feed, z drugą wersją 9:16 na relacje."
   },
   "privacy": {
     "title": "Polityka prywatności",
@@ -165,7 +165,7 @@
     "short": "W skrócie"
   },
   "notFound": {
-    "text": "Nie ma takiej strony.",
+    "text": "Nie znaleziono takiej strony.",
     "tagAlt": "Lost"
   }
 }

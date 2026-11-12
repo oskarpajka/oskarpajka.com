@@ -10,6 +10,9 @@
   },
   // No request logs are kept (the privacy policy says I only see totals).
   "observability": { "enabled": false },
+  // Needed by `wrangler preview`, which Workers Builds runs for branches. Empty on purpose:
+  // assets and settings above are shared with previews.
+  "previews": {},
   "routes": [
     { "pattern": "oskarpajka.com", "custom_domain": true }
   ]
