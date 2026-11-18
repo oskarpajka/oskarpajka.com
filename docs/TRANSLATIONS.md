@@ -77,7 +77,6 @@ Strings that are the same in both languages are left out.
 | Copied | Skopiowano | `footer.copied` |
 | Copy the email address oskar@oskarpajka.com | Skopiuj adres e-mail oskar@oskarpajka.com | `footer.copyLabel` |
 | Elsewhere | W sieci | `footer.elsewhere` |
-| CV (PDF) | CV (PDF, po angielsku) | `footer.cv` |
 | Privacy | Prywatność | `footer.privacy` |
 | Back to top | Na górę | `footer.top` |
 | Back to home | Wróć na stronę główną | `footer.home` |
