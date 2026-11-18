@@ -1,0 +1,166 @@
+{
+  "updated": "2026-11-18",
+  "name": "Oskar Pajka",
+  "email": "oskar@oskarpajka.com",
+  "phone": "",
+  "website": "oskarpajka.com",
+  "linkedin": "linkedin.com/in/oskarpajka",
+  "github": "github.com/oskarpajka",
+  "experience": [],
+  "headline": "Uczeń technikum (technik programista) i motion designer",
+  "location": "Kielce",
+  "summary": "Tworzę aplikacje w TypeScript i React. W After Effects tworzę filmy promocyjne o produktach cyfrowych.",
+  "projects": [
+    {
+      "show": true,
+      "name": "framecatch",
+      "kind": "Aplikacja open source do zrzutów ekranu",
+      "stack": [
+        "Electron",
+        "React",
+        "TypeScript",
+        "Figma"
+      ],
+      "from": "Oct 2026",
+      "to": "present",
+      "link": "github.com/Common-Branch/framecatch",
+      "points": [
+        "Zrzut całego ekranu lub wybranego fragmentu, wywoływany skrótem klawiszowym.",
+        "Zrobiłem okno ustawień ze zmianą skrótów i wykrywaniem konfliktów, ikonę w pasku zadań, komunikację przez IPC, testy (Vitest) i CI (GitHub Actions).",
+        "Projekt dwuosobowy: pull requesty i code review."
+      ]
+    },
+    {
+      "show": true,
+      "name": "Slotwise",
+      "kind": "Aplikacja do zarządzania klientami i wizytami",
+      "stack": [
+        "TypeScript",
+        "React",
+        "Hono",
+        "Cloudflare Workers",
+        "D1 (SQLite)",
+        "Drizzle ORM"
+      ],
+      "from": "Oct 2026",
+      "to": "present",
+      "link": "github.com/oskarpajka/slotwise",
+      "points": [
+        "Darmowa alternatywa dla płatnych systemów rezerwacji.",
+        "API do zarządzania klientami, działające na Cloudflare Workers."
+      ]
+    },
+    {
+      "show": true,
+      "name": "Hoplite",
+      "kind": "Koncept filmu promocyjnego, projekt niezależny",
+      "stack": [
+        "After Effects",
+        "Illustrator"
+      ],
+      "from": "Oct 2026",
+      "to": "Oct 2026",
+      "link": "oskarpajka.com/pl/work/hoplite",
+      "points": [
+        "32-sekundowy film w 4K z udźwiękowieniem; interfejs aplikacji odtworzony w Illustratorze."
+      ]
+    },
+    {
+      "show": true,
+      "name": "BridgeMind",
+      "kind": "Koncept filmu promocyjnego, projekt niezależny",
+      "stack": [
+        "After Effects",
+        "Illustrator"
+      ],
+      "from": "Aug 2026",
+      "to": "Aug 2026",
+      "link": "oskarpajka.com/pl/work/bridgemind",
+      "points": [
+        "Wersje kwadratowa i pionowa; przejścia pokazujące, jak działają BridgeSpace i BridgeVoice."
+      ]
+    },
+    {
+      "show": true,
+      "name": "oskarpajka.com",
+      "kind": "Strona portfolio po polsku i angielsku",
+      "stack": [
+        "Astro",
+        "Cloudflare",
+        "Claude Code"
+      ],
+      "from": "Oct 2026",
+      "to": "Oct 2026",
+      "link": "oskarpajka.com/pl",
+      "points": [
+        "Zaprojektowałem układ, kolory i treść strony."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "school": "Zespół Szkół Informatycznych w Kielcach",
+      "programme": "Technik programista",
+      "from": "2024",
+      "to": "present"
+    }
+  ],
+  "awards": [
+    {
+      "title": "Laureat V Wojewódzkiego Konkursu z Informatyki dla uczniów szkół podstawowych województwa świętokrzyskiego",
+      "year": "2024"
+    }
+  ],
+  "skills": [
+    {
+      "label": "Programowanie",
+      "items": [
+        "TypeScript",
+        "JavaScript",
+        "React",
+        "Electron",
+        "HTML",
+        "CSS",
+        "PHP",
+        "SQL (MySQL)"
+      ]
+    },
+    {
+      "label": "Narzędzia",
+      "items": [
+        "Git",
+        "GitHub",
+        "Cloudflare Workers"
+      ]
+    },
+    {
+      "label": "AI",
+      "items": [
+        "praca z agentami AI (Claude Code)"
+      ]
+    },
+    {
+      "label": "Grafika i animacja",
+      "items": [
+        "After Effects",
+        "Illustrator",
+        "Photoshop",
+        "Figma"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "polski",
+      "level": "ojczysty"
+    },
+    {
+      "language": "angielski",
+      "level": "C1, w trakcie przygotowań do egzaminu Cambridge C1 Advanced"
+    }
+  ],
+  "gdprClause": {
+    "show": false,
+    "text": "Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. (RODO)."
+  }
+}

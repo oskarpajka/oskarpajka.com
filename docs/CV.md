@@ -1,14 +1,16 @@
 # CV
 
-The CV is one A4 page, built from data. All content is in `src/data/cv.json`. You never need to touch the layout to change what it says.
+The CV is one A4 page, built from data. There are two versions: English in `src/data/cv.json` and Polish in `src/data/cv.pl.json`. You never need to touch the layout to change what it says.
 
 | File | What it is |
 | --- | --- |
-| `src/data/cv.json` | Everything on the CV. The only file you normally edit. |
+| `src/data/cv.json` | The English CV. |
+| `src/data/cv.pl.json` | The Polish CV. Dates use the same format (`Oct 2026`); the Polish layout prints them as `10.2026`. |
 | `src/data/cv.schema.mjs` | The rules for cv.json. A typo or a missing field stops the build with a message. |
-| `src/pages/cv.astro` | The layout, at `/cv/`. Not linked from the site, `noindex`. |
-| `scripts/build-cv.mjs` | `npm run cv`: builds the site, prints `/cv/` and saves the PDF. |
-| `public/cv/Oskar-Pajka-CV.pdf` | The result, served at `oskarpajka.com/cv/Oskar-Pajka-CV.pdf`. |
+| `src/components/CvPage.astro` | The layout for both languages. |
+| `src/pages/cv.astro`, `src/pages/pl/cv.astro` | The pages at `/cv/` and `/pl/cv/`. `noindex`. |
+| `scripts/build-cv.mjs` | `npm run cv`: builds the site, prints both pages and saves both PDFs. |
+| `public/cv/Oskar-Pajka-CV.pdf`, `public/cv/Oskar-Pajka-CV-PL.pdf` | The results. The footer links the English one on English pages and the Polish one on Polish pages. |
 
 ## Regenerate the PDF
 

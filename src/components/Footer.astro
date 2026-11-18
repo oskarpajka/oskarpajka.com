@@ -39,7 +39,7 @@ const links = [
       </div>
       <nav class="op-elsewhere" aria-label={t.footer.elsewhere}>
         {links.map(([label, href]) => <a class="link link-control" href={href} rel="me noopener">{label}</a>)}
-        <a class="link link-control" href="/cv/Oskar-Pajka-CV.pdf">{t.footer.cv}</a>
+        <a class="link link-control" href={lang === 'pl' ? '/cv/Oskar-Pajka-CV-PL.pdf' : '/cv/Oskar-Pajka-CV.pdf'}>{t.footer.cv}</a>
       </nav>
     </div>
     <div class="op-footline t-data">

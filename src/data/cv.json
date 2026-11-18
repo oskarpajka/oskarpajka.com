@@ -1,103 +1,163 @@
 {
-  "updated": "2026-10-26",
+  "updated": "2026-11-18",
   "name": "Oskar Pajka",
-  "headline": "Software Developer and Motion Designer",
-  "location": "Kielce, Poland (remote)",
   "email": "oskar@oskarpajka.com",
   "phone": "",
   "website": "oskarpajka.com",
   "linkedin": "linkedin.com/in/oskarpajka",
   "github": "github.com/oskarpajka",
-  "summary": "Programming student who builds full-stack web applications in TypeScript, React and Next.js, with automated tests and containerised deployment from the first commit. Also produces launch films for software products in After Effects. Looking for a software internship or part-time role, available remotely alongside school.",
+  "experience": [],
+  "headline": "Programming technician student and motion designer",
+  "location": "Kielce, Poland",
+  "summary": "I build apps in TypeScript and React. In After Effects, I make promotional films about digital products.",
   "projects": [
     {
       "show": true,
-      "name": "Slotwise",
-      "kind": "Booking and SMS reminder app for small businesses",
-      "stack": ["Next.js", "TypeScript", "PostgreSQL", "Drizzle ORM", "Docker"],
-      "from": "Oct 2026",
-      "to": "present",
-      "link": "github.com/oskarpajka/slotwise",
-      "points": [
-        "Designing and building a self-hosted web app for a business owner to manage clients, services and appointments, with SMS confirmations and reminders.",
-        "Implemented password sign-in with required two-factor authentication (authenticator app and backup codes) using Better Auth.",
-        "Set up Docker Compose deployment with automatic database migrations, and a CI pipeline running unit, integration and end-to-end tests (Vitest, Playwright)."
-      ]
-    },
-    {
-      "show": true,
       "name": "framecatch",
-      "kind": "Open-source screenshot and screen recording tool for Windows",
-      "stack": ["Electron", "React", "TypeScript"],
+      "kind": "Open-source screenshot app",
+      "stack": [
+        "Electron",
+        "React",
+        "TypeScript",
+        "Figma"
+      ],
       "from": "Oct 2026",
       "to": "present",
       "link": "github.com/Common-Branch/framecatch",
       "points": [
-        "Co-developing with a second developer: hotkey-driven region and full-screen capture that saves straight to the desktop; screen recording in progress.",
-        "Work through pull requests with code review on every change and agreed branch and commit conventions."
+        "Full-screen or region screenshot, triggered by a hotkey.",
+        "Built the settings window with hotkey changes and conflict detection, the tray icon, IPC communication, tests (Vitest) and CI (GitHub Actions).",
+        "Two-person project: pull requests and code review."
+      ]
+    },
+    {
+      "show": true,
+      "name": "Slotwise",
+      "kind": "Client and appointment management app",
+      "stack": [
+        "TypeScript",
+        "React",
+        "Hono",
+        "Cloudflare Workers",
+        "D1 (SQLite)",
+        "Drizzle ORM"
+      ],
+      "from": "Oct 2026",
+      "to": "present",
+      "link": "github.com/oskarpajka/slotwise",
+      "points": [
+        "A free alternative to paid booking systems.",
+        "Client management API running on Cloudflare Workers."
+      ]
+    },
+    {
+      "show": true,
+      "name": "Hoplite",
+      "kind": "Promotional film concept, independent project",
+      "stack": [
+        "After Effects",
+        "Illustrator"
+      ],
+      "from": "Oct 2026",
+      "to": "Oct 2026",
+      "link": "oskarpajka.com/work/hoplite",
+      "points": [
+        "32-second 4K film with sound design; app interface rebuilt in Illustrator."
+      ]
+    },
+    {
+      "show": true,
+      "name": "BridgeMind",
+      "kind": "Promotional film concept, independent project",
+      "stack": [
+        "After Effects",
+        "Illustrator"
+      ],
+      "from": "Aug 2026",
+      "to": "Aug 2026",
+      "link": "oskarpajka.com/work/bridgemind",
+      "points": [
+        "Square and vertical versions; transitions showing how BridgeSpace and BridgeVoice work."
       ]
     },
     {
       "show": true,
       "name": "oskarpajka.com",
-      "kind": "Personal website, English and Polish",
-      "stack": ["Astro", "TypeScript", "Cloudflare Workers", "Cloudflare R2"],
+      "kind": "Portfolio site in English and Polish",
+      "stack": [
+        "Astro",
+        "Cloudflare",
+        "Claude Code"
+      ],
       "from": "Oct 2026",
       "to": "Oct 2026",
       "link": "oskarpajka.com",
       "points": [
-        "Designed and built a static bilingual site with a custom video player, deployed automatically from GitHub, with no tracking scripts or cookies."
-      ]
-    },
-    {
-      "show": true,
-      "name": "Hoplite launch film",
-      "kind": "Independent concept film",
-      "stack": ["After Effects"],
-      "from": "Oct 2026",
-      "to": "Oct 2026",
-      "link": "oskarpajka.com/work/hoplite",
-      "points": [
-        "Rebuilt the product's interface for animation and produced a 32-second 4K film, including sound design."
-      ]
-    },
-    {
-      "show": true,
-      "name": "BridgeMind launch film",
-      "kind": "Independent concept film",
-      "stack": ["After Effects"],
-      "from": "Aug 2026",
-      "to": "Aug 2026",
-      "link": "oskarpajka.com/work/bridgemind",
-      "points": [
-        "Produced a 30-second film in square and vertical cuts, rebuilding the BridgeSpace and BridgeVoice interface."
+        "Designed the layout, colours and content."
       ]
     }
   ],
-  "experience": [],
   "education": [
     {
-      "school": "Zespół Szkół Informatycznych (ZSI), Kielce",
-      "programme": "Programming Technician (Technik programista)",
+      "school": "Zespół Szkół Informatycznych, Kielce",
+      "programme": "Programming Technician (technik programista)",
       "from": "2024",
-      "to": "2029 (expected)"
+      "to": "present"
     }
   ],
   "awards": [
     {
-      "title": "Laureate (one of 26), 5th Świętokrzyskie Province Computer Science Competition for primary schools",
+      "title": "Laureate, 5th Świętokrzyskie Province Computer Science Competition for primary school students",
       "year": "2024"
     }
   ],
   "skills": [
-    { "label": "Languages", "items": ["TypeScript", "JavaScript", "HTML", "CSS", "SQL", "Python", "Swift"] },
-    { "label": "Frameworks", "items": ["React", "Next.js", "Astro", "Electron", "Tailwind CSS"] },
-    { "label": "Tools", "items": ["Git", "GitHub Actions", "Docker", "PostgreSQL", "Vitest", "Playwright", "Cloudflare"] },
-    { "label": "Design and motion", "items": ["After Effects", "Figma", "Illustrator", "Photoshop"] }
+    {
+      "label": "Programming",
+      "items": [
+        "TypeScript",
+        "JavaScript",
+        "React",
+        "Electron",
+        "HTML",
+        "CSS",
+        "PHP",
+        "SQL (MySQL)"
+      ]
+    },
+    {
+      "label": "Tools",
+      "items": [
+        "Git",
+        "GitHub",
+        "Cloudflare Workers"
+      ]
+    },
+    {
+      "label": "AI",
+      "items": [
+        "working with AI agents (Claude Code)"
+      ]
+    },
+    {
+      "label": "Design and motion",
+      "items": [
+        "After Effects",
+        "Illustrator",
+        "Photoshop",
+        "Figma"
+      ]
+    }
   ],
   "languages": [
-    { "language": "Polish", "level": "native" },
-    { "language": "English", "level": "C1, preparing for Cambridge C1 Advanced" }
+    {
+      "language": "Polish",
+      "level": "native"
+    },
+    {
+      "language": "English",
+      "level": "C1, preparing for Cambridge C1 Advanced"
+    }
   ],
   "gdprClause": {
     "show": false,

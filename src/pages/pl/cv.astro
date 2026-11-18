@@ -1,0 +1,8 @@
+---
+// Polish CV page, printed by `npm run cv` to public/cv/Oskar-Pajka-CV-PL.pdf.
+import CvPage from '../../components/CvPage.astro';
+import raw from '../../data/cv.pl.json';
+import { parseCv } from '../../data/cv.schema.mjs';
+---
+
+<CvPage cv={parseCv(raw)} lang="pl" />
